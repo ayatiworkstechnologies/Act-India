@@ -19,9 +19,7 @@ export default function Stockyard() {
     <section className="w-full bg-white py-10 sm:py-14" id="machine-stockyard">
       {/* Title */}
       <h2 className="text-center text-2xl sm:text-3xl font-semibold tracking-tight text-neutral-900">
-        From Stockyard to
-        <br className="hidden sm:block" />
-        Site Success
+       Machine Stockyard
       </h2>
 
       {/* Grid */}

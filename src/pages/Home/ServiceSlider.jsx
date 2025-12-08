@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const data = [
   {
-    title: "precare",
+    title: "Precare Service 360°",
     desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
     icons: ["/assets/icon-1.png", "/assets/icon-2.png", "/assets/icon-3.png", "/assets/icon-4.png"],
     image: "/assets/image-1.png",

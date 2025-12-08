@@ -37,18 +37,11 @@ export default function Training() {
         <div className="lg:col-span-7 px-6 sm:px-10 py-10">
           <div className="max-w-3xl">
             <h1 className="text-[28px] sm:text-[36px] leading-tight tracking-wide">
-              Advanced <span className="font-extrabold">Facilities</span>
-              <br />
-              Empowering Future
-              <br />
-              Leaders
+             Training Facilities Empowering Future Leaders 
             </h1>
 
             <p className="mt-5 max-w-2xl text-sm leading-6 text-neutral-600">
-              We provide secure warehouses and well-managed stockyards designed to streamline
-              storage, handling, and distribution. With modern facilities and efficient processes,
-              we help businesses optimize inventory, reduce costs, and ensure smooth supply chain
-              operations.
+              ACT delivers secure, high-efficiency warehouses and stockyards engineered to streamline storage, handling, and distribution for enterprise-scale operations. Our infrastructure integrates modern equipment, optimized workflows, and rigorous process controls to drive efficiency and reduce cost-to-serve. With industry-aligned training zones and fully equipped technical environments, we build talent that meets global brand standards while ensuring consistent operational excellence. 
             </p>
 
             {/* ✅ 4 different icon images */}

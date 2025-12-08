@@ -18,10 +18,10 @@ export default function AuxServicesSection() {
     <section className="bg-white text-neutral-900 py-12 md:py-16" id="auxillary-services">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         <h2 className="text-[28px] md:text-[40px] leading-tight font-light tracking-tight">
-          Comprehensive <span className="font-bold">Auxiliary</span>
-          <br className="hidden sm:block font-light" /> Service Solutions Hub
+         <span className="font-bold">Auxiliary Service Solutions</span>
+         
         </h2>
-        <p className="mt-5 text-sm font-semibold text-neutral-500">Services Offered</p>
+        <p className="mt-5 text-md font-semibold text-neutral-500">Services Offered</p>
 
         <Marquee items={SERVICES} speed={60} gap={20} />
       </div>

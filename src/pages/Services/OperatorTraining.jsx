@@ -22,7 +22,7 @@ const SLIDES = [
       "IESC PROGRAM to our Customer operatorstion program at WEST ZONE (Karur)",
     img: "/assets/operator-3.png",
   },
-    {
+  {
     label: "Certificates",
     caption:
       "Issuing Certificates to Operators for Successfully Completing course",
@@ -31,7 +31,7 @@ const SLIDES = [
 ];
 
 export default function OperatorTrainingCertSection() {
-  const [idx, setIdx] = useState(1); // middle dot active like the screenshot
+  const [idx, setIdx] = useState(1); 
   const [paused, setPaused] = useState(false);
   const s = SLIDES[idx];
 
@@ -45,21 +45,43 @@ export default function OperatorTrainingCertSection() {
 
   return (
     <section
-      className="bg-white text-neutral-900 py-10 md:py-16" id="training"
+      className="bg-white text-neutral-900 py-10 md:py-16"
+      id="training"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
           {/* LEFT: title, bullets, caption */}
           <div className="lg:col-span-7">
-            <h2 className="text-[30px] md:text-[42px] leading-tight font-light tracking-tight">
-              Comprehensive <span className="font-bold">Operator</span>
-              <br />
-             <span className="font-bold">Training and Certification</span>
-              <br />
-              <span className="font-light">for Safer, Skilled Workforce</span>
-            </h2>
+
+            {/* ----------------------------- */}
+            {/* TITLE + LOGO (added here)     */}
+            {/* ----------------------------- */}
+            <div className="flex items-center gap-3">
+              <h2 className="text-[30px] md:text-2xl leading-tight font-light tracking-tight">
+                <span className="font-bold">Operator Training and Certification</span>
+              </h2>
+
+              {/* your logo beside title */}
+              <img
+                src="/assets/iesc.jpg"
+                alt="Logo"
+                className="w-[8rem] h-[9rem] object-contain"
+              />
+            </div>
+
+            <p className="mt-5 text-md font-semibold text-neutral-500">
+              IESC Training
+            </p>
+
+            <p className="mt-5 text-md font-medium text-black">
+              We organize and conduct IESC certification programs every year. The main
+              objective of the IESC program is to train participants to acquire
+              necessary skills to operate and maintain the equipment safely as per the
+              standard set by our OEM.
+            </p>
 
             {/* dot-separated bullets */}
             <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[14px] text-neutral-700">
@@ -85,9 +107,11 @@ export default function OperatorTrainingCertSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.35 }}
-                className="mt-6 inline-block rounded-xl bg-white px-5 py-4 ring-1 ring-gray-200 "
+                className="mt-6 inline-block rounded-xl bg-white px-5 py-4 ring-1 ring-gray-200"
               >
-                <p className="font-semibold text-[15px] leading-snug">{s.caption}</p>
+                <p className="font-semibold text-[15px] leading-snug">
+                  {s.caption}
+                </p>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -102,9 +126,7 @@ export default function OperatorTrainingCertSection() {
                     onClick={() => setIdx(i)}
                     aria-label={`Go to slide ${i + 1}`}
                     className={`h-2.5 w-2.5 rounded-full transition
-                      ${i === idx
-                        ? "bg-secondary "
-                        : "bg-gray-300 hover:bg-gray-400"}`}
+                      ${i === idx ? "bg-secondary" : "bg-gray-300 hover:bg-gray-400"}`}
                   />
                 ))}
               </div>
@@ -113,7 +135,7 @@ export default function OperatorTrainingCertSection() {
 
           {/* RIGHT: image card with ribbon */}
           <div className="lg:col-span-4">
-            <div className="relative  overflow-hidden">
+            <div className="relative overflow-hidden">
               <div className="relative h-[320px] md:h-[360px]">
                 <AnimatePresence mode="wait">
                   <motion.img
@@ -144,11 +166,11 @@ export default function OperatorTrainingCertSection() {
                   </AnimatePresence>
                 </div>
 
-                {/* subtle base gradient */}
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/15 to-transparent" />
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

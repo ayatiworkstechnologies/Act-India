@@ -20,12 +20,10 @@ const SLIDES = [
 ];
 
 const features = [
-  { icon: Boxes, title: "Seamless Equipment Access" },
-  { icon: Cpu, title: "Predictive Maintenance" },
-  { icon: PiggyBank, title: "Cost Efficient Operations" },
-  { icon: Gauge, title: "Maximized Performance" },
-  { icon: BadgeCheck, title: "Flexible Plans" },
-  { icon: Wrench, title: "On-Demand Support" },
+  { icon: Boxes, title: "No ownership hassle", para: "Access latest machinery, no upfront costs" },
+  { icon: Cpu, title: "Scalable and flexible" },
+  { icon: Wrench, title: "Zero maintenance" },
+  { icon: BadgeCheck, title: "Ready-to-use machinery" },
 ];
 
 export default function EaasService() {
@@ -44,16 +42,23 @@ export default function EaasService() {
     <section className="bg-white text-neutral-900 py-12 md:py-16" id="eaas">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
           {/* ============ LEFT ============ */}
           <div className="lg:col-span-7 space-y-5">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
-              Equipment as a Service:
-              <br />
-              <span className="font-light">
-                Powering Progress Through
-                <br className="hidden sm:block font-light" /> On-Demand Equipment
-              </span>
-            </h2>
+
+            {/* ⭐ UPDATED: Title + Logo Side by Side ⭐ */}
+            <div className="flex items-center gap-3">
+              <h2 className="font-bold text-2xl md:text-3xl tracking-tight">
+                EAAS (Equipment as a Service)
+              </h2>
+
+              {/* Logo beside the title */}
+              <img
+                src="/assets/eaas.jpg"  // <-- change to your actual logo path
+                alt="EaaS Logo"
+                className="w-[5.5rem] h-[7.5rem] object-contain"
+              />
+            </div>
 
             <p className="text-[15px] leading-relaxed text-neutral-700">
               <strong>Equipment as a Service (EaaS)</strong> – an innovative solution
@@ -62,6 +67,28 @@ export default function EaasService() {
               VOLVO SDLG machinery without long-term commitments and heavy upfront costs,
               ensuring you only pay for what you use.
             </p>
+
+            <ul className="list-disc list-inside space-y-2">
+              <li className="text-[15px] leading-relaxed text-neutral-700">
+                <strong>Seamless Equipment Access</strong>
+              </li>
+              <li className="text-[15px] leading-relaxed text-neutral-700">
+                <strong>Predictive Maintenance</strong>
+              </li>
+              <li className="text-[15px] leading-relaxed text-neutral-700">
+                <strong>Cost Efficient Operations</strong>
+              </li>
+              <li className="text-[15px] leading-relaxed text-neutral-700">
+                <strong>Maximized Performance</strong>
+              </li>
+              <li className="text-[15px] leading-relaxed text-neutral-700">
+                <strong>Flexible Plans</strong>
+              </li>
+            </ul>
+
+            <h2 className="text-2xl md:text-2xl font-bold tracking-tight mt-6">
+              Smart Choices, Smarter Operations
+            </h2>
 
             {/* Feature grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -73,6 +100,7 @@ export default function EaasService() {
                   <div className="h-8 w-8 rounded-md bg-blue-50 flex items-center justify-center ring-1 ring-blue-200">
                     <Icon className="h-4 w-4 text-blue-600" />
                   </div>
+
                   <span className="font-semibold text-[15px]">{title}</span>
                 </div>
               ))}
@@ -81,8 +109,9 @@ export default function EaasService() {
 
           {/* ============ RIGHT (Auto Slider) ============ */}
           <div className="lg:col-span-5">
-            <div className="relative  overflow-hidden ">
-              {/* Image area */}
+            <div className="relative overflow-hidden">
+              
+              {/* Image Slider */}
               <div className="relative h-[360px] md:h-[420px]">
                 <AnimatePresence mode="wait">
                   <motion.img
@@ -97,7 +126,7 @@ export default function EaasService() {
                   />
                 </AnimatePresence>
 
-                {/* Blue ribbon text changes per slide */}
+                {/* Label Tag */}
                 <div className="absolute top-4 left-4">
                   <AnimatePresence mode="wait">
                     <motion.span
@@ -113,14 +142,13 @@ export default function EaasService() {
                   </AnimatePresence>
                 </div>
 
-                {/* subtle bottom gradient for legibility */}
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/15 to-transparent" />
               </div>
 
-              {/* optional bottom caption or CTA area (empty to match your design spacing) */}
               <div className="h-4" />
             </div>
           </div>
+
         </div>
       </div>
     </section>

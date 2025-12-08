@@ -7,6 +7,20 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+        keyframes: {
+        slideLeft: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        slideRight: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+      },
+      animation: {
+        "slide-left": "slideLeft 20s linear infinite",
+        "slide-right": "slideRight 20s linear infinite",
+      },
       colors: {
         primary: "#0071BB",
         secondary: "#0E5DA2",

@@ -81,17 +81,11 @@ export default function Warehouse() {
         <div className="lg:col-span-7 px-6 sm:px-10 py-10">
           <div className="max-w-3xl">
             <h1 className="text-[28px] leading-[1.25] tracking-wide sm:text-[36px]">
-              Efficient <span className="font-extrabold">Warehousing</span>,<br />
-              Smarter <span className="font-extrabold">Stockyards</span>
-              <br />
-              Management<span className="align-super -translate-y-1 text-[0.8em]">"</span>
+Warehouses & Stockyards 
             </h1>
 
             <p className="mt-5 max-w-2xl text-sm leading-6 text-neutral-600">
-              We provide secure warehouses and well-managed stockyards designed to streamline
-              storage, handling, and distribution. With modern facilities and efficient processes,
-              we help businesses optimize inventory, reduce costs, and ensure smooth supply chain
-              operations.
+              ACT delivers secure, high-performance warehousing and meticulously managed stockyards designed to maximize operational flow for large-scale enterprises. Our infrastructure integrates advanced systems, optimized handling protocols, and rigorous process discipline to enhance inventory visibility, reduce operational overheads, and ensure seamless supply-chain continuity. 
             </p>
 
             {/* ✅ 4 different icon images */}

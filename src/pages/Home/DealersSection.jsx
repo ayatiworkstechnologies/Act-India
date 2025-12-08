@@ -6,11 +6,29 @@ import { Link } from "react-router-dom";
 const MotionLink = motion(Link);
 
 const dealers = [
+    {
+    id: 1,
+    logo: "/assets/volvo-brand.svg",
+    title: "Mfg of Heavy Construction Equipment & Road Machinery",
+    link: "/volvo",
+  },
+    {
+    id: 2,
+    logo: "/assets/epiroc-brand.svg",
+    title: "Hydraulic Attachments",
+    link: "/epiroc",
+  },
   {
     id: 3,
     logo: "/assets/sdlg-brand.svg",
     title: "Construction Equipment",
     link: "/sdlg",
+  },
+   {
+    id: 5,
+    logo: "/assets/ammann-brand.svg",
+    title: "Mfg of Heavy Construction Equipment",
+    link: "/ammann",
   },
   {
     id: 4,
@@ -19,29 +37,13 @@ const dealers = [
     link: "/husqvarna",
   },
   {
-    id: 2,
-    logo: "/assets/epiroc-brand.svg",
-    title: "Hydraulic Attachments",
-    link: "/epiroc",
-  },
-  {
     id: 6,
     logo: "/assets/schwing-stetter-brand.svg",
     title: "Efficient. Compact. Ready-Mix Anywhere.",
     link: "/self-loading-mixer",
   },
-  {
-    id: 1,
-    logo: "/assets/volvo-brand.svg",
-    title: "Mfg of Heavy Construction Equipment & Road Machinery",
-    link: "/volvo",
-  },
-  {
-    id: 5,
-    logo: "/assets/ammann-brand.svg",
-    title: "Mfg of Heavy Construction Equipment",
-    link: "/ammann",
-  },
+
+ 
 ];
 
 export default function DealersSection() {

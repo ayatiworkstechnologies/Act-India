@@ -8,14 +8,14 @@ export default function HeroSection() {
     <div className="relative w-full overflow-hidden">
       {/* ✅ Background Image - Desktop */}
       <img
-        src="/assets/banner/final-4.jpg"
+        src="/assets/banner/husqvarna-new.jpg"
         alt="Excavator"
         className="hidden md:block w-full h-full object-cover object-center"
       />
 
       {/* ✅ Background Image - Mobile */}
       <img
-        src="/assets/banner/final-4-mob.jpg"
+        src="/assets/banner/husqvarna-1.jpg"
         alt="Excavator Mobile"
         className="block md:hidden w-full h-full object-cover object-center"
       />

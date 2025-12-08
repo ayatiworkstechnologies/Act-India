@@ -12,8 +12,6 @@ const fadeUp = (delay = 0) => ({
   },
 });
 
-
-
 /* LEFT panel: slide image + label that changes per slide */
 const leftSlides = [
   { src: "/assets/precare-1.png", label: "Operator Training" },
@@ -23,16 +21,19 @@ const leftSlides = [
 
 export default function PrecareSection() {
   const points = [
-    "Scheduled maintenance using genuine spares, at the right time, following the specific SOP of the manufacturers",
-    "Operating only in applications suitable for the equipment",
-    "Protection against manufacturing defects of the equipment",
-    "Correct operating methods of the equipment for improved life and efficiency",
+    "a. Scheduled maintenance using genuine spares, at the right time, following the specified SOP of the manufacturers",
+    "b. Operating only in application suitable for the equipment",
+    "c. Correct operating methods of the equipment for improved life and efficiency",
+    "d. Protection against manufacturing Defects of the equipment",
   ];
 
   /* Right list auto highlight */
   const [active, setActive] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setActive((i) => (i + 1) % points.length), 2500);
+    const id = setInterval(
+      () => setActive((i) => (i + 1) % points.length),
+      2500
+    );
     return () => clearInterval(id);
   }, [points.length]);
 
@@ -52,10 +53,26 @@ export default function PrecareSection() {
   return (
     <section className="w-full bg-white text-neutral-900" id="precare">
       <div className="mx-auto max-w-6xl px-6 md:px-10 py-16">
+        
+        {/* MAIN TITLE */}
+        <motion.h2
+          variants={fadeUp(0.15)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-[28px] md:text-2xl font-bold text-center tracking-tight mb-16"
+        >
+          <span className="mr-1 font-bold text-5xl text-center">
+            Equipment Life Cycle
+          </span>
+        </motion.h2>
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-          {/* ===== LEFT: image + label, both slide; no dots ===== */}
+          
+          {/* ===== LEFT: image + label, both slide ===== */}
           <div className="md:col-span-3">
             <div className="relative h-[280px] md:h-[360px] lg:h-[380px] w-full overflow-hidden ">
+              
               {/* image slider */}
               <div className="absolute inset-0">
                 <AnimatePresence mode="wait">
@@ -72,7 +89,7 @@ export default function PrecareSection() {
                 </AnimatePresence>
               </div>
 
-              {/* label chip changes with slide */}
+              {/* label chip */}
               <div className="absolute top-4 left-4">
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -88,29 +105,32 @@ export default function PrecareSection() {
                 </AnimatePresence>
               </div>
 
-              {/* subtle bottom shade (optional) */}
+              {/* bottom shade */}
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/15 to-transparent" />
             </div>
           </div>
 
-          {/* ===== RIGHT: Content (unchanged) ===== */}
+          {/* ===== RIGHT: Content ===== */}
           <div className="md:col-span-9 space-y-6">
-            <motion.h2
+
+            {/* ⭐ FIXED: Title + Logo side-by-side ⭐ */}
+            <motion.div
               variants={fadeUp(0.15)}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="text-[28px] md:text-[34px] font-extrabold tracking-tight"
+              className="flex items-center gap-3"
             >
-              <span className="mr-1 font-medium text-6xl">PRECARE:</span>
-              <span className="inline-flex flex-wrap gap-x-2 font-thin text-5xl">
-               Protect, Prepare,
-              </span>
+              <h2 className="text-[28px] md:text-[34px] font-extrabold tracking-tight">
+                Precare Service 360°
+              </h2>
 
-              <span className="inline-flex flex-wrap gap-x-2 font-thin text-5xl">
-             Prevent, Prosper
-              </span>
-            </motion.h2>
+              <img
+                src="/assets/precare.jpg"
+                alt="Logo"
+                className="w-[4.5rem] h-[6.5rem] object-contain"
+              />
+            </motion.div>
 
             <motion.p
               variants={fadeUp(0.25)}
@@ -119,9 +139,9 @@ export default function PrecareSection() {
               viewport={{ once: true }}
               className="text-[15px] leading-relaxed text-neutral-700"
             >
-              <strong>PRECARE</strong> is a thoughtfully curated bouquet of support
-              solutions aimed at ensuring “CUSTOMER SUCCESS” while keeping
-              businesses using our products and services.
+              PRECARE is a thoughtfully curated bouquet of support solutions
+              aimed at ensuring "CUSTOMER SUCCESS" in their respective businesses
+              using our products and services.
             </motion.p>
 
             <motion.p
@@ -135,7 +155,7 @@ export default function PrecareSection() {
               contributors to equipment related failures,
             </motion.p>
 
-            {/* auto-highlight list */}
+            {/* Auto-highlight list */}
             <div className="relative space-y-3">
               {points.map((text, i) => (
                 <motion.div
@@ -151,7 +171,11 @@ export default function PrecareSection() {
                       layoutId="precare-highlight"
                       className="absolute inset-0 rounded-xl border-outline-secondary"
                       style={{ boxShadow: "0 6px 18px rgba(59,130,246,0.25)" }}
-                      transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 420,
+                        damping: 32,
+                      }}
                     />
                   )}
                   <div className="relative z-10 p-3 rounded-xl text-[15px] leading-snug text-neutral-800">
@@ -168,10 +192,10 @@ export default function PrecareSection() {
               viewport={{ once: true }}
               className="text-sm text-neutral-600"
             >
-              The bouquet of solutions include <em>scheduled maintenance, planning and
-              delivery of parts &amp; consumables, preventive maintenance, health checks,
-              delivery services, operator training, extended warranty, structural
-              repairs, equipment buy back solutions</em>.
+              The bouquet of solutions include SCHEDULED MAINTENANCE, PLANNING
+              AND DELIVERY OF PARTS & CONSUMABLES, PREVENTIVE MAINTENANCE,
+              HEALTH CHECKS, ADVISORY SERVICES, OPERATOR TRAINING, EXTENDED
+              WARRANTY, STRUCTURAL REPAIRS, EQUIPMENT BUY BACK SOLUTIONS.
             </motion.p>
           </div>
         </div>

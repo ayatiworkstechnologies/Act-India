@@ -1,7 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CountUp from "react-countup";
-import { ArrowUpRight } from "lucide-react";
 
 export default function StatsSection() {
   const stats = [
@@ -10,66 +9,27 @@ export default function StatsSection() {
     { value: 350, suffix: "+", label: "Drivers\nAchievers" },
     { value: 16, suffix: "+", label: "Expanding\nTamil Nadu, Kerala" },
     { value: 80, suffix: "+", label: "Business Legacy\nSpan" },
-    { value: 2500, suffix: "+", label: "Satisfied\nCustomers" },
-    { value: 4500, suffix: "+", label: "Guarded\nMachines" },
-    { value: 350, suffix: "+", label: "Drivers\nAchievers" },
-    { value: 16, suffix: "+", label: "Expanding\nTamil Nadu, Kerala" },
-    { value: 80, suffix: "+", label: "Business Legacy\nSpan" },
-      { value: 2500, suffix: "+", label: "Satisfied\nCustomers" },
-    { value: 4500, suffix: "+", label: "Guarded\nMachines" },
-    { value: 350, suffix: "+", label: "Drivers\nAchievers" },
-    { value: 16, suffix: "+", label: "Expanding\nTamil Nadu, Kerala" },
-    { value: 80, suffix: "+", label: "Business Legacy\nSpan" },
-          { value: 2500, suffix: "+", label: "Satisfied\nCustomers" },
   ];
 
-  const [index, setIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // ✅ Detect screen size
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const perSlide = isMobile ? 2 : 4;
-  const totalSlides = Math.ceil(stats.length / perSlide);
-
-  const next = () => setIndex((i) => (i + 1) % totalSlides);
-  const prev = () => setIndex((i) => (i - 1 + totalSlides) % totalSlides);
-
-  // ✅ Auto move every 3 seconds
-  useEffect(() => {
-    const timer = setInterval(() => next(), 3000);
-    return () => clearInterval(timer);
-  }, [isMobile]);
-
-  const visible = stats.slice(index * perSlide, index * perSlide + perSlide);
-
   return (
-    <section className="w-full px-4 py-10 flex justify-center">
-      <div className="relative w-full max-w-6xl bg-[#F5F5F5] p-6 rounded-2xl overflow-hidden">
-        {/* ✅ Cards Grid */}
-        <div
-          className={`grid gap-4 transition-all duration-700 ease-in-out transform ${
-            isMobile ? "grid-cols-2" : "grid-cols-4"
-          }`}
-        >
-          {visible.map((item, i) => (
+    <>
+      <section className="w-full px-4 py-10 flex justify-center">
+      <div className="relative w-full max-w-6xl bg-[#F5F5F5] p-6 rounded-2xl">
+
+        {/* Show all cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {stats.map((item, i) => (
             <div
               key={i}
-              className="group relative flex flex-col items-center justify-center text-center rounded-xl px-4 py-6 h-[150px] md:h-[180px] 
-                         bg-white text-gray-900 hover:bg-secondary hover:text-white transition-all duration-300 ease-in-out"
+              className="flex flex-col items-center justify-center text-center 
+                         rounded-xl px-4 py-6 h-[150px] md:h-[180px]
+                         bg-white text-gray-900 
+                         hover:bg-secondary hover:text-white
+                         transition-all duration-300 ease-in-out"
             >
-              {/* ✅ Arrow (shows on hover) */}
-              <div className="absolute top-3 right-3 rounded-full p-1 bg-white transition-all duration-300 opacity-0 group-hover:opacity-100">
-                <ArrowUpRight size={16} className="text-blue-600" />
-              </div>
 
-              {/* ✅ Animated Value */}
-              <h3 className="text-2xl md:text-3xl font-bold mb-1 ">
+              {/* Value */}
+              <h3 className="text-2xl md:text-3xl font-bold mb-1">
                 <CountUp
                   start={0}
                   end={item.value}
@@ -79,14 +39,28 @@ export default function StatsSection() {
                 />
               </h3>
 
-              {/* ✅ Label */}
+              {/* Label */}
               <p className="text-xs sm:text-sm font-medium whitespace-pre-line">
                 {item.label}
               </p>
             </div>
           ))}
         </div>
+
       </div>
     </section>
+    <section className="w-full bg-white mt-6">
+      <div className="max-w-6xl mx-auto px-4 py-12 text-center">
+        <h2 className="text-3xl md:text-2xl font-bold mb-4">
+          Why ACT 
+         </h2>
+        <p className="text-gray-700 text-base md:text-md leading-relaxed max-w-4xl mx-auto">
+          ACT stands as a trusted partner for global brands, built on a foundation of integrity, fairness, and a commitment to long-term value creation. Our people are empowered to take ownership, drive innovation, and lead meaningful change that advances organisational goals. Every decision, process, and interaction is engineered to enable customer success, because our clients define who we are and the impact we deliver.  
+          ACT isn’t just a service provider, we are an operational force multiplier for the businesses we support. 
+        </p>
+      </div>
+    </section>
+    </>
+  
   );
 }

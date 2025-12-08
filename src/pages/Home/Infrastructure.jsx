@@ -5,31 +5,31 @@ import { Link } from "react-router-dom";
 const infraData = [
   {
     title: "warehouses & stockyards",
-    desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
+    desc: "ACT operates secure, strategically managed warehouses and stockyards built to support high-volume storage, streamlined handling, and seamless distribution for leading global brands. Our facilities ensure operational continuity, inventory visibility, and uncompromised safety standards.",
     image: "/assets/infra-1.png",
     link: "/infrastructure",
   },
   {
     title: "Machine stockyard",
-    desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
+    desc: "Our machine stockyards are engineered for efficient equipment staging, inspection, and movement—enabling OEMs and enterprise partners to maintain deployment speed and asset readiness at scale.",
     image: "/assets/infra-2.png",
     link: "/infrastructure",
   },
   {
     title: "Trainings facilities",
-    desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
+    desc: "ACT’s training environments empower workforce development with hands-on technical learning, certified modules, and real-equipment simulations tailored to industry requirements. We build talent pipelines ready for modern service and operational demands.",
     image: "/assets/infra-3.png",
     link: "/infrastructure",
   },
   {
     title: "Workshop - Chennai",
-    desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
+    desc: "Our Chennai workshop delivers advanced repair, refurbishment, and component-level servicing with precision workflows and OEM-aligned standards. It is a hub for quality, reliability, and fast-turnaround technical support.",
     image: "/assets/infra-4.png",
     link: "/infrastructure",
   },
   {
     title: "Support vehicle",
-    desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
+    desc: "ACT maintains a fleet of fully equipped support vehicles designed for rapid field response, onsite troubleshooting, and maintenance deployment—ensuring uptime and business continuity for our partners.",
     image: "/assets/infra-5.png",
     link: "/infrastructure",
   },

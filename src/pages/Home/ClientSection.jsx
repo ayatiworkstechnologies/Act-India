@@ -5,36 +5,39 @@ import ammannLogo from "/assets/Ammann.svg";
 import husqvarnaLogo from "/assets/husqvarna-final.svg";
 
 const logos = [
+      {
+    name: "Volvo",
+    image: "/logos/volvo-web.svg",
+    link: "https://www.volvoce.com/india/en-in/", // ✅ add link here
+  },
+      {
+    name: "Epiroc",
+    image: "/logos/epiroc-web.svg",
+    link: "https://www.epiroc.com/en-in",
+  },
   {
     name: "SDLG",
     image : "/logos/sdlg-web.svg",
     link: "https://www.sdlgindia.com/",
   },
     {
+    name: "Ammann",
+    image: "/logos/ammann-web.svg",
+    link: "https://www.ammann.com/en-IN/",
+  },
+    {
     name: "Husqvarna",
     image: "/logos/husqvarna-web.svg",
     link: "https://www.husqvarna.com/in/",
   },
-    {
-    name: "Epiroc",
-    image: "/logos/epiroc-web.svg",
-    link: "https://www.epiroc.com/en-in",
-  },
+
     {
     name: "Schwing Stetter",
     image: "/logos/schwing-stetter-web.svg",
     link: "https://www.schwingstetterindia.com/products/concrete-machinery/self-loading-mixer", // ✅ add link here
   },
-    {
-    name: "Volvo",
-    image: "/logos/volvo-web.svg",
-    link: "https://www.volvoce.com/india/en-in/", // ✅ add link here
-  },
-  {
-    name: "Ammann",
-    image: "/logos/ammann-web.svg",
-    link: "https://www.ammann.com/en-IN/",
-  },
+
+
 
 
 

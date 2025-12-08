@@ -19,8 +19,9 @@ export default function Service() {
     <ServiceBanner />
     <ClientSection />
     <PrecareSection />
+      <EaasService />
     <AuxilliarySection />
-    <EaasService />
+  
     <OperatorTrainingShowcase />
 
     </>
