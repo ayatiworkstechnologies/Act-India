@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: custom base styles */
+body {
+  font-family: 'Inter', sans-serif;
+}
+/* Add this in your global.css or index.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  scroll-behavior: smooth;
+}
+@font-face {
+  font-family: 'NeueHaasDisplay';
+  src: url('/public/font/NeueHaasDisplayMediu.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('/public/font/proximanova-regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6, button {
+    @apply font-primary;
+  }
+
+  p, span, li {
+    @apply font-secondary;
+  }
+}
+
+
