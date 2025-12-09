@@ -12,7 +12,7 @@ const slides = [
   { id: 1, desktop: "/assets/banner/volvo-web.jpg", mobile: "/assets/banner/volvo-mob.jpg", link: "/volvo" },
   { id: 2, desktop: "/assets/banner/Epiroc-web.jpg", mobile: "/assets/banner/Epiroc-mob.jpg", link: "/epiroc" },
   { id: 3, desktop: "/assets/banner/SDLG-web.jpg", mobile: "/assets/banner/SDLG-mob.jpg", link: "/sdlg" },
-   { id: 5, desktop: "/assets/banner/Ammann-web.jpg", mobile: "/assets/banner/Ammann-mob.jpg", link: "/ammann" },
+  { id: 5, desktop: "/assets/banner/Ammann-web.jpg", mobile: "/assets/banner/Ammann-mob.jpg", link: "/ammann" },
   { id: 4, desktop: "/assets/banner/Husqvarna-web.jpg", mobile: "/assets/banner/Husqvarna-mob.jpg", link: "/husqvarna" },
 ];
 
@@ -36,6 +36,7 @@ export default function HomeSection() {
         {slides.map((slide) => (
           <SwiperSlide key={slide.id} className="!h-full">
             <Link to={slide.link} className="block relative w-full h-full">
+
               {/* Desktop Image */}
               <img
                 src={slide.desktop}
@@ -55,19 +56,18 @@ export default function HomeSection() {
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none"></div>
 
-              {/* ✅ Know More Button (slightly lower on mobile) */}
+              {/* Know More Button (Desktop Only) */}
               <button
                 className="
+                  hidden md:block
                   absolute
-                  bottom-8 sm:bottom-14 md:bottom-20 
-                  right-1/2 md:right-10 
-                  translate-x-1/2 md:translate-x-0 
+                  bottom-14 md:bottom-20 
+                  right-10
                   border border-white text-white 
-                  px-5 py-2 text-sm md:text-base font-medium 
+                  px-5 py-2 text-base font-medium 
                   backdrop-blur-sm 
                   hover:bg-white hover:text-black 
                   transition-all duration-300 
-                  
                 "
               >
                 Know More

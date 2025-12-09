@@ -53,10 +53,11 @@ export default function FooterACT() {
               <ul className="space-y-2 text-[14px] text-black">
                 {[
                   { name: "Volvo", path: "/volvo" },
-                  { name: "SDLG", path: "/sdlg" },
                   { name: "Epiroc", path: "/epiroc" },
+                  { name: "SDLG", path: "/sdlg" },
                   { name: "Ammann", path: "/ammann" },
                   { name: "Husqvarna", path: "/husqvarna" },
+                  { name: "Schwing Stetter", path: "/self-loading-mixer" },
                 ].map(({ name, path }) => (
                   <li key={name}>
                     <Link
@@ -76,8 +77,8 @@ export default function FooterACT() {
               <ul className="space-y-2 text-[14px] text-black">
                 {[
                   "Precare",
+                   "Equipments-as-a-Service",
                   "Auxiliary service solutions",
-                  "Equipments-as-a-Service",
                   "Operator Training & Certification",
                 ].map((i) => (
                   <li key={i}>

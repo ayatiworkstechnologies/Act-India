@@ -10,6 +10,7 @@ import PrecareSection from "./Services/PrecareSection";
 import AuxilliarySection from "./Services/AuxilliarySection";
 import EaasService from "./Services/EaasService";
 import OperatorTrainingShowcase from "./Services/OperatorTraining";
+import ServiceTabs from "./Services/ServiceTab";
 
 
 
@@ -18,11 +19,11 @@ export default function Service() {
     <>
     <ServiceBanner />
     <ClientSection />
-    <PrecareSection />
-      <EaasService />
+    <ServiceTabs />
+    {/* <PrecareSection />
+    <EaasService />
     <AuxilliarySection />
-  
-    <OperatorTrainingShowcase />
+    <OperatorTrainingShowcase /> */}
 
     </>
   )

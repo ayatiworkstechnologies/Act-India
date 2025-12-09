@@ -36,8 +36,9 @@ export default function Training() {
         {/* RIGHT: COPY */}
         <div className="lg:col-span-7 px-6 sm:px-10 py-10">
           <div className="max-w-3xl">
-            <h2 className="text-[36px] leading-[1.25] tracking-wide">
-             Training Facilities Empowering Future Leaders 
+            <h2 className="text-[30px] leading-[1.25] tracking-wide">
+            Training Facilities <br/>
+Developing and Empowering Future Leaders
             </h2>
 
             <p className="mt-5 max-w-2xl text-sm leading-6 text-neutral-600">

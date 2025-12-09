@@ -4,7 +4,7 @@ export default function WorkshopChennai() {
       <div className="max-w-6xl mx-auto px-4">
 
         {/* Title */}
-        <h2 className="text-center text-[36px] leading-[1.25] tracking-wide mb-10">
+        <h2 className="text-center text-[30px] leading-[1.25] tracking-wide mb-10">
           Workshop - Chennai
         </h2>
 

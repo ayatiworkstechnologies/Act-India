@@ -80,7 +80,7 @@ export default function Warehouse() {
         {/* RIGHT: COPY */}
         <div className="lg:col-span-7 px-6 sm:px-10 py-10">
           <div className="max-w-3xl">
-            <h2 className="text-[36px] leading-[1.25] tracking-wide">
+            <h2 className="text-[30px] leading-[1.25] tracking-wide">
               Warehouses & Stockyards 
             </h2>
 

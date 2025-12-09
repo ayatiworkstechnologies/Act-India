@@ -8,14 +8,14 @@ export default function ServiceBanner() {
     <div className="relative w-full overflow-hidden">
       {/* Background Image - Desktop */}
       <img
-        src="/assets/banner/epiroc-new.jpg"
+        src="/assets/banner/Epiroc-web.jpg"
         alt="Excavator"
         className="hidden md:block w-full h-full object-cover object-center"
       />
 
       {/* Background Image - Mobile */}
       <img
-        src="/assets/banner/epiroc-1.jpg"
+        src="/assets/banner/Epiroc-mob.jpg"
         alt="Excavator Mobile"
         className="block md:hidden w-full h-full object-cover object-center"
       />
@@ -23,7 +23,7 @@ export default function ServiceBanner() {
       {/* Optional Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
 
-      {/* ✅ Animated "Know More" Button */}
+      {/* Know More Button — Desktop Only */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -31,16 +31,16 @@ export default function ServiceBanner() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         className="
+          hidden md:flex
           absolute 
-          bottom-10 left-[30%] -translate-x-1/2   /* ✅ Centered for mobile */
-          md:bottom-28 md:right-12 md:left-auto md:translate-x-0  /* ✅ Right-aligned on desktop */
+          md:bottom-28 md:right-12
         "
       >
         <Link
           to="/contact"
           className="
             border border-white text-white 
-            px-5 py-2 text-sm md:text-base font-medium 
+            px-5 py-2 text-base font-medium 
             backdrop-blur-sm 
             hover:bg-white hover:text-black 
             transition-all duration-300

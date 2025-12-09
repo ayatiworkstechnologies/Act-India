@@ -53,19 +53,7 @@ export default function PrecareSection() {
   return (
     <section className="w-full bg-white text-neutral-900" id="precare">
       <div className="mx-auto max-w-6xl px-6 md:px-10 py-16">
-        
-        {/* MAIN TITLE */}
-        <motion.h2
-          variants={fadeUp(0.15)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-[28px] md:text-2xl font-bold text-center tracking-tight mb-16"
-        >
-          <span className="mr-1 font-bold text-5xl text-center">
-            Equipment Life Cycle
-          </span>
-        </motion.h2>
+       
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           
@@ -121,7 +109,7 @@ export default function PrecareSection() {
               viewport={{ once: true }}
               className="flex items-center gap-3"
             >
-              <h2 className="text-[36px] tracking-tight">
+              <h2 className="text-[24px] tracking-tight">
                 Precare Service 360°
               </h2>
 

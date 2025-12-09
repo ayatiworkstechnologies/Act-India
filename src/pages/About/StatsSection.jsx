@@ -52,12 +52,22 @@ export default function StatsSection() {
     <section className="w-full bg-white mt-6">
       <div className="max-w-6xl mx-auto px-4 py-12 text-center">
         <h2 className="text-3xl md:text-2xl font-bold mb-4">
-          Why ACT 
+          Why Choose ACT 
          </h2>
-        <p className="text-gray-700 text-base md:text-md leading-relaxed max-w-4xl mx-auto">
-          ACT stands as a trusted partner for global brands, built on a foundation of integrity, fairness, and a commitment to long-term value creation. Our people are empowered to take ownership, drive innovation, and lead meaningful change that advances organisational goals. Every decision, process, and interaction is engineered to enable customer success, because our clients define who we are and the impact we deliver.  
-          ACT isn’t just a service provider, we are an operational force multiplier for the businesses we support. 
-        </p>
+     <ul className="mt-4 text-left max-w-3xl mx-auto space-y-2 text-gray-700 list-disc list-inside">
+        <li>WORLD RENOWNED EQUIPMENT <br/>
+ACT represents and deals only with the most renowned brands offering latest technology and best in quality products and services.</li>
+ <li>LATEST TECHNOLOGY <br/>
+When you choose ACT Construction Equipment, you can be rest assured that you can always have access to the latest innovations and technologies from around the world.</li>
+ <li>PROACTIVE AFTERMARKET SUPPORT<br/>
+ACT's aftermarket support is built on a strong foundation to deliver PROACTIVE solutions to the customers. Each brand has a dedicated team of highly skilled and continuously trained aftermarket team fully geared with special tools and diagnostic equipment to deliver best in industry TAT- Turn Around Time.</li>
+ <li>BEST IN INDUSTRY BUSINESS PROCESSES<br/>
+Systems and Processes are our cornerstones. We have been acknowledged by the industry to be highly process driven and system focussed organisation focussed to deliver the best for our customers in terms of products and services.</li>
+ <li>QUALITY AND SAFETY ASSURED<br/>
+Quality and Safety are deeply ingrained into every ACTian. Every product and service we deliver commits to very high standards of quality and every process and service we render adheres to highest standards of safety to all stakeholders.</li>
+      
+      </ul>
+
       </div>
     </section>
     </>
