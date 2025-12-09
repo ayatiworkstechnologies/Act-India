@@ -121,7 +121,7 @@ export default function PrecareSection() {
               viewport={{ once: true }}
               className="flex items-center gap-3"
             >
-              <h2 className="text-[28px] md:text-[34px] font-extrabold tracking-tight">
+              <h2 className="text-[36px] tracking-tight">
                 Precare Service 360°
               </h2>
 

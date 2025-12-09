@@ -23,7 +23,7 @@ export default function Support({
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Heading */}
         <header className="text-center mb-6 relative z-10">
-          <h2 className="text-[26px] sm:text-[30px] leading-tight font-semibold tracking-[0.01em]">
+          <h2 className="text-[36px] leading-[1.25] tracking-wide">
             {words.join(" ")} <span className="font-extrabold">{last}</span>
           </h2>
           <p className="mt-1 text-[14px] sm:text-[16px] text-neutral-600">

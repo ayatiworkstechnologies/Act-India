@@ -9,11 +9,11 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 
 const slides = [
-  { id: 1, desktop: "/assets/banner/volvo-new.jpg", mobile: "/assets/banner/volvo-1.jpg", link: "/volvo" },
-  { id: 2, desktop: "/assets/banner/epiroc-new.jpg", mobile: "/assets/banner/epiroc-1.jpg", link: "/epiroc" },
-  { id: 3, desktop: "/assets/banner/sdlg-new.jpg", mobile: "/assets/banner/sdlg-1.jpg", link: "/sdlg" },
-   { id: 5, desktop: "/assets/banner/ammann-new.jpg", mobile: "/assets/banner/ammann-1.jpg", link: "/ammann" },
-  { id: 4, desktop: "/assets/banner/husqvarna-new.jpg", mobile: "/assets/banner/husqvarna-1.jpg", link: "/husqvarna" },
+  { id: 1, desktop: "/assets/banner/volvo-web.jpg", mobile: "/assets/banner/volvo-mob.jpg", link: "/volvo" },
+  { id: 2, desktop: "/assets/banner/Epiroc-web.jpg", mobile: "/assets/banner/Epiroc-mob.jpg", link: "/epiroc" },
+  { id: 3, desktop: "/assets/banner/SDLG-web.jpg", mobile: "/assets/banner/SDLG-mob.jpg", link: "/sdlg" },
+   { id: 5, desktop: "/assets/banner/Ammann-web.jpg", mobile: "/assets/banner/Ammann-mob.jpg", link: "/ammann" },
+  { id: 4, desktop: "/assets/banner/Husqvarna-web.jpg", mobile: "/assets/banner/Husqvarna-mob.jpg", link: "/husqvarna" },
 ];
 
 export default function HomeSection() {

@@ -18,7 +18,7 @@ export default function Stockyard() {
   return (
     <section className="w-full bg-white py-10 sm:py-14" id="machine-stockyard">
       {/* Title */}
-      <h2 className="text-center text-2xl sm:text-3xl font-semibold tracking-tight text-neutral-900">
+      <h2 className="text-center text-[36px] leading-[1.25] tracking-wide">
        Machine Stockyard
       </h2>
 

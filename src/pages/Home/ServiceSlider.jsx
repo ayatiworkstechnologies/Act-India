@@ -14,13 +14,7 @@ const data = [
     image: "/assets/image-1.png",
     link: "/services",
   },
-  {
-    title: "Auxillary service solutions",
-    desc: "Comprehensive heavy equipment refurbishment — from hard-facing and bush replacements to structural welding, bucket rebuilds, and track link reconditioning.",
-    icons: ["/assets/icon-5.png", "/assets/icon-6.png", "/assets/icon-7.png", "/assets/icon-8.png"],
-    image: "/assets/image-2.png",
-    link: "/services",
-  },
+
   {
     title: "Equipment-as-a-Service",
     desc: "Equipment-as-a-Service (EaaS) provides flexible access to VOLVO machines, ensuring optimum efficiency and performance without long-term commitments.",
@@ -28,7 +22,15 @@ const data = [
     image: "/assets/image-3.png",
     link: "/services",
   },
-  {
+
+    {
+    title: "Auxillary service solutions",
+    desc: "Comprehensive heavy equipment refurbishment — from hard-facing and bush replacements to structural welding, bucket rebuilds, and track link reconditioning.",
+    icons: ["/assets/icon-5.png", "/assets/icon-6.png", "/assets/icon-7.png", "/assets/icon-8.png"],
+    image: "/assets/image-2.png",
+    link: "/services",
+  },
+    {
     title: "Operator training & certification",
     desc: "We conduct annual ESC certification programs to gain participants in safe and efficient equipment operation.",
     icons: ["/assets/icon-3.png", "/assets/icon-11.png", "/assets/icon-2.png", "/assets/icon-9.png"],

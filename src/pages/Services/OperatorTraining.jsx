@@ -60,8 +60,8 @@ export default function OperatorTrainingCertSection() {
             {/* TITLE + LOGO (added here)     */}
             {/* ----------------------------- */}
             <div className="flex items-center gap-3">
-              <h2 className="text-[30px] md:text-2xl leading-tight font-light tracking-tight">
-                <span className="font-bold">Operator Training and Certification</span>
+              <h2 className="text-[36px] tracking-tight">
+                Operator Training and Certification
               </h2>
 
               {/* your logo beside title */}
