@@ -17,7 +17,7 @@ export default function HomePage() {
     <>
       <HomeSection />
       <ClientSection />
-      <StatsSlider />
+      {/* <StatsSlider /> */}
       <AboutACT />
       <GridPage />
       <DealersSection />
