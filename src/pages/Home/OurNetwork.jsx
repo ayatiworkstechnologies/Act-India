@@ -4,7 +4,7 @@ export default function OurNetwork() {
       <div className="w-full flex justify-center">
         {/* Mobile Image */}
         <img
-          src="/assets/our-network-mob.png"
+          src="/assets/our-network-mob.jpg"
           alt="Our Network Map Mobile"
           className="block sm:hidden w-full rounded-lg"
         />
