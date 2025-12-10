@@ -15,7 +15,7 @@ export default function About() {
    <>
    <AboutSection />
    <ClientSection />
-   {/* <StatsSection /> */}
+   <StatsSection />
    <MissionVision />
    <ValuesSection />
    <ContactSection />

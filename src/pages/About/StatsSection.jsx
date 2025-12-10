@@ -42,9 +42,9 @@ export default function StatsSection() {
 
   return (
     <>
-      <section className="w-full px-4 py-10 flex justify-center">
+      {/* <section className="w-full px-4 py-10 flex justify-center">
         <div className="relative w-full max-w-6xl bg-[#F5F5F5] p-6 rounded-2xl">
-          {/* Show all cards */}
+          
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {stats.map((item, i) => (
               <div
@@ -55,7 +55,7 @@ export default function StatsSection() {
                          hover:bg-secondary hover:text-white
                          transition-all duration-300 ease-in-out"
               >
-                {/* Value */}
+               
                 <h3 className="text-2xl md:text-3xl font-bold mb-1">
                   <CountUp
                     start={0}
@@ -66,7 +66,7 @@ export default function StatsSection() {
                   />
                 </h3>
 
-                {/* Label */}
+                
                 <p className="text-xs sm:text-sm font-medium whitespace-pre-line">
                   {item.label}
                 </p>
@@ -74,7 +74,7 @@ export default function StatsSection() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="w-full bg-white mt-6">
         <div className="max-w-6xl mx-auto px-4  text-center">
           <h2 className="text-3xl md:text-2xl font-bold mb-4">
