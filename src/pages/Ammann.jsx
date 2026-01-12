@@ -10,7 +10,7 @@ export default function Ammann() {
   return (
     <>
        <HeroSection />
-       <ClientSection />
+       {/* <ClientSection /> */}
        <AmmannSection />
        <Products />
        <ContactSection />

@@ -1,18 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const MotionLink = motion(Link);
-
+/* ================== DATA ================== */
 const dealers = [
-    {
+  {
     id: 1,
     logo: "/assets/volvo-brand.svg",
     title: "Mfg of Heavy Construction Equipment & Road Machinery",
     link: "/volvo",
   },
-    {
+  {
     id: 2,
     logo: "/assets/epiroc-brand.svg",
     title: "Hydraulic Attachments",
@@ -24,12 +22,6 @@ const dealers = [
     title: "Construction Equipment",
     link: "/sdlg",
   },
-   {
-    id: 5,
-    logo: "/assets/ammann-brand.svg",
-    title: "Mfg of Heavy Construction Equipment",
-    link: "/ammann",
-  },
   {
     id: 4,
     logo: "/assets/husqvarna-brand.svg",
@@ -37,175 +29,155 @@ const dealers = [
     link: "/husqvarna",
   },
   {
+    id: 5,
+    logo: "/assets/ammann-brand.svg",
+    title: "Mfg of Heavy Construction Equipment",
+    link: "/ammann",
+  },
+  {
     id: 6,
     logo: "/assets/schwing-stetter-brand.svg",
     title: "Efficient. Compact. Ready-Mix Anywhere.",
     link: "/self-loading-mixer",
   },
-
- 
 ];
 
 export default function DealersSection() {
   const [index, setIndex] = useState(0);
   const mobileRef = useRef(null);
 
-  // Desktop navigation
+  /* ================== DESKTOP SLIDER ================== */
   const prevSlide = () =>
     setIndex((p) => (p - 1 + dealers.length) % dealers.length);
-  const nextSlide = () => setIndex((p) => (p + 1) % dealers.length);
 
-  // Desktop visible cards
+  const nextSlide = () =>
+    setIndex((p) => (p + 1) % dealers.length);
+
   const visible = Array.from(
     { length: 3 },
     (_, i) => dealers[(index + i) % dealers.length]
   );
 
-  // Autoplay for desktop
+  /* ================== AUTOPLAY (DESKTOP ONLY) ================== */
   useEffect(() => {
-    const auto = setInterval(nextSlide, 4000);
-    return () => clearInterval(auto);
+    if (window.innerWidth < 640) return;
+
+    const timer = setInterval(() => {
+      setIndex((p) => p + 1);
+    }, 4500);
+
+    return () => clearInterval(timer);
   }, []);
 
-  // Mobile scroll (left/right)
-  const scrollMobile = (direction) => {
+  /* ================== MOBILE SCROLL ================== */
+  const scrollMobile = (dir) => {
     if (!mobileRef.current) return;
-    const card = mobileRef.current.querySelector(":scope > *");
-    const gap = 24; // same as gap-6
-    const scrollAmount = (card?.offsetWidth || 288) + gap;
+
+    const scrollAmount = mobileRef.current.offsetWidth * 0.8;
+
     mobileRef.current.scrollBy({
-      left: direction === "next" ? scrollAmount : -scrollAmount,
+      left: dir === "next" ? scrollAmount : -scrollAmount,
       behavior: "smooth",
     });
   };
 
   return (
-    <section className="w-full bg-[#F5F5F5] py-12 text-black relative">
+    <section className="w-full bg-[#F5F5F5] py-12">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Header Section */}
+
+        {/* ================== HEADER ================== */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end">
-          <div>
-            <motion.h2
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-3xl md:text-4xl font-bold font-primary pb-4"
-            >
-              Brand Partner
-            </motion.h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-primary pb-4">
+            Brand Partner
+          </h2>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="mt-2 text-lg md:text-xl font-secondary font-bold"
-            >
-              ACT India delivers sustainable <br /> C&amp;D solutions nationwide.
-            </motion.p>
-          </div>
-
-          {/* Desktop arrows only */}
-          <div className="hidden md:flex gap-4 md:gap-6 mt-6 md:mt-0 ml-auto">
+          {/* Desktop arrows */}
+          <div className="hidden md:flex gap-4">
             <button
               onClick={prevSlide}
-              className="p-3 rounded-full bg-white shadow-md hover:bg-gray-100 transition"
-              aria-label="Previous"
+              className="p-3 bg-white rounded-full shadow hover:bg-gray-100"
             >
-              <FaArrowLeft className="text-lg text-secondary" />
+              <FaArrowLeft />
             </button>
             <button
               onClick={nextSlide}
-              className="p-3 rounded-full bg-white shadow-md hover:bg-gray-100 transition"
-              aria-label="Next"
+              className="p-3 bg-white rounded-full shadow hover:bg-gray-100"
             >
-              <FaArrowRight className="text-lg text-secondary" />
+              <FaArrowRight />
             </button>
           </div>
         </div>
 
-        {/* === MOBILE CAROUSEL === */}
+        {/* ================== MOBILE CAROUSEL ================== */}
         <div className="sm:hidden mt-8 relative">
-          {/* Cards container */}
           <div
             ref={mobileRef}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-6 scrollbar-hide scroll-smooth pb-2"
+            className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide"
           >
             {dealers.map((dealer) => (
-              <motion.div
+              <div
                 key={dealer.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="bg-white text-black shadow-md flex flex-col justify-between
-                           hover:shadow-xl hover:scale-[1.02] transition-all
-                           w-64 h-[200px] p-4 flex-shrink-0 snap-center"
+                className="min-w-[85%] bg-white p-5 shadow
+                           flex flex-col justify-between snap-center rounded-lg"
               >
                 <img
                   src={dealer.logo}
                   alt={dealer.title}
-                  className="h-10 object-contain"
+                  className="h-10 object-contain mb-3"
                 />
-                <p className="mt-3 text-sm font-secondary">{dealer.title}</p>
-                <MotionLink
+                <p className="text-sm text-gray-700 mb-4">
+                  {dealer.title}
+                </p>
+                <Link
                   to={dealer.link}
-                  whileHover={{ x: 4 }}
-                  className="text-secondary font-primary font-semibold mt-3"
+                  className="text-secondary font-semibold"
                 >
                   Learn More →
-                </MotionLink>
-              </motion.div>
+                </Link>
+              </div>
             ))}
           </div>
 
-          {/* Both-side arrows for mobile */}
+          {/* Mobile arrows */}
           <button
             onClick={() => scrollMobile("prev")}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-100 transition"
-            aria-label="Previous"
+            className="absolute left-1 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow"
           >
-            <FaArrowLeft className="text-secondary text-lg" />
+            <FaArrowLeft />
           </button>
 
           <button
             onClick={() => scrollMobile("next")}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-100 transition"
-            aria-label="Next"
+            className="absolute right-1 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow"
           >
-            <FaArrowRight className="text-secondary text-lg" />
+            <FaArrowRight />
           </button>
         </div>
 
-        {/* === DESKTOP CAROUSEL === */}
-        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 relative">
-          <AnimatePresence mode="wait">
-            {visible.map((dealer) => (
-              <motion.div
-                key={dealer.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.6 }}
-                className="bg-white text-black shadow-lg
-                           flex flex-col items-start justify-between
-                           hover:shadow-2xl hover:scale-105 transition
-                           w-80 h-[185px] p-6"
+        {/* ================== DESKTOP GRID ================== */}
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+          {visible.map((dealer) => (
+            <div
+              key={dealer.id}
+              className="bg-white p-6 shadow-lg
+                         flex flex-col justify-between "
+            >
+              <img
+                src={dealer.logo}
+                alt={dealer.title}
+                className="h-12 object-contain mb-4"
+              />
+              <p className="text-sm text-gray-700 mb-4">
+                {dealer.title}
+              </p>
+              <Link
+                to={dealer.link}
+                className="text-secondary font-semibold"
               >
-                <img
-                  src={dealer.logo}
-                  alt={dealer.title}
-                  className="h-12 object-contain"
-                />
-                <p className="mt-2 text-sm font-secondary">{dealer.title}</p>
-                <MotionLink
-                  to={dealer.link}
-                  whileHover={{ x: 5 }}
-                  className="text-secondary font-primary font-semibold flex items-center gap-1 mt-2"
-                >
-                  Learn More →
-                </MotionLink>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                Learn More →
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </section>

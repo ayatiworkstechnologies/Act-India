@@ -22,7 +22,7 @@ export default function AboutACT() {
           
             <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 font-secondary text-black">Our Legacy of Excellence</h4>
             <p className="text-black text-sm sm:text-base leading-relaxed font-secondary">
-             Advanced Construction Technologies Pvt Ltd stands as a beacon of innovation and reliability in the construction solutions industry. With over 80 years of business legacy, we have empowered more than 2,500 satisfied customers with cutting-edge solutions. Our dedicated team of over 350 passionate professionals ensures exceptional service, maintaining over 4,500 machines under our expert care. As the exclusive dealer for leading global construction equipment brands for over 20 years, we proudly serve Tamil Nadu and Kerala through our expansive network of 16+ branches, with plans for further growth. Our commitment to excellence drives us to redefine industry standards and deliver unparalleled value.
+             Advanced Construction Technologies Pvt Ltd, ACT was established by Mohan Ramanathan as part of a 70 year old business conglomerate with multiple business interests. ACT provides a gateway to bring new and advanced products and services from across the globe to support the Indian Construction Industry. With more than 30 years of excellence in the field of construction, ACT remains a leader in providing solutions in the forms of equipment and services to the construction and infrastructure segments.
             </p>
                    {/* CTA Button */}
           <motion.div
@@ -47,7 +47,7 @@ export default function AboutACT() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <img
-              src="/assets/about-us.jpg"
+              src="/assets/home-about.png"
               alt="Excavator"
               className="max-h-[280px] sm:max-h-[350px] md:max-h-[400px] w-auto object-contain"
             />

@@ -19,12 +19,12 @@ export default function Header() {
 
   const dropdowns = {
     Dealers: [
-      { name: "Volvo", path: "/volvo" },
-      { name: "Epiroc", path: "/epiroc" },
+      { name: "VOLVO", path: "/volvo" },
+      { name: "EPIROC", path: "/epiroc" },
       { name: "SDLG", path: "/sdlg" },
-      { name: "Ammann", path: "/ammann" },
-      { name: "Husqvarna", path: "/husqvarna" },
-      { name: "Schwing Stetter", path: "/self-loading-mixer" },
+      { name: "AMMANN", path: "/ammann" },
+      { name: "HUSQVARNA", path: "/husqvarna" },
+      { name: "SCHWING STETTER", path: "/self-loading-mixer" },
     ],
   };
 

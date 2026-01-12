@@ -10,7 +10,7 @@ export default function Husqvarna() {
   return (
     <>
        <HeroSection />
-       <ClientSection />
+       {/* <ClientSection /> */}
        <HusqvarnaSection />
        <Products />
        <ContactSection />

@@ -1,82 +1,121 @@
-import React from "react";
+// AuxServicesSection.jsx
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const SERVICES = [
-  { id: "01", title: "Bucket hard-facing." },
-  { id: "02", title: "Breaker hard-facing." },
-  { id: "03", title: "Breaker Bush Replacement." },
-  {
-    id: "04",
-    title:
-      "Re-building and line boring of Bucket / Arm and Boom Bush bores.",
-  },
-  {
-    id: "05",
-    title:
-      "Structural Crack welding Repairs Boom / Arm / Lower Frame / Bucket.",
-  },
-  { id: "06", title: "Bucket Toe Plate Replacement." },
-  { id: "07", title: "Bucket Tooth Adaptor Replacement." },
-  { id: "08", title: "Bucket Bottom sheet Replacement." },
-  { id: "09", title: "Track chain link Recondition repairs." },
+const SLIDES = [
+  { img: "/assets/aux-1.png" },
+  { img: "/assets/aux-2.png" },
+  { img: "/assets/aux-3.png" },
+  { img: "/assets/aux-4.png" },
+  { img: "/assets/aux-5.png" },
 ];
 
 export default function AuxServicesSection() {
+  const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const s = SLIDES[idx];
+
+  useEffect(() => {
+    if (SLIDES.length <= 1) return;
+    const id = setInterval(() => {
+      if (!paused) setIdx((i) => (i + 1) % SLIDES.length);
+    }, 3200);
+    return () => clearInterval(id);
+  }, [paused]);
+
   return (
     <section
-      className="bg-white text-neutral-900 py-12 md:py-16"
-      id="auxillary-services"
+      className="bg-white text-neutral-900 py-8 sm:py-10 md:py-16"
+      id="training"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
     >
-      <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-        {/* Heading */}
-        <h2 className="text-[36px] tracking-tight text-center">
-          Auxiliary Service Solutions
-        </h2>
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
 
-        <p className="mt-5 text-md font-semibold text-neutral-500 text-center">
-          Services Offered
-        </p>
+          {/* LEFT CONTENT */}
+          <div className="lg:col-span-7">
+            <h2 className="text-2xl sm:text-3xl md:text-[36px] tracking-tight leading-tight">
+              Auxiliary Service Solutions
+            </h2>
 
-        {/* GRID */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-          {SERVICES.map((service) => (
-            <ServiceCard
-              key={service.id}
-              id={service.id}
-              title={service.title}
-            />
-          ))}
+            <p className="mt-4 text-sm sm:text-md font-semibold text-neutral-500">
+              Services Offered
+            </p>
+
+            {/* BULLETS – mobile friendly */}
+            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-[14px] text-neutral-700">
+              {[
+                "Bucket hard-facing",
+                "Breaker hard-facing",
+                "Breaker Bush Replacement",
+                "Re-building and line boring of Bucket / Arm and Boom Bush bores",
+                "Structural Crack welding Repairs Boom / Arm / Lower Frame / Bucket",
+                "Bucket Toe Plate Replacement",
+                "Bucket Tooth Adaptor Replacement",
+                "Bucket Bottom sheet Replacement",
+                "Track chain link Recondition repairs",
+              ].map((b) => (
+                <li key={b} className="flex items-start gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-secondary shrink-0" />
+                  <span className="leading-snug">{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* DOTS – vertical only on desktop */}
+          <div className="hidden lg:flex lg:col-span-1 items-center justify-center">
+            <div className="flex flex-col gap-3">
+              {SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIdx(i)}
+                  className={`h-2.5 w-2.5 rounded-full transition
+                    ${i === idx ? "bg-secondary" : "bg-gray-300 hover:bg-gray-400"}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* IMAGE */}
+          <div className="lg:col-span-4">
+            <div className="relative overflow-hidden rounded-lg">
+              <div className="relative h-[220px] sm:h-[280px] md:h-[360px]">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={s.img}
+                    src={s.img}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -30 }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
+                  />
+                </AnimatePresence>
+
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
+            </div>
+
+            {/* DOTS – move below image on mobile */}
+            <div className="mt-4 flex justify-center gap-3 lg:hidden">
+              {SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIdx(i)}
+                  className={`h-2.5 w-2.5 rounded-full transition
+                    ${i === idx ? "bg-secondary" : "bg-gray-300"}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          
+
         </div>
       </div>
     </section>
-  );
-}
-
-/** ✅ CARD = SAME Design Language as ValuesSection */
-function ServiceCard({ id, title }) {
-  return (
-    <article
-      className="
-        relative w-full max-w-[260px] min-h-[150px]
-        bg-white rounded-xl
-        shadow-[0_25px_60px_-30px_rgba(0,0,0,0.35)]
-        transition hover:shadow-[0_30px_70px_-32px_rgba(0,0,0,0.35)]
-        flex items-center justify-center
-        px-4
-        text-center
-      "
-    >
-      {/* Dotted border */}
-      <span className="pointer-events-none absolute inset-0 rounded-xl border-2 border-dotted border-blue-400/70" />
-
-      {/* Content */}
-      <div className="relative z-10">
-        <div className="text-[13px] font-extrabold tracking-wide text-neutral-900">
-          {id}
-        </div>
-        <p className="mt-2 text-[14px] md:text-[15px] leading-snug text-neutral-700">
-          {title}
-        </p>
-      </div>
-    </article>
   );
 }

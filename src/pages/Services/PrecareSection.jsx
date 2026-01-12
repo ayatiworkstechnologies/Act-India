@@ -14,9 +14,9 @@ const fadeUp = (delay = 0) => ({
 
 /* LEFT panel: slide image + label that changes per slide */
 const leftSlides = [
-  { src: "/assets/precare-1.png", label: "Operator Training" },
-  { src: "/assets/precare-2.png", label: "Machine Inspection" },
-  { src: "/assets/precare-3.png", label: "Report Sharing" },
+  { src: "/assets/op.png", label: "Operator Training" },
+  { src: "/assets/mi.png", label: "Machine Inspection" },
+  { src: "/assets/rs.png", label: "Report Sharing" },
 ];
 
 export default function PrecareSection() {
@@ -110,7 +110,7 @@ export default function PrecareSection() {
               className="flex items-center gap-3"
             >
               <h2 className="text-[24px] tracking-tight">
-                Precare Service 360°
+                Precare Secure 360°
               </h2>
 
               <img

@@ -17,14 +17,13 @@ export default function HomePage() {
     <>
       <HomeSection />
       <ClientSection />
-      {/* <StatsSlider /> */}
       <AboutACT />
-      <GridPage />
       <DealersSection />
       <SolutionsSection />
       <ServiceSlider />
       <Infrastructure />
       <OurNetwork />
+       <GridPage />
       <CompaniesCarousel />
       <ContactSection />
     </>

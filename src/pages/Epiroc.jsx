@@ -10,7 +10,7 @@ export default function Epiroc() {
   return (
     <>
        <HeroSection />
-       <ClientSection />
+       {/* <ClientSection /> */}
        <EpirocSection />
        <Products />
        <ContactSection />

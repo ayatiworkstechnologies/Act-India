@@ -10,7 +10,7 @@ export default function Volvo() {
   return (
     <>
        <HeroSection />
-       <ClientSection />
+       {/* <ClientSection /> */}
        <VolvoSection />
        <Products />
        <ContactSection />

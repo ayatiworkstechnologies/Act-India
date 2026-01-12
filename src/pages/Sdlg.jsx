@@ -10,7 +10,7 @@ export default function Sdlg() {
   return (
     <>
        <HeroSection />
-       <ClientSection />
+       {/* <ClientSection /> */}
        <SdlgSection />
        <Products />
        <ContactSection />

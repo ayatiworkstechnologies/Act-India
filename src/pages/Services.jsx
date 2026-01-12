@@ -18,7 +18,7 @@ export default function Service() {
   return (
     <>
     <ServiceBanner />
-    <ClientSection />
+    {/* <ClientSection /> */}
     <ServiceTabs />
     {/* <PrecareSection />
     <EaasService />

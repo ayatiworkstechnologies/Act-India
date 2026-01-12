@@ -14,7 +14,7 @@ export default function About() {
   return (
    <>
    <AboutSection />
-   <ClientSection />
+   {/* <ClientSection /> */}
    <StatsSection />
    <MissionVision />
    <ValuesSection />

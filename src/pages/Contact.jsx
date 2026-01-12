@@ -10,7 +10,7 @@ export default function Contact() {
   return (
 <>
   <FirstSection />
-  <ClientSection />
+  {/* <ClientSection /> */}
   <ContactStamp />
   <ContactSection id="form" />
 

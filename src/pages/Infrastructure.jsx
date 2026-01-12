@@ -12,7 +12,7 @@ export default function Infrastructure() {
   return (
     <>
         <HeroSection />
-        <ClientSection />
+        {/* <ClientSection /> */}
         <Warehouse />
        <Stockyard />
        <Training />

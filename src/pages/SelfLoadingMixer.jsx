@@ -10,7 +10,7 @@ export default function SelfLoadingMixer() {
   return (
     <>
        <Hero />
-       <ClientSection />
+       {/* <ClientSection /> */}
        <SelfLoadingMixerSection />
        <ProductsShowcase />
        <ContactSection />
