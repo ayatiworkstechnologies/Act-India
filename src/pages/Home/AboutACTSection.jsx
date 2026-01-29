@@ -49,7 +49,7 @@ export default function AboutACT() {
             <img
               src="/assets/home-about.png"
               alt="Excavator"
-              className="max-h-[280px] sm:max-h-[350px] md:max-h-[400px] w-auto object-contain"
+              className="max-h-[400px] sm:max-h-[350px] md:max-h-[600px] w-auto object-contain"
             />
           </motion.div>
        

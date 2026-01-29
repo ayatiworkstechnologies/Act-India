@@ -5,11 +5,11 @@ import {BadgeCheck, Wrench, PiggyBank, Gauge, Cpu, Boxes} from 'lucide-react';
 
 /* ===== Replace these images/labels with your assets ===== */
 const SLIDES = [
-  {src: '/assets/eaas-1.png', label: 'Seamless Equipment Access'},
-  {src: '/assets/eaas-2.png', label: 'Predictive Maintenance'},
-  {src: '/assets/eaas-3.png', label: 'Cost Efficient Operations'},
-  {src: '/assets/eaas-4.png', label: 'Maximized Performance'},
-  {src: '/assets/eaas-5.png', label: 'Flexible Plans'},
+  {src: '/assets/focus-on-your-core-business.jpg', label: 'Seamless Equipment Access'},
+  {src: '/assets/a-global-solution.jpg', label: 'Predictive Maintenance'},
+  {src: '/assets/cost-management.jpg', label: 'Cost Efficient Operations'},
+  {src: '/assets/guarantee-uptime.jpg', label: 'Maximized Performance'},
+  {src: '/assets/flexibility-for-you.jpg', label: 'Flexible Plans'},
 ];
 
 const features = [
@@ -18,7 +18,7 @@ const features = [
     title: 'No ownership hassle',
   },
   {
-    icon: '/assets/service-icon2.png',
+    icon: '/assets/service-icon4.png',
     title: 'Scalable and flexible',
   },
   {
@@ -26,7 +26,7 @@ const features = [
     title: 'Zero maintenance',
   },
   {
-    icon: '/assets/service-icon4.png',
+    icon: '/assets/service-icon2.png',
     title: 'Ready-to-use machinery',
   },
 ];
@@ -97,21 +97,22 @@ export default function EaasService () {
               Smart Choices, Smarter Operations
             </h2>
 
-            {/* Feature grid */}
-            <div className="flex flex-col gap-3">
-              {features.map (({icon, title}, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <img
-                    src={icon}
-                    alt={title}
-                    className="h-10 w-10 object-contain"
-                  />
-                  <span className="text-sm font-bold text-gray-800">
-                    {title}
-                  </span>
-                </div>
-              ))}
-            </div>
+        {/* Feature grid */}
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+  {features.map(({ icon, title }, i) => (
+    <div key={i} className="flex items-center gap-3">
+      <img
+        src={icon}
+        alt={title}
+        className="h-10 w-10 object-contain"
+      />
+      <span className="text-sm font-bold text-gray-800">
+        {title}
+      </span>
+    </div>
+  ))}
+</div>
+
           </div>
 
           {/* ============ RIGHT (Auto Slider) ============ */}

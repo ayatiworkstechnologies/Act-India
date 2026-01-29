@@ -111,9 +111,6 @@ export default function AuxServicesSection() {
               ))}
             </div>
           </div>
-
-          
-
         </div>
       </div>
     </section>

@@ -9,11 +9,12 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 
 const slides = [
-  { id: 1, desktop: "/assets/banner/volvo-web.jpg", mobile: "/assets/banner/volvo-mob.jpg", link: "/volvo" },
-  { id: 2, desktop: "/assets/banner/Epiroc-web.jpg", mobile: "/assets/banner/Epiroc-mob.jpg", link: "/epiroc" },
+  { id: 1, desktop: "/assets/banner/v-web.jpg", mobile: "/assets/banner/v-mob.jpg", link: "/volvo" },
+  { id: 2, desktop: "/assets/banner/e-web.jpg", mobile: "/assets/banner/e-mob.jpg", link: "/epiroc" },
   { id: 3, desktop: "/assets/banner/SDLG-web.jpg", mobile: "/assets/banner/SDLG-mob.jpg", link: "/sdlg" },
   { id: 5, desktop: "/assets/banner/Ammann-web.jpg", mobile: "/assets/banner/Ammann-mob.jpg", link: "/ammann" },
-  { id: 4, desktop: "/assets/banner/Husqvarna-web.jpg", mobile: "/assets/banner/Husqvarna-mob.jpg", link: "/husqvarna" },
+  { id: 4, desktop: "/assets/banner/h-web.jpg", mobile: "/assets/banner/h-mob.jpg", link: "/husqvarna" },
+    { id: 6, desktop: "/assets/banner/s-web.jpg", mobile: "/assets/banner/s-mob.jpg", link: "/self-loader-mixer" },
 ];
 
 export default function HomeSection() {
@@ -53,8 +54,7 @@ export default function HomeSection() {
                 loading="eager"
               />
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none"></div>
+             
 
               {/* Know More Button (Desktop Only) */}
               <button
