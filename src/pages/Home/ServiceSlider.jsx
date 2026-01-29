@@ -12,7 +12,7 @@ const rowOne = [
       "/assets/icon-3.png",
       "/assets/icon-4.png",
     ],
-    image: "/assets/image-1.png",
+    image: "/assets/mi.png",
     link: "/services",
   },
   {
@@ -24,7 +24,7 @@ const rowOne = [
       "/assets/icon-11.png",
       "/assets/icon-12.png",
     ],
-    image: "/assets/image-3.png",
+    image: "/assets/flexibility-for-you.jpg",
     link: "/services",
   },
 ];
@@ -40,7 +40,7 @@ const rowTwo = [
       "/assets/icon-7.png",
       "/assets/icon-8.png",
     ],
-    image: "/assets/image-2.png",
+    image: "/assets/aux-4.png",
     link: "/services",
   },
   {
@@ -53,7 +53,7 @@ const rowTwo = [
       "/assets/icon-2.png",
       "/assets/icon-9.png",
     ],
-    image: "/assets/image-4.png",
+    image: "/assets/operator-2.png",
     link: "/services",
   },
 ];

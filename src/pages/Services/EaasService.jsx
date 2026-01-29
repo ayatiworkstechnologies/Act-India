@@ -5,7 +5,10 @@ import {BadgeCheck, Wrench, PiggyBank, Gauge, Cpu, Boxes} from 'lucide-react';
 
 /* ===== Replace these images/labels with your assets ===== */
 const SLIDES = [
-  {src: '/assets/focus-on-your-core-business.jpg', label: 'Seamless Equipment Access'},
+  {
+    src: '/assets/focus-on-your-core-business.jpg',
+    label: 'Seamless Equipment Access',
+  },
   {src: '/assets/a-global-solution.jpg', label: 'Predictive Maintenance'},
   {src: '/assets/cost-management.jpg', label: 'Cost Efficient Operations'},
   {src: '/assets/guarantee-uptime.jpg', label: 'Maximized Performance'},
@@ -97,21 +100,21 @@ export default function EaasService () {
               Smart Choices, Smarter Operations
             </h2>
 
-        {/* Feature grid */}
-<div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
-  {features.map(({ icon, title }, i) => (
-    <div key={i} className="flex items-center gap-3">
-      <img
-        src={icon}
-        alt={title}
-        className="h-10 w-10 object-contain"
-      />
-      <span className="text-sm font-bold text-gray-800">
-        {title}
-      </span>
-    </div>
-  ))}
-</div>
+            {/* Feature grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+              {features.map (({icon, title}, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <img
+                    src={icon}
+                    alt={title}
+                    className="h-10 w-10 object-contain"
+                  />
+                  <span className="text-sm font-bold text-gray-800">
+                    {title}
+                  </span>
+                </div>
+              ))}
+            </div>
 
           </div>
 
