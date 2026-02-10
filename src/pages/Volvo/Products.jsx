@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState, useCallback } from "react";
 
-const CATEGORIES = ["Products", "Attachments", "Supplies", "Electric Machines"];
+const CATEGORIES = ["Products", "Attachments", "Electric Machines"];
 
 const ITEMS = [
   // Products
@@ -55,6 +55,14 @@ const ITEMS = [
   },
 
   // Attachments
+    {
+    category: "Attachments",
+    title: "Hydraulic Breakers",
+    subtitle: "Suitable carrier 10T - 100T",
+    img: "/assets/attach-4.png",
+    gallery: ["/assets/popup-3.png"],
+    link: "https://www.volvoce.com/india/en-in/attachments/crawler-excavator-attachments/hydraulic-breakers/",
+  },
   {
     category: "Attachments",
     title: "Quick Couplers",
@@ -78,14 +86,7 @@ const ITEMS = [
     gallery: ["/assets/volvo-p-2.webp"],
     link: "https://www.volvoce.com/india/en-in/attachments/wheel-loader-attachments/loader-buckets/",
   },
-  {
-    category: "Attachments",
-    title: "Hydraulic Breakers",
-    subtitle: "Suitable carrier 10T - 100T",
-    img: "/assets/attach-4.png",
-    gallery: ["/assets/popup-3.png"],
-    link: "https://www.volvoce.com/india/en-in/attachments/crawler-excavator-attachments/hydraulic-breakers/",
-  },
+
   {
     category: "Attachments",
     title: "Wheel Loader Bracket",

@@ -15,10 +15,10 @@ export default function HusqvarnaSection() {
           />
 
           {/* Tagline */}
-          <h3 className="text-2xl font-bold leading-snug">
+          {/* <h3 className="text-2xl font-bold leading-snug">
             Precision,<span className="font-light"> Innovation,</span> <br />
             <span className="font-semibold">Trust.</span>
-          </h3>
+          </h3> */}
 
           {/* Divider */}
          

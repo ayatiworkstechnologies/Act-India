@@ -15,10 +15,10 @@ export default function VolvoSection() {
           />
 
           {/* Tagline */}
-          <h3 className="text-2xl font-bold leading-snug">
+          {/* <h3 className="text-2xl font-bold leading-snug">
             Strength,<span className="font-light"> Innovation,</span> <br />
             <span className="font-semibold">Reliability.</span>
-          </h3>
+          </h3> */}
 
           {/* Divider */}
          
@@ -49,11 +49,8 @@ export default function VolvoSection() {
 
           {/* Description */}
           <p className="text-gray-700 text-base leading-relaxed">
-            Volvo is a global leader in trucks, buses, construction equipment,
-            and industrial power systems. ACT, through its group company PACT
-            Machines Pvt. Ltd., is an authorized dealer for Volvo Construction
-            Equipment in Tamil Nadu and Kerala. Volvo operates on strong core
-            values: Quality, Safety, and Environmental Care.
+           Founded in 1927, the Volvo Group is committed to shaping the future landscape of sustainable transport and infrastructure solutions. Every day our customers use our products and services to transport, deliver, build, and ferry goods, objects and people around the world. Our products and services help to put food on our tables, carry people to work or school, build roads, keep our cities clean and much, much more, effectively helping to meet the growing demands of our world. <br/>
+           ACT & its group company PACT MACHINES have been the authorised dealer for VOLVO CONSTRUCTION EQUIPMENT products for 2 decades (since 2007) in the 2 south Indian states of Tamil Nadu & Kerala respectoively. This long and successful association is testimony to the trust and capability of delivering value to our customers over the years.
           </p>
 
          

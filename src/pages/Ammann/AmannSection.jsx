@@ -15,10 +15,10 @@ export default function AmannSection() {
           />
 
           {/* Tagline */}
-          <h3 className="text-2xl font-bold leading-snug">
+          {/* <h3 className="text-2xl font-bold leading-snug">
              Proven,<span className="font-light">Progressive,</span> <br />
             <span className="font-semibold">Pioneering.</span>
-          </h3>
+          </h3> */}
 
           {/* Divider */}
           

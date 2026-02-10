@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 
 /* ---- Replace these with your real images/titles/subtitles ---- */
-const CATEGORIES = ["Products", "Supplies"];
+const CATEGORIES = ["Products"];
 
 const ITEMS = [
   // Products

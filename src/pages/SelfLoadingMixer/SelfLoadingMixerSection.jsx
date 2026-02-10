@@ -15,10 +15,10 @@ export default function SelfLoadingMixerSection() {
           />
 
           {/* Tagline */}
-          <h3 className="text-2xl font-bold leading-snug">
+          {/* <h3 className="text-2xl font-bold leading-snug">
             Innovation,<span className="font-light">Quality,</span> <br />
             <span className="font-semibold">Precision.</span>
-          </h3>
+          </h3> */}
 
           {/* Divider */}
           
@@ -48,7 +48,10 @@ export default function SelfLoadingMixerSection() {
 
           {/* Description */}
           <p className="text-gray-700 text-base leading-relaxed">
-            As a global leader in construction equipment, SCHWING STETTER is synonymous with Innovation, Efficiency, and Superior Performance. ACT, through its group company PACT Machines Pvt. Ltd., proudly serves as the authorized dealer for SCHWING STETTER Construction Equipment across Tamil Nadu and Kerala. Together, we empower infrastructure growth with world-class machinery, reliable support, and unmatched concrete mixing standards.
+            SCHWING STETTER is the world's leading system house for concrete construction machines, offering the entire spectrum of ready-mix concrete technology. <br/>
+            The premium products offered for the production, transport, placing and environmentally friendly recycling of concrete mean maximum safety, reliability and cost-effectiveness for customers - with the highest resale value for SCHWING-Stetter products. <br/>
+            SCHWING STETTER India is a 100% subsidiary of the Schwing group of companies GmbH was incorporated in the year 1998. A pioneer in concrete construction equipment manufacturing As a global leader in construction equipment. <br/>
+            ACT & its group company PACT MACHINES were appointed as authorised dealer for SCHWING STETTER products in the 2 south Indian states of Tamil Nadu & Kerala respectively since Nov 2025.
           </p>
 
          

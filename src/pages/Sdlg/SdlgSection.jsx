@@ -15,10 +15,10 @@ export default function SdlgSection() {
           />
 
           {/* Tagline */}
-          <h3 className="text-2xl font-bold leading-snug">
+          {/* <h3 className="text-2xl font-bold leading-snug">
              Reliable,<span className="font-light"> Afford,</span> <br />
             <span className="font-semibold">Efficient.</span>
-          </h3>
+          </h3> */}
 
           {/* Divider */}
           
@@ -48,7 +48,8 @@ export default function SdlgSection() {
 
           {/* Description */}
           <p className="text-gray-700 text-base leading-relaxed">
-            SDLG (Shandong Lingong Construction Machinery) is a trusted global brand known for delivering reliable and cost-effective construction machinery since 1972. Backed by Volvo CE since 2007, SDLG combines robust engineering with global standards to serve infrastructure and construction needs worldwide. Its value-driven machines are designed for performance, durability, and easy maintenance making them ideal for high-demand environments. 
+            SDLG (Shandong Lingong Construction Machinery) is a trusted global brand known for delivering reliable and cost-effective construction machinery since 1972. Backed by Volvo CE since 2007, SDLG combines robust engineering with global standards to serve infrastructure and construction needs worldwide. Its value-driven machines are designed for performance, durability, and easy maintenance making them ideal for high-demand environments.<br/>
+            ACT has been the authorised dealer for SDLG products since 2008 in the 2 south Indian states of Tamil Nadu & Kerala. This long and successful association is testimony to the trust and capability of delivering value to our customers over the years.
           </p>
 
          

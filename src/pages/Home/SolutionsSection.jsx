@@ -19,7 +19,9 @@ export default function SolutionsSection () {
             Services
           </h2>
           <p className="mt-4 text-gray-700 max-w-3xl mx-auto font-secondary">
-            Our offerings span a complete support ecosystem — from Precare solutions that safeguard your equipment and optimize performance, to Auxiliary Services that provide essential on-ground support. We also deliver Equipment-as-a-Service, giving you flexible access to advanced machinery without heavy capital investments. To ensure safe and efficient operations, we provide Operator Training and Certification, empowering your workforce with the skills and confidence to excel.
+           As authorised dealer for world leading construction equipment brands, we commit ourselves to providing proactive service solutions designed to deliver maximum uptime, enhanced performance and longer economic life.<br/>
+           Our customised aftermarket packages ensure customer’s success and our LIFECYCLE SOLUTIONS ensures CRADLE to CRADLE solutions based on customer needs. <br/>
+           Supported by a competent team of OEM trained expert, we enable customers to reduce operating costs, improve productivity and thereby achieve maximum return on their equipment.
           </p>
 
           <Link

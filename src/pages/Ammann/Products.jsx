@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
-const CATEGORIES = ["Products", "Supplies"];
+const CATEGORIES = ["Products"];
 
 const ITEMS = [
   {

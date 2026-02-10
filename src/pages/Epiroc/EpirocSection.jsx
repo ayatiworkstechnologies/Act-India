@@ -15,10 +15,10 @@ export default function EpirocSection() {
           />
 
           {/* Tagline */}
-          <h3 className="text-2xl font-bold leading-snug">
+          {/* <h3 className="text-2xl font-bold leading-snug">
              Innovation,<span className="font-light"> Precision,</span> <br />
             <span className="font-semibold">Performance.</span>
-          </h3>
+          </h3> */}
 
           {/* Divider */}
           
@@ -47,7 +47,8 @@ export default function EpirocSection() {
          
           {/* Description */}
           <p className="text-gray-700 text-base leading-relaxed">
-            Epiroc is a global technology leader and trusted productivity partner for the mining and infrastructure industries. With a legacy dating back to 1873, Epiroc delivers cutting-edge equipment, consumables, and services for surface and underground mining, civil construction, and well drilling. Born from the legacy of Atlas Copco, Epiroc has been driving progress as a stand-alone brand since 2018 delivering innovation where it matters most.
+            Epiroc is a global technology leader and trusted productivity partner for the mining and infrastructure industries. With a legacy dating back to 1873, Epiroc delivers cutting-edge equipment, consumables, and services for surface and underground mining, civil construction, and well drilling. Born from the legacy of Atlas Copco, Epiroc has been driving progress as a stand-alone brand since 2018 delivering innovation where it matters most. <br/>
+            ACT has been the authorised dealer for ATLAS COPCO / EPIROC products for 2 decades (since 2007) in the 2 south Indian states of Tamil Nadu & Kerala. This long and successful association is testimony to the trust and capability of delivering value to our customers over the years.
           </p>
 
          

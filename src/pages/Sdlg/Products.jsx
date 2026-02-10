@@ -1,7 +1,7 @@
 // ProductsShowcase.jsx
 import React, { useState, useEffect, useCallback } from "react";
 
-const CATEGORIES = ["Products", "Supplies"];
+const CATEGORIES = ["Products"];
 
 const ITEMS = [
   {
