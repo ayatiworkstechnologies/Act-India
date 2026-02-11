@@ -8,7 +8,7 @@ const ITEMS = [
     category: "Products",
     title: "Tracked Pavers",
     subtitle: "Paving Width, max 4.5m - 13m",
-    img: "/assets/amman-1.png",
+    img: "/assets/a-p-1.png",
     gallery: ["/assets/amman-p-1.webp"],
     link: "https://www.ammann.com/en-IN/machines/asphalt-pavers/asphalt-pavers/?products%5BrefinementList%5D%5Bundercarriage%5D%5B0%5D=Tracked",
   },
@@ -16,11 +16,11 @@ const ITEMS = [
     category: "Products",
     title: "Wheeled Pavers",
     subtitle: "Paving Width, max 4.5m - 9m",
-    img: "/assets/amman-2.png",
+    img: "/assets/a-p-2.png",
     gallery: ["/assets/popup-20.png"],
     link: "https://www.ammann.com/en-IN/machines/asphalt-pavers/",
   },
-  { category: "Supplies", img: "/assets/supplies-4.png" },
+  
 ];
 
 export default function AmmannProducts() {

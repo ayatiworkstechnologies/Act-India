@@ -8,7 +8,7 @@ const ITEMS = [
     category: "Products",
     title: "Crawler Excavator",
     subtitle: "Operating Weight: 8T - 14T",
-    img: "/assets/sdlg-1.png",
+    img: "/assets/s-p-1.png",
     gallery: ["/assets/sdlg-p-1.jpg", "/assets/sdlg-p-2.jpg", "/assets/sdlg-p-3.jpg"],
     link: "https://sdlgindia.com/products/#excavators",
   },
@@ -16,7 +16,7 @@ const ITEMS = [
     category: "Products",
     title: "Wheel Loaders",
     subtitle: "Rated Load (kg) 1.6T - 8T",
-    img: "/assets/sdlg-2.png",
+    img: "/assets/s-p-2.png",
     gallery: ["/assets/sdlg-p-4.png", "/assets/sdlg-p-5.png", "/assets/sdlg-p-6.jpg", "/assets/sdlg-p-7.jpg", "/assets/sdlg-p-8.png"],
     link: "https://sdlgindia.com/products/#wheel-loaders",
   },
@@ -24,7 +24,7 @@ const ITEMS = [
     category: "Products",
     title: "Motor Grader",
     subtitle: "Rated Power (kw) 105 - 211",
-    img: "/assets/sdlg-3.png",
+    img: "/assets/s-p-3.png",
     gallery: ["/assets/sdlg-p-9.jpg", "/assets/sdlg-p-10.jpg", "/assets/sdlg-p-11.jpg"  ],
     link: "https://sdlgindia.com/products/#graders",
   },
@@ -32,11 +32,11 @@ const ITEMS = [
     category: "Products",
     title: "Hydraulic Breakers",
     subtitle: "Suitable carrier 7T - 34T",
-    img: "/assets/sdlg-4.png",
+    img: "/assets/s-p-4.png",
     gallery: ["/assets/popup-18.png"],
     link: "#",
   },
-  { category: "Supplies", img: "/assets/supplies-3.png" },
+ 
 ];
 
 export default function ProductsShowcase() {

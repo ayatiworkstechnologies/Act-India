@@ -78,7 +78,7 @@ function ValueCard({ num, title, copy }) {
   return (
     <article className="relative bg-white rounded-xl shadow-[0_25px_60px_-30px_rgba(0,0,0,0.35)] transition hover:shadow-[0_30px_70px_-32px_rgba(0,0,0,0.35)]">
       {/* Full-bleed dotted border on the card itself */}
-      <span className="pointer-events-none absolute inset-0 rounded-xl border-2 border-dotted border-blue-400/70" />
+      <span className="pointer-events-none absolute inset-0 rounded-xl border-2  border-primary" />
 
       <div className="p-4 md:p-5">
         <h3 className="text-[13px] md:text-sm font-extrabold tracking-wide uppercase text-neutral-900">

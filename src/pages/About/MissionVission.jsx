@@ -10,7 +10,7 @@ export default function MissionVision({
     "We will consistently deliver profitable growth and build sustainable, scalable streams of business.",
   ],
   visionText = "ACT will enrich the construction and infrastructure sector through innovative technology and solutions.",
-  visionImage = "/assets/vision-new.png",
+  visionImage = "/assets/vision.png",
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
