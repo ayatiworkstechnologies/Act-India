@@ -98,9 +98,7 @@ export default function ContactSection() {
             ABOUT <br />
             YOUR NEEDS
           </h2>
-          <p className="text-gray-400 max-w-md font-primary font-semibold">
-            Looking for top-quality services and trusted dealership solutions? Reach out to us today.
-          </p>
+         
 
           {/* Contact Info */}
           <div className="space-y-4 pt-4">

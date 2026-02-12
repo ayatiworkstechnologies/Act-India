@@ -15,7 +15,7 @@ export default function ServiceTabs() {
           <div className="flex gap-8 border-b border-gray-300">
             <button
               onClick={() => setActiveTab("tab1")}
-              className={`pb-3 text-sm md:text-base font-medium transition-all duration-300 relative
+              className={`pb-3 font-primary text-xl font-medium transition-all duration-300 relative
                 ${
                   activeTab === "tab1"
                     ? "text-secondary border-b-2 border-secondary"
@@ -27,7 +27,7 @@ export default function ServiceTabs() {
 
             <button
               onClick={() => setActiveTab("tab2")}
-              className={`pb-3 text-sm md:text-base font-medium transition-all duration-300
+              className={`pb-3 font-primary text-xl font-medium transition-all duration-300
                 ${
                   activeTab === "tab2"
                     ?  "text-secondary border-b-2 border-secondary"
@@ -39,7 +39,7 @@ export default function ServiceTabs() {
 
             <button
               onClick={() => setActiveTab("tab3")}
-              className={`pb-3 text-sm md:text-base font-medium transition-all duration-300
+              className={`pb-3 font-primary text-xl font-medium transition-all duration-300
                 ${
                   activeTab === "tab3"
                     ?  "text-secondary border-b-2 border-secondary"

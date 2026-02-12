@@ -31,7 +31,7 @@ const rowOne = [
 
 const rowTwo = [
   {
-    sectionTitle: "Auxillary Service",
+    
     title: "Auxillary service solutions",
     desc: "Comprehensive heavy equipment refurbishment — from hard-facing and bush replacements to structural welding, bucket rebuilds, and track link reconditioning.",
     icons: [
@@ -44,7 +44,7 @@ const rowTwo = [
     link: "/services",
   },
   {
-    sectionTitle: "Operator Training",
+    
     title: "Operator training & certification",
     desc: "We conduct annual ESC certification programs to gain participants in safe and efficient equipment operation.",
     icons: [
@@ -116,9 +116,9 @@ export default function ServiceGrid() {
         className="mb-10"
       >
         <div className="flex items-center gap-4 md:gap-6">
-          <h3 className="text-3xl md:text-4xl font-bold font-primary">
+          <h2 className="text-2xl md:text-3xl font-bold font-primary">
             Equipment Life Cycle Solutions
-          </h3>
+          </h2>
           <img
             src="/assets/lifecycle-logo.svg"
             alt="Logo"

@@ -7,7 +7,7 @@ const SLIDES = [
   {
     label: "IESC certification program",
     caption:
-      "IESC and VOLVO ACT Team during IESC certification program at Madurai-South Zone",
+      "IESC and  ACT VOLVO Team during IESC certification program at Madurai-South Zone",
     img: "/assets/operator-1.png",
   },
   {
@@ -60,7 +60,7 @@ export default function OperatorTrainingCertSection() {
             {/* TITLE + LOGO (added here)     */}
             {/* ----------------------------- */}
             <div className="flex items-center gap-3">
-              <h2 className="text-[36px] tracking-tight">
+              <h2 className="text-3xl font-bold font-primary tracking-tight">
                 Operator Training and Certification
               </h2>
 
@@ -99,21 +99,7 @@ export default function OperatorTrainingCertSection() {
               ))}
             </ul>
 
-            {/* caption card */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={s.caption}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.35 }}
-                className="mt-6 inline-block rounded-xl bg-white px-5 py-4 ring-1 ring-gray-200"
-              >
-                <p className="font-semibold text-[15px] leading-snug">
-                  {s.caption}
-                </p>
-              </motion.div>
-            </AnimatePresence>
+           
           </div>
 
           {/* MIDDLE: vertical dots (pager) */}
@@ -169,6 +155,21 @@ export default function OperatorTrainingCertSection() {
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/15 to-transparent" />
               </div>
             </div>
+             {/* caption card */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={s.caption}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.35 }}
+                className="mt-6 inline-block rounded-xl bg-white px-5 py-4 ring-1 ring-gray-200"
+              >
+                <p className="font-medium text-[15px] leading-snug">
+                  {s.caption}
+                </p>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
         </div>

@@ -80,9 +80,9 @@ export default function GroupOfCompaniesSlider() {
     <section className="w-full py-12">
       {/* Title */}
       <div className="mx-auto max-w-5xl px-4">
-        <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center">
-          Group Companies 
-        </h2>
+          <h2 className="text-2xl md:text-3xl font-bold font-primary text-center">
+            Group of Companies
+          </h2>
         
       </div>
 

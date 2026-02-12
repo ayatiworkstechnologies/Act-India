@@ -23,7 +23,7 @@ export default function HomePage() {
       <ServiceSlider />
       <Infrastructure />
       <OurNetwork />
-       <GridPage />
+       {/* <GridPage /> */}
       <CompaniesCarousel />
       <ContactSection />
     </>

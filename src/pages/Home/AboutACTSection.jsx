@@ -16,11 +16,11 @@ export default function AboutACT() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-3 font-primary">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-3 font-primary">
               About ACT
-            </h3>
+            </h2>
           
-            <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 font-secondary text-black">Our Legacy of Excellence</h4>
+            <h5 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 font-secondary text-black">Our Legacy of Excellence</h5>
             <p className="text-black text-sm sm:text-base leading-relaxed font-secondary">
              Advanced Construction Technologies Pvt Ltd, ACT was established by Mohan Ramanathan as part of a 70 year old business conglomerate with multiple business interests. ACT provides a gateway to bring new and advanced products and services from across the globe to support the Indian Construction Industry. With more than 30 years of excellence in the field of construction, ACT remains a leader in providing solutions in the forms of equipment and services to the construction and infrastructure segments.
             </p>

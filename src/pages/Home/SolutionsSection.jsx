@@ -15,7 +15,7 @@ export default function SolutionsSection () {
           viewport={{once: true}}
           className="text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-black font-primary">
+          <h2 className="text-2xl md:text-3xl font-bold text-black font-primary">
             Services
           </h2>
           <p className="mt-4 text-gray-700 max-w-3xl mx-auto font-secondary">

@@ -48,16 +48,9 @@ export default function ValuesSection() {
         <div className="grid grid-cols-12 gap-8 lg:gap-10">
           {/* Left copy */}
           <div className="col-span-12 lg:col-span-4">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight">
-              Guided by <br />
-              <span className="">Integrity,</span> <br />
-              Driven <span className="">Forward</span>
+            <h2 className="text-2xl md:text-3xl lg:text-5xl leading-tight">
+              Our Core Values
             </h2>
-
-            <p className="mt-6 max-w-[28rem] text-sm md:text-base text-neutral-600 leading-relaxed">
-              We provide secure warehouses and well-managed stockyards designed
-              to streamline storage, handling, and distribution.
-            </p>
           </div>
 
           {/* Values grid */}

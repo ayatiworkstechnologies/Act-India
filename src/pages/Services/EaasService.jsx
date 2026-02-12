@@ -56,7 +56,7 @@ export default function EaasService () {
 
             {/* ⭐ UPDATED: Title + Logo Side by Side ⭐ */}
             <div className="flex items-center gap-3">
-              <h2 className="text-[24px] tracking-tight">
+              <h2 className="text-3xl font-bold font-primary tracking-tight">
                 EAAS (Equipment as a Service)
               </h2>
 
@@ -96,9 +96,9 @@ export default function EaasService () {
               </li>
             </ul>
 
-            <h2 className="text-2xl md:text-2xl font-bold tracking-tight mt-6">
+            <h4 className="text-2xl md:text-xl font-bold tracking-tight mt-6">
               Smart Choices, Smarter Operations
-            </h2>
+            </h4>
 
             {/* Feature grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">

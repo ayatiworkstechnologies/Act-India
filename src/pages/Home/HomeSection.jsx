@@ -14,7 +14,7 @@ const slides = [
   { id: 3, desktop: "/assets/banner/SDLG-web.jpg", mobile: "/assets/banner/SDLG-mob.jpg", link: "/sdlg" },
   { id: 5, desktop: "/assets/banner/Ammann-web.jpg", mobile: "/assets/banner/Ammann-mob.jpg", link: "/ammann" },
   { id: 4, desktop: "/assets/banner/h-web.jpg", mobile: "/assets/banner/h-mob.jpg", link: "/husqvarna" },
-    { id: 6, desktop: "/assets/banner/s-web.jpg", mobile: "/assets/banner/s-mob.jpg", link: "/self-loader-mixer" },
+    { id: 6, desktop: "/assets/banner/s-web.jpg", mobile: "/assets/banner/s-mob.jpg", link: "/self-loading-mixer" },
 ];
 
 export default function HomeSection() {

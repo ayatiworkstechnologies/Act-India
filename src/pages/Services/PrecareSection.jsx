@@ -53,10 +53,7 @@ export default function PrecareSection() {
   return (
     <section className="w-full bg-white text-neutral-900" id="precare">
       <div className="mx-auto max-w-6xl px-6 md:px-10 py-16">
-       
-
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-          
           {/* ===== LEFT: image + label, both slide ===== */}
           <div className="md:col-span-3">
             <div className="relative h-[280px] md:h-[360px] lg:h-[380px] w-full overflow-hidden ">
@@ -109,7 +106,7 @@ export default function PrecareSection() {
               viewport={{ once: true }}
               className="flex items-center gap-3"
             >
-              <h2 className="text-[24px] tracking-tight">
+              <h2 className="text-3xl font-bold font-primary tracking-tight">
                 Precare Secure 360°
               </h2>
 
