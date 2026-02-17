@@ -32,7 +32,7 @@ const GROUPS = [
     ],
   },
   {
-    company: { name: "Bomanite LLP", logo: "/assets/bom.png" },
+    company: { name: "Bomacrete LLP", logo: "/assets/bom.png" },
     cols: 1,
     partners: [
       { name: "Bomanite Systems", logo: "/assets/bomanite.png" },
@@ -138,21 +138,21 @@ export default function GroupOfCompaniesSlider() {
             <div className="mx-auto w-full max-w-sm p-4 md:p-5 ">
               <ul className={`grid ${partnerCols} gap-4`}>
                {group.partners.map((p, i) => (
-  <li key={p.name}>
-    <div className="flex items-center justify-center px-4 py-2">
-      <img
-        src={p.logo}
-        alt={p.name}
-        className="w-full h-20 object-contain"
-      />
-    </div>
+                  <li key={p.name}>
+                    <div className="flex items-center justify-center px-4 py-2">
+                      <img
+                        src={p.logo}
+                        alt={p.name}
+                        className="w-full h-20 object-contain"
+                      />
+                    </div>
 
-    {/* Divider line except after last item */}
-    {i < group.partners.length - 1 && (
-      <div className="w-full h-px bg-gray-300 my-2" />
-    )}
-  </li>
-))}
+                    {/* Divider line except after last item */}
+                    {i < group.partners.length - 1 && (
+                      <div className="w-full h-px bg-gray-300 my-2" />
+                    )}
+                  </li>
+                ))}
 
               </ul>
             </div>
