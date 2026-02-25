@@ -45,25 +45,7 @@ Developing and Empowering Future Leaders
               ACT delivers secure, high-efficiency warehouses and stockyards engineered to streamline storage, handling, and distribution for enterprise-scale operations. Our infrastructure integrates modern equipment, optimized workflows, and rigorous process controls to drive efficiency and reduce cost-to-serve. With industry-aligned training zones and fully equipped technical environments, we build talent that meets global brand standards while ensuring consistent operational excellence. 
             </p>
 
-            {/* ✅ 4 different icon images */}
-            <ul className="mt-6 flex flex-wrap gap-5">
-              {FEATURE_ICONS.map(({ src, alt }, i) => (
-                <li
-                  key={i}
-                  className="flex h-10 w-10 items-center justify-center rounded-md border border-blue-600/30 bg-blue-50"
-                  title={alt}
-                  aria-label={alt}
-                >
-                  <img
-                    src={src}
-                    alt={alt}
-                    className="h-5 w-5 object-contain"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </li>
-              ))}
-            </ul>
+           
           </div>
         </div>
 

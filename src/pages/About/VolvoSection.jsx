@@ -26,7 +26,7 @@ export default function VolvoSection() {
           {/* Image with Left-aligned Arrows */}
           <div className="relative w-full justify-start">
             <img
-              src="/assets/volvo.webp"
+              src="/assets/ec.jpg"
               alt="Volvo Excavator"
               className="w-full"
             />
@@ -39,9 +39,7 @@ export default function VolvoSection() {
         <div className="space-y-6">
           <h2 className="text-3xl font-bold leading-snug">
             <span className="font-extrabold">Volvo</span>{" "}
-            <span className="font-normal">
-              Construction Solutions Backed by ACT Expertise
-            </span>
+          
           </h2>
 
           {/* Divider */}

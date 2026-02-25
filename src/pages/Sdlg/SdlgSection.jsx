@@ -23,9 +23,9 @@ export default function SdlgSection() {
           {/* Divider */}
           
           {/* Image with Left-aligned Arrows */}
-          <div className="relative w-[400px] justify-start">
+          <div className="relative justify-start">
             <img
-              src="/assets/sdlg-img.png"
+              src="/assets/sd.jpeg"
               alt="Volvo Excavator"
               className="w-full"
             />
@@ -38,9 +38,7 @@ export default function SdlgSection() {
         <div className="space-y-6">
           <h2 className="text-3xl font-bold leading-snug">
             <span className="font-extrabold">SDLG</span>{" "}
-            <span className="font-normal">
-             Powering Global Construction with Reliability
-            </span>
+            
           </h2>
 
           {/* Divider */}

@@ -88,25 +88,7 @@ export default function Warehouse() {
               ACT delivers secure, high-performance warehousing and meticulously managed stockyards designed to maximize operational flow for large-scale enterprises. Our infrastructure integrates advanced systems, optimized handling protocols, and rigorous process discipline to enhance inventory visibility, reduce operational overheads, and ensure seamless supply-chain continuity. 
             </p>
 
-            {/* ✅ 4 different icon images */}
-            <ul className="mt-6 flex flex-wrap gap-5">
-              {FEATURE_ICONS.map(({ src, alt }, i) => (
-                <li
-                  key={i}
-                  className="flex h-10 w-10 items-center justify-center rounded-md border border-blue-600/30 bg-blue-50"
-                  title={alt}
-                  aria-label={alt}
-                >
-                  <img
-                    src={src}
-                    alt={alt}
-                    className="h-5 w-5 object-contain"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </li>
-              ))}
-            </ul>
+           
 
            
           </div>

@@ -12,23 +12,7 @@ const ITEMS = [
     gallery: ["/assets/popup-slide-1.png", "/assets/popup-slide-2.png", "/assets/volvo-p-1.webp"],
     link: "https://www.volvoce.com/india/en-in/products/excavators/",
   },
-  {
-    category: "Products",
-    title: "Articulated Haulers",
-    subtitle: "Payload Capacity 25T - 50T",
-    img: "/assets/v-p-2.png",
-    gallery: ["/assets/popup-slide-5.png"],
-    link: "https://www.volvoce.com/india/en-in/products/articulated-haulers/",
-  },
-  {
-    category: "Products",
-    title: "Wheel Loaders",
-    subtitle: "Static tipping load at full turn 10T - 34T",
-    img: "/assets/v-p-3.png",
-    gallery: ["/assets/popup-slide-6.png"],
-    link: "https://www.volvoce.com/india/en-in/products/wheel-loaders/",
-  },
-  {
+   {
     category: "Products",
     title: "Vibratory Soil Compactor",
     subtitle: "Operating Weight 11T",
@@ -53,6 +37,25 @@ const ITEMS = [
     gallery: ["/assets/popup-slide-8.png"],
     link: "#",
   },
+   {
+    category: "Products",
+    title: "Wheel Loaders",
+    subtitle: "Static tipping load at full turn 10T - 34T",
+    img: "/assets/v-p-3.png",
+    gallery: ["/assets/popup-slide-6.png"],
+    link: "https://www.volvoce.com/india/en-in/products/wheel-loaders/",
+  },
+  {
+    category: "Products",
+    title: "Articulated Haulers",
+    subtitle: "Payload Capacity 25T - 50T",
+    img: "/assets/v-p-2.png",
+    gallery: ["/assets/popup-slide-5.png"],
+    link: "https://www.volvoce.com/india/en-in/products/articulated-haulers/",
+  },
+ 
+ 
+  
 
   // Attachments
     {

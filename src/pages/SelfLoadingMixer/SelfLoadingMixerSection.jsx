@@ -23,10 +23,10 @@ export default function SelfLoadingMixerSection() {
           {/* Divider */}
           
           {/* Image with Left-aligned Arrows */}
-          <div className="relative w-[400px] justify-start">
+          <div className="relative justify-start">
             <img
-              src="/assets/schwin-stetter.png"
-              alt="Volvo Excavator"
+              src="/assets/sch.jpeg"
+              alt="Schwing Stetter Equipment"
               className="w-full"
             />
 

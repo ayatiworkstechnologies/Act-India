@@ -24,10 +24,10 @@ export default function AmannSection() {
           
 
           {/* Image with Left-aligned Arrows */}
-          <div className="relative w-[400px] justify-start">
+          <div className="relative justify-start">
             <img
-              src="/assets/img.png"
-              alt="Volvo Excavator"
+              src="/assets/aman.webp"
+              alt="Ammann Equipment"
               className="w-full"
             />
 

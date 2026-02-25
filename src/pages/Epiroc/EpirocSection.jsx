@@ -23,10 +23,10 @@ export default function EpirocSection() {
           {/* Divider */}
           
           {/* Image with Left-aligned Arrows */}
-          <div className="relative w-[400px] justify-start">
+          <div className="relative justify-start">
             <img
-              src="/assets/epiroc-img.png"
-              alt="Volvo Excavator"
+              src="/assets/epi.webp"
+              alt="Epiroc Equipment"
               className="w-full"
             />
 

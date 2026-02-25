@@ -18,25 +18,25 @@ const dealers = [
   {
     id: 3,
     logo: "/assets/sdlg-brand.svg",
-    title: "Construction Equipment",
+    title: "Mfg of Heavy Construction Equipment",
     link: "/sdlg",
   },
   {
     id: 4,
     logo: "/assets/husqvarna-brand.svg",
-    title: "Road Machinery",
+    title: "Construction Equipment",
     link: "/husqvarna",
   },
   {
     id: 5,
     logo: "/assets/ammann-brand.svg",
-    title: "Mfg of Heavy Construction Equipment",
+    title: "Road Machinery",
     link: "/ammann",
   },
   {
     id: 6,
     logo: "/assets/schwing-stetter-brand.svg",
-    title: "Efficient. Compact. Ready-Mix Anywhere.",
+    title: "Concrete Machinery",
     link: "/self-loading-mixer",
   },
 ];

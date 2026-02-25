@@ -8,7 +8,7 @@ const ITEMS = [
     category: "Products",
     title: "Crawler Excavator",
     subtitle: "Operating Weight: 8T - 14T",
-    img: "/assets/s-p-1.png",
+    img: "/assets/e6.jpg",
     gallery: ["/assets/sdlg-p-1.jpg", "/assets/sdlg-p-2.jpg", "/assets/sdlg-p-3.jpg"],
     link: "https://sdlgindia.com/products/#excavators",
   },

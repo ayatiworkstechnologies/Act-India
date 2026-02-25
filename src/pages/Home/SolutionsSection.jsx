@@ -18,7 +18,7 @@ export default function SolutionsSection () {
           <h2 className="text-2xl md:text-3xl font-bold text-black font-primary">
             Services
           </h2>
-          <p className="mt-4 text-gray-700 max-w-3xl mx-auto font-secondary">
+          <p className="mt-4 text-gray-700 max-w-5xl mx-auto font-secondary">
            As authorised dealer for world leading construction equipment brands, we commit ourselves to providing proactive service solutions designed to deliver maximum uptime, enhanced performance and longer economic life.<br/>
            Our customised aftermarket packages ensure customer’s success and our LIFECYCLE SOLUTIONS ensures CRADLE to CRADLE solutions based on customer needs. <br/>
            Supported by a competent team of OEM trained expert, we enable customers to reduce operating costs, improve productivity and thereby achieve maximum return on their equipment.

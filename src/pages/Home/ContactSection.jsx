@@ -106,14 +106,26 @@ export default function ContactSection() {
               <Mail className="text-secondary" size={22} />
               <p className="text-gray-700">
                 <span className="block font-medium">E-mail</span>
-                actindia@gmail.com
+               info@actind.com
               </p>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="text-secondary" size={22} />
               <p className="text-gray-700">
                 <span className="block font-medium">Phone Number</span>
-                +91 95952 22292
+                +91 98847 57350
+              </p>
+            </div>
+             <div className="flex items-center gap-3">
+              
+              <p className="text-gray-700">
+                <span className="block font-bold">Address</span>
+                  No. 5/55, Kuthambakkam Village & Post, <br/>
+                  Forest Range Road, <br/>
+                  Chettipedu, Poonamallee TK, <br/>
+                  Thiruvallur Dist., <br/>
+                  Chennai – 600124, <br/>
+                  India
               </p>
             </div>
           </div>

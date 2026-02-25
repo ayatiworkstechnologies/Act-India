@@ -24,10 +24,10 @@ export default function HusqvarnaSection() {
          
 
           {/* Image with Left-aligned Arrows */}
-          <div className="relative w-[400px] justify-start">
+          <div className="relative justify-start">
             <img
-              src="/assets/husquvarna-img.png"
-              alt="Volvo Excavator"
+              src="/assets/hus.jpeg"
+              alt="Husqvarna Equipment"
               className="w-full"
             />
 
