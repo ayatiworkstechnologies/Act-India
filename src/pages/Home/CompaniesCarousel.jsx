@@ -25,7 +25,8 @@ const GROUPS = [
              { name: "Linde", logo: "/assets/linde.png" },
                 { name: "KÄRCHER", logo: "/assets/karcher.png" },
                      { name: "CompAir", logo: "/assets/compair.png" },
-      { name: "KELLEY", logo: "/assets/kelly.png" },
+                     { name: "KELLEY", logo: "/assets/kelly.png" },
+                     {name: "Schwing Stetter", logo: "/assets/sch-logo.png" },
  
      
    
