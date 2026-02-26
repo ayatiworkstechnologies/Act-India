@@ -106,7 +106,7 @@ export default function StatsSection() {
     {/* RIGHT – FULL-WIDTH IMAGE */}
     <div className="h-full">
     <img
-  src="/assets/act-why-choose.jpg"
+  src="/assets/why-image.png"
   alt="ACT Construction Equipment"
   className="w-full max-h-[520px] object-contain"
 />
