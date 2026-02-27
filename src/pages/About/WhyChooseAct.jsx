@@ -7,7 +7,7 @@ export default function WhyChooseACT() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
         {/* Left content */}
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
             Why Choose ACT
           </h2>
           <div className="w-32 h-[3px] bg-gradient-to-r from-blue-500 to-blue-800"></div>

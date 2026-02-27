@@ -11,10 +11,10 @@ import "swiper/css/navigation";
 const slides = [
   { id: 1, desktop: "/assets/banner/v-web.jpg", mobile: "/assets/banner/v-mob.jpg", link: "/volvo" },
   { id: 2, desktop: "/assets/banner/e-web.jpg", mobile: "/assets/banner/e-mob.jpg", link: "/epiroc" },
-  { id: 3, desktop: "/assets/banner/SDLG-web.jpg", mobile: "/assets/banner/SDLG-mob.jpg", link: "/sdlg" },
-  { id: 5, desktop: "/assets/banner/aman-new.jpg", mobile: "/assets/banner/aman-mob-new.jpg", link: "/ammann" },
-  { id: 4, desktop: "/assets/banner/hus-new.jpg", mobile: "/assets/banner/hus-mob-new.jpg", link: "/husqvarna" },
-    { id: 6, desktop: "/assets/banner/sch-new.jpg", mobile: "/assets/banner/sch-mob-new.jpg", link: "/self-loading-mixer" },
+  { id: 3, desktop: "/assets/banner/s-web.jpg", mobile: "/assets/banner/s-mob.jpg", link: "/sdlg" },
+  { id: 5, desktop: "/assets/banner/a-web.jpg", mobile: "/assets/banner/a-mob.jpg", link: "/ammann" },
+  { id: 4, desktop: "/assets/banner/h-web.jpg", mobile: "/assets/banner/h-mob.jpg", link: "/husqvarna" },
+    { id: 6, desktop: "/assets/banner/sc-web.jpg", mobile: "/assets/banner/sc-mob.jpg", link: "/self-loading-mixer" },
 ];
 
 export default function HomeSection() {

@@ -52,7 +52,7 @@ export default function EaasService () {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
           {/* ============ LEFT ============ */}
-          <div className="lg:col-span-7 space-y-5">
+          <div className="lg:col-span-12 space-y-5">
 
             {/* ⭐ UPDATED: Title + Logo Side by Side ⭐ */}
             <div className="flex items-center gap-3">
@@ -78,23 +78,52 @@ export default function EaasService () {
               ensuring you only pay for what you use.
             </p>
 
-            <ul className="list-disc list-inside space-y-2">
-              <li className="text-[15px] leading-relaxed text-neutral-700">
-                <strong>Seamless Equipment Access</strong>
-              </li>
-              <li className="text-[15px] leading-relaxed text-neutral-700">
-                <strong>Predictive Maintenance</strong>
-              </li>
-              <li className="text-[15px] leading-relaxed text-neutral-700">
-                <strong>Cost Efficient Operations</strong>
-              </li>
-              <li className="text-[15px] leading-relaxed text-neutral-700">
-                <strong>Maximized Performance</strong>
-              </li>
-              <li className="text-[15px] leading-relaxed text-neutral-700">
-                <strong>Flexible Plans</strong>
-              </li>
-            </ul>
+                     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <li className="flex items-start gap-3 text-[15px] text-neutral-700">
+    <img
+      src="/assets/seam.png"
+      alt="Seamless Equipment Access"
+      className="w-5 h-5 mt-1 shrink-0"
+    />
+    <strong>Seamless Equipment Access</strong>
+  </li>
+
+  <li className="flex items-start gap-3 text-[15px] text-neutral-700">
+    <img
+      src="/assets/pred.png"
+      alt="Predictive Maintenance"
+      className="w-5 h-5 mt-1 shrink-0"
+    />
+    <strong>Predictive Maintenance</strong>
+  </li>
+
+  <li className="flex items-start gap-3 text-[15px] text-neutral-700">
+    <img
+      src="/assets/cost.png"
+      alt="Cost Efficient Operations"
+      className="w-5 h-5 mt-1 shrink-0"
+    />
+    <strong>Cost Efficient Operations</strong>
+  </li>
+
+  <li className="flex items-start gap-3 text-[15px] text-neutral-700">
+    <img
+      src="/assets/maxi.png"
+      alt="Maximized Performance"
+      className="w-5 h-5 mt-1 shrink-0"
+    />
+    <strong>Maximized Performance</strong>
+  </li>
+
+  <li className="flex items-start gap-3 text-[15px] text-neutral-700">
+    <img
+      src="/assets/flex.png"
+      alt="Flexible Plans"
+      className="w-5 h-5 mt-1 shrink-0"
+    />
+    <strong>Flexible Plans</strong>
+  </li>
+</ul>
 
             <h4 className="text-2xl md:text-xl font-bold tracking-tight mt-6">
               Smart Choices, Smarter Operations
@@ -119,46 +148,7 @@ export default function EaasService () {
           </div>
 
           {/* ============ RIGHT (Auto Slider) ============ */}
-          <div className="lg:col-span-5">
-            <div className="relative overflow-hidden">
-
-              {/* Image Slider */}
-              <div className="relative h-[360px] md:h-[420px]">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={current.src}
-                    src={current.src}
-                    alt={current.label}
-                    className="absolute inset-0 h-full w-full object-cover"
-                    initial={{opacity: 0, x: 40}}
-                    animate={{opacity: 1, x: 0}}
-                    exit={{opacity: 0, x: -40}}
-                    transition={{duration: 0.5, ease: 'easeOut'}}
-                  />
-                </AnimatePresence>
-
-                {/* Label Tag */}
-                <div className="absolute top-4 left-4">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={current.label}
-                      initial={{opacity: 0, y: -8}}
-                      animate={{opacity: 1, y: 0}}
-                      exit={{opacity: 0, y: 8}}
-                      transition={{duration: 0.35, ease: 'easeOut'}}
-                      className="inline-block bg-secondary text-white text-xs md:text-sm font-medium px-4 py-2 rounded-md"
-                    >
-                      {current.label}
-                    </motion.span>
-                  </AnimatePresence>
-                </div>
-
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/15 to-transparent" />
-              </div>
-
-              <div className="h-4" />
-            </div>
-          </div>
+          
 
         </div>
       </div>

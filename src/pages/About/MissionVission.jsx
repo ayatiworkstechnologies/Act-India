@@ -19,8 +19,8 @@ export default function MissionVision({
         <div className="grid grid-cols-12 items-center gap-8 mb-20">
           
           {/* Big Left Title */}
-          <div className="col-span-12 lg:col-span-4">
-            <h2 className="text-6xl md:text-7xl font-extrabold tracking-tight text-neutral-200">
+          <div className="col-span-12 lg:col-span-4 flex lg:justify-center">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black">
               VISION
             </h2>
           </div>
@@ -83,8 +83,8 @@ export default function MissionVision({
           </div>
 
           {/* Right Big Mission Heading */}
-          <div className="col-span-12 lg:col-span-4 flex lg:justify-end">
-            <h2 className="text-6xl md:text-7xl font-extrabold tracking-tight text-neutral-200">
+          <div className="col-span-12 lg:col-span-4 flex lg:justify-center">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black">
               MISSION
             </h2>
           </div>
