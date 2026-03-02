@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState, useCallback } from "react";
-
+import { useState, useMemo, useCallback, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 const CATEGORIES = ["Products", "Attachments", "Electric Machines"];
 
 const ITEMS = [
@@ -152,6 +152,22 @@ const ITEMS = [
   },
 ];
 
+// Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // This creates the "one-by-one" effect
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function ProductsShowcase() {
   const [active, setActive] = useState("Products");
   const [selected, setSelected] = useState(null);
@@ -170,11 +186,14 @@ export default function ProductsShowcase() {
                 <button
                   key={c}
                   onClick={() => setActive(c)}
-                  className={`relative py-3 -mb-px transition-colors}`}
+                  className="relative py-3 -mb-px transition-colors"
                 >
                   {c}
                   {isActive && (
-                    <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full" />
+                    <motion.span 
+                      layoutId="underline" 
+                      className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full" 
+                    />
                   )}
                 </button>
               );
@@ -182,24 +201,31 @@ export default function ProductsShowcase() {
           </nav>
         </div>
 
-        {/* Supplies: big showcase */}
-        {active === "Supplies" ? (
-          <div className="mx-auto">
-            <div className="p-2">
-              <img src={current[0]?.img} alt={current[0]?.title || "Supplies"} className="w-full h-auto object-contain bg-white" />
-            </div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {current.map((p, i) => (
-              <ProductCard key={`${p.title}-${i}`} {...p} onClick={() => setSelected(p)} />
-            ))}
-          </div>
-        )}
+        {/* Grid with staggered animation */}
+        <motion.div
+          key={active} // Re-runs animation when category changes
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className={active === "Supplies" ? "mx-auto" : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"}
+        >
+          {active === "Supplies" ? (
+            <motion.div variants={cardVariants} className="p-2">
+              <img src={current[0]?.img} alt="Supplies" className="w-full h-auto object-contain bg-white" />
+            </motion.div>
+          ) : (
+            current.map((p, i) => (
+              <motion.div key={`${p.title}-${i}`} variants={cardVariants}>
+                <ProductCard {...p} onClick={() => setSelected(p)} />
+              </motion.div>
+            ))
+          )}
+        </motion.div>
       </div>
 
-      {/* Popup Modal */}
-      {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
+      <AnimatePresence>
+        {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
+      </AnimatePresence>
     </section>
   );
 }
@@ -207,41 +233,26 @@ export default function ProductsShowcase() {
 /* -------------------- Product Card -------------------- */
 function ProductCard({ img, title, subtitle, subtitle1, link, onClick }) {
   return (
-    <article className="bg-white ring-1 ring-gray-100 shadow-[0_8px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)] cursor-pointer">
-      <div className="p-4" onClick={onClick}>
+    <article 
+      className="bg-white ring-1 ring-gray-100 shadow-[0_8px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)] cursor-pointer h-full"
+      onClick={onClick}
+    >
+      <div className="p-4">
         <div className="overflow-hidden">
-          <img
+          <motion.img
+            whileHover={{ scale: 1.05 }}
             src={img}
             alt={title}
-            className="pt-10 transition-transform duration-300 hover:scale-[1.03]"
+            className="pt-10 w-full h-auto"
           />
         </div>
       </div>
       <div className="px-5 pb-5">
-        <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-black">
-          {title}
-        </h3>
-{subtitle1 && (
-          <p className="text-[13px] md:text-lg font-bold text-black leading-relaxed mt-2">
-            {subtitle1}
-          </p>
-        )}
-        {subtitle && (
-          <p className="mt-2 text-[13px] md:text-[14px] text-neutral-600 leading-relaxed">
-            {subtitle}
-          </p>
-        )}
-
-        {/* ✅ Added subtitle1 support */}
-        
-
+        <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-black">{title}</h3>
+        {subtitle1 && <p className="text-[13px] md:text-lg font-bold text-black mt-2">{subtitle1}</p>}
+        {subtitle && <p className="mt-2 text-[13px] md:text-[14px] text-neutral-600">{subtitle}</p>}
         {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-4 px-5 py-2 bg-secondary text-white text-sm font-medium transition"
-          >
+          <a href={link} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 px-5 py-2 bg-secondary text-white text-sm font-medium">
             View Details →
           </a>
         )}
@@ -250,104 +261,52 @@ function ProductCard({ img, title, subtitle, subtitle1, link, onClick }) {
   );
 }
 
-
 /* -------------------- Modal -------------------- */
 function ProductModal({ item, onClose }) {
   const images = item.gallery?.length ? item.gallery : [item.img];
   const [index, setIndex] = useState(0);
 
-  const clamp = useCallback((n) => (images.length ? (n + images.length) % images.length : 0), [images.length]);
-  const goPrev = useCallback(() => setIndex((i) => clamp(i - 1)), [clamp]);
-  const goNext = useCallback(() => setIndex((i) => clamp(i + 1)), [clamp]);
-
-  // ESC & Arrow Keys
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") onClose?.();
-      if (e.key === "ArrowLeft") goPrev();
-      if (e.key === "ArrowRight") goNext();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [goPrev, goNext, onClose]);
-
-  // Swipe support
-  const [startX, setStartX] = useState(null);
-  const onTouchStart = (e) => setStartX(e.touches?.[0]?.clientX ?? null);
-  const onTouchEnd = (e) => {
-    if (startX == null) return;
-    const dx = (e.changedTouches?.[0]?.clientX ?? startX) - startX;
-    if (Math.abs(dx) > 40) (dx > 0 ? goPrev() : goNext());
-    setStartX(null);
-  };
+  const goPrev = useCallback(() => setIndex((i) => (i === 0 ? images.length - 1 : i - 1)), [images.length]);
+  const goNext = useCallback(() => setIndex((i) => (i === images.length - 1 ? 0 : i + 1)), [images.length]);
 
   return (
-    <div
-      className="fixed inset-0 bg-black/70 backdrop-blur-[1px] flex items-center justify-center z-50 px-4"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black/70 backdrop-blur-[2px] flex items-center justify-center z-50 px-4"
       onClick={onClose}
-      role="dialog"
-      aria-modal="true"
     >
-      <div
-        className="rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        className="bg-white rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close */}
-        <button
-          type="button"
-          onClick={(e) => {
-            // ensure the overlay onClick doesn't accidentally re-run or block the handler
-            e.stopPropagation();
-            e.preventDefault();
-            onClose?.();
-          }}
-          className="absolute top-3 right-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/80 text-white text-xl leading-none hover:bg-black focus:outline-none z-50"
-          aria-label="Close"
-        >
-          ×
-        </button>
+        <button onClick={onClose} className="absolute top-3 right-3 h-9 w-9 bg-black/80 text-white rounded-full z-50">×</button>
 
-        {/* Slider */}
-        <div className="relative" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-          <div className="aspect-[16/9] w-full overflow-hidden flex items-center justify-center">
-            <img
-              key={images[index]}
+        <div className="relative overflow-hidden bg-white aspect-[16/9] flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={index}
               src={images[index]}
-              alt={`${item.title} ${index + 1}`}
-              className="max-h-[70vh] w-auto object-contain mx-auto select-none"
-              draggable={false}
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -100, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="max-h-[70vh] w-auto object-contain select-none"
             />
-          </div>
-
-          {/* Arrows */}
+          </AnimatePresence>
+          
           {images.length > 1 && (
-            <>
-              <button onClick={goPrev} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full grid place-items-center hover:bg-black">
-                ‹
-              </button>
-              <button onClick={goNext} className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full grid place-items-center hover:bg-black">
-                ›
-              </button>
-            </>
+            <div className="absolute inset-0 flex items-center justify-between px-4">
+              <button onClick={goPrev} className="bg-black/50 text-white p-2 rounded-full">‹</button>
+              <button onClick={goNext} className="bg-black/50 text-white p-2 rounded-full">›</button>
+            </div>
           )}
         </div>
-
-        {/* Dots */}
-        {images.length > 1 && (
-          <div className="px-4 pb-5 md:px-6 md:pb-6">
-            <div className="flex items-center justify-center gap-2 md:gap-3 flex-wrap">
-              {images.map((src, i) => (
-                <button
-                  key={src + i}
-                  onClick={() => setIndex(i)}
-                  className={`h-2.5 w-2.5 rounded-full transition ${i === index ? "bg-blue-600 scale-110" : "bg-gray-300 hover:bg-gray-400"}`}
-                  aria-label={`Go to image ${i + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

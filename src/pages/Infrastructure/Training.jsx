@@ -1,5 +1,6 @@
 // WarehousingHero.jsx
 import React, { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const SLIDES = [
   { src: "/assets/train-1.png", alt: "Modern warehouse aisles", label: "Classroom Training" },
@@ -8,20 +9,12 @@ const SLIDES = [
   { src: "/assets/train-4.png", alt: "Inventory scanning", label: "Practical Training on Machine" },
 ];
 
-/** 👇 Replace these with your real icon image paths */
-const FEATURE_ICONS = [
-  { src: "/assets/icon-12.png",  alt: "Classroom sessions" },
-  { src: "/assets/icon-6.png",   alt: "Component assembly" },
-  { src: "/assets/icon-9.png",alt: "Cut section demos" },
-  { src: "/assets/icon-4.png",  alt: "Hands-on practice" },
-];
-
 export default function Training() {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef(null);
 
-  // autoplay every 4s
+  // Autoplay logic
   useEffect(() => {
     if (paused) return;
     timerRef.current = setInterval(() => {
@@ -30,30 +23,66 @@ export default function Training() {
     return () => clearInterval(timerRef.current);
   }, [paused]);
 
+  // --- Animation Variants ---
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.8, ease: [0.21, 0.6, 0.35, 1] } 
+    },
+  };
+
+  const slideInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { duration: 0.8, ease: "easeOut" } 
+    },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
   return (
-    <section className="w-full bg-white text-neutral-900" id="training">
+    <section className="w-full bg-white text-neutral-900 overflow-hidden" id="training">
       <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
-        {/* RIGHT: COPY */}
-        <div className="lg:col-span-7 px-6 sm:px-10 py-10">
+        
+        {/* LEFT: COPY (Animate: Bottom to Top) */}
+        <motion.div 
+          className="lg:col-span-7 px-6 sm:px-10 py-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+        >
           <div className="max-w-3xl">
-            <h2 className="text-[30px] leading-[1.25] tracking-wide">
-            Training Facilities <br/>
-Developing and Empowering Future Leaders
-            </h2>
+            <motion.h2 variants={fadeInUp} className="text-[30px] leading-[1.25] tracking-wide">
+              Training Facilities <br/>
+              Developing and Empowering Future Leaders
+            </motion.h2>
 
-            <p className="mt-5 max-w-2xl text-sm leading-6 text-neutral-600">
+            <motion.p variants={fadeInUp} className="mt-5 max-w-2xl text-sm leading-6 text-neutral-600">
               ACT delivers secure, high-efficiency warehouses and stockyards engineered to streamline storage, handling, and distribution for enterprise-scale operations. Our infrastructure integrates modern equipment, optimized workflows, and rigorous process controls to drive efficiency and reduce cost-to-serve. With industry-aligned training zones and fully equipped technical environments, we build talent that meets global brand standards while ensuring consistent operational excellence. 
-            </p>
-
-           
+            </motion.p>
           </div>
-        </div>
+        </motion.div>
 
-        {/* LEFT: SLIDER */}
-        <aside
+        {/* RIGHT: SLIDER (Animate: Side Slide) */}
+        <motion.aside
           className="relative lg:col-span-5 bg-neutral-100 border-b lg:border-b-0 lg:border-r border-neutral-200 overflow-hidden"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideInRight}
         >
           {/* Slides */}
           <div className="relative h-[280px] sm:h-[360px] lg:h-full">
@@ -72,9 +101,17 @@ Developing and Empowering Future Leaders
 
           {/* Floating pill (dynamic label) */}
           <div className="absolute left-4 top-4">
-            <span className="select-none rounded-md bg-secondary px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-500">
-              {SLIDES[idx].label}
-            </span>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={idx}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="select-none rounded-md bg-secondary px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 block"
+              >
+                {SLIDES[idx].label}
+              </motion.span>
+            </AnimatePresence>
           </div>
 
           {/* Dots */}
@@ -91,7 +128,7 @@ Developing and Empowering Future Leaders
               />
             ))}
           </div>
-        </aside>
+        </motion.aside>
       </div>
     </section>
   );

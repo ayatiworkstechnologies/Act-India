@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 /* ---------- Tabs ---------- */
 const TABS = ["Products", "Accessories"];
@@ -182,19 +183,50 @@ const ACCESSORIES = [
   { img: "/assets/access-4.png", gallery: ["/assets/hus-p-65.webp"], link: "https://www.husqvarnaconstruction.com/in/diamond-tools/diamond-wires/elite-wire-c1000/" },
 ];
 
-/* ---------- Grid ---------- */
-function Grid({ children }) {
-  return <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">{children}</div>;
+// Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // This creates the "one-by-one" effect
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+/* ---------- Updated Grid Wrapper ---------- */
+function AnimatedGrid({ children, activeKey }) {
+  return (
+    <motion.div
+      key={activeKey} // Re-animates when tab changes
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
+      {children}
+    </motion.div>
+  );
 }
 
+/* ---------- Updated Cards with motion ---------- */
 function ProductCard({ img, title, subtitle, link, onClick }) {
   return (
-    <article
-      className="bg-white overflow-hidden shadow-[0_18px_50px_-28px_rgba(0,0,0,0.35)] transition hover:shadow-[0_24px_70px_-32px_rgba(0,0,0,0.35)] cursor-pointer"
+    <motion.article
+      variants={itemVariants}
+      className="bg-white overflow-hidden shadow-[0_18px_50px_-28px_rgba(0,0,0,0.35)] transition hover:shadow-[0_24px_70px_-32px_rgba(0,0,0,0.35)] cursor-pointer h-full"
       onClick={onClick}
     >
       <div className="p-4">
-        <img src={img} alt={title} className="object-contain p-6" />
+        <motion.img 
+          whileHover={{ scale: 1.05 }} 
+          src={img} alt={title} className="object-contain p-6 w-full h-auto" 
+        />
       </div>
       <div className="px-5 pb-6 text-left">
         <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-black">{title}</h3>
@@ -205,98 +237,63 @@ function ProductCard({ img, title, subtitle, link, onClick }) {
           </a>
         )}
       </div>
-    </article>
+    </motion.article>
   );
 }
 
-function SoilCard({ img, title, specs = [], link, onClick }) {
-  return (
-    <article
-      className="bg-white shadow-[0_18px_50px_-28px_rgba(0,0,0,0.35)] transition hover:shadow-[0_24px_70px_-32px_rgba(0,0,0,0.35)] cursor-pointer"
-      onClick={onClick}
-    >
-      <div className="p-5">
-        <img src={img} alt={title} className="object-contain" />
-      </div>
-      <div className="px-5 pb-6 text-left">
-        <h3 className="uppercase tracking-wide font-extrabold text-[14px] md:text-[15px] text-black">{title}</h3>
-        <ul className="mt-2 text-[13px] md:text-[14px] text-neutral-600 leading-relaxed space-y-0.5">
-          {specs.map((line, i) => <li key={i}>{line}</li>)}
-        </ul>
-        {link && (
-          <div className="mt-4">
-            <a href={link} target="_blank" rel="noopener noreferrer" className="px-5 py-2 bg-secondary text-white text-sm font-medium">
-              View Details →
-            </a>
-          </div>
-        )}
-      </div>
-    </article>
-  );
-}
-
-function AccessoryCard({ img, link, onClick }) {
-  return (
-    <article
-      className="bg-white shadow-[0_18px_50px_-28px_rgba(0,0,0,0.35)] transition hover:shadow-[0_24px_70px_-32px_rgba(0,0,0,0.35)] cursor-pointer"
-      onClick={onClick}
-    >
-      <div className="p-5">
-        <img src={img} alt="Accessory" className="object-contain" />
-      </div>
-      {link && (
-        <div className="pb-5 text-left">
-          <a href={link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="mt-1 mx-5 px-5 py-2 bg-secondary text-white text-sm font-medium">
-            View Details →
-          </a>
-        </div>
-      )}
-    </article>
-  );
-}
-
-/* ---------- Modal ---------- */
+/* ---------- Modal with AnimatePresence ---------- */
 function ProductModal({ item, onClose }) {
   const images = item.gallery?.length ? item.gallery : [item.img];
   const [index, setIndex] = useState(0);
 
-  const clamp = (n) => (n + images.length) % images.length;
-  const goPrev = () => setIndex((i) => clamp(i - 1));
-  const goNext = () => setIndex((i) => clamp(i + 1));
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowLeft") goPrev();
-      if (e.key === "ArrowRight") goNext();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  const goPrev = () => setIndex((i) => (i === 0 ? images.length - 1 : i - 1));
+  const goNext = () => setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/20 backdrop-blur-sm" onClick={onClose}>
-      <div className="relative max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
-        <button onClick={onClose} className="absolute top-2 right-2 z-50 h-10 w-10 flex items-center justify-center rounded-full bg-white text-black text-2xl shadow">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm" 
+      onClick={onClose}
+    >
+      <motion.div 
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        className="relative max-w-4xl w-full bg-white rounded-xl overflow-hidden" 
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button onClick={onClose} className="absolute top-3 right-3 z-50 h-10 w-10 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 text-black text-2xl">
           ×
         </button>
 
-        <div className="relative flex items-center justify-center">
-          <img key={images[index]} src={images[index]} alt="" className="max-h-[80vh] w-auto object-contain mx-auto rounded-lg shadow-lg" />
+        <div className="relative flex items-center justify-center bg-white p-8">
+          <AnimatePresence mode="wait">
+            <motion.img 
+              key={index}
+              src={images[index]} 
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -50, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="max-h-[70vh] w-auto object-contain mx-auto" 
+            />
+          </AnimatePresence>
 
           {images.length > 1 && (
             <>
-              <button onClick={goPrev} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 text-black h-10 w-10 flex items-center justify-center rounded-full shadow">‹</button>
-              <button onClick={goNext} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 text-black h-10 w-10 flex items-center justify-center rounded-full shadow">›</button>
+              <button onClick={goPrev} className="absolute left-4 bg-white/90 shadow-md text-black h-12 w-12 flex items-center justify-center rounded-full">‹</button>
+              <button onClick={goNext} className="absolute right-4 bg-white/90 shadow-md text-black h-12 w-12 flex items-center justify-center rounded-full">›</button>
             </>
           )}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
-/* ---------- Main Component ---------- */
+/* ---------- Main Component Updates ---------- */
 export default function ProductsShowcase() {
   const [active, setActive] = useState("Products");
   const [selected, setSelected] = useState(null);
@@ -304,58 +301,46 @@ export default function ProductsShowcase() {
   return (
     <section className="bg-gray-100 text-neutral-900 py-10 md:py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-
+        
         {/* Tabs Section */}
-        <div className="mb-0">
-          <nav className="flex gap-6 text-sm font-medium text-center justify-center border-neutral-200 pb-3">
-            {TABS.map((tab) => {
-              const isActive = active === tab;
-              return (
-                <button
-                  key={tab}
-                  onClick={() => setActive(tab)}
-                  className="relative py-2 leading-none transition-colors"
-                >
-                  {tab}
-                  {isActive && (
-                    <span className="pointer-events-none absolute left-0 right-0 -bottom-[1px] h-[2px] bg-blue-700 rounded-full"></span>
-                  )}
-                </button>
-              );
-            })}
-          </nav>
-        </div>
+        <nav className="flex gap-6 text-sm font-medium justify-center border-b border-neutral-200 pb-3">
+          {TABS.map((tab) => (
+            <button key={tab} onClick={() => setActive(tab)} className="relative py-2 leading-none">
+              {tab}
+              {active === tab && (
+                <motion.span layoutId="underline" className="absolute left-0 right-0 -bottom-[1px] h-[2px] bg-blue-700 rounded-full" />
+              )}
+            </button>
+          ))}
+        </nav>
 
-        {/* Content Section */}
-        <div className="mt-6 md:mt-8">
+        <div className="mt-8">
           {active === "Accessories" ? (
-            <Grid>
+            <AnimatedGrid activeKey="acc">
               {ACCESSORIES.map((a, i) => (
-                <AccessoryCard key={i} {...a} onClick={() => setSelected(a)} />
+                <ProductCard key={i} {...a} onClick={() => setSelected(a)} />
               ))}
-            </Grid>
+            </AnimatedGrid>
           ) : (
-            <div className="space-y-10 md:space-y-14">
+            <div className="space-y-14">
               {PRODUCT_SECTIONS.map((section, si) => (
-                <Fragment key={si}>
-                  <h2 className="text-xl md:text-2xl font-semibold tracking-wide text-neutral-900">{section.heading}</h2>
-                  <Grid>
-                    {section.items.map((p, i) =>
-                      section.heading.toLowerCase() === "soil compactors" ? (
-                        <SoilCard key={i} {...p} onClick={() => setSelected(p)} />
-                      ) : (
-                        <ProductCard key={i} {...p} onClick={() => setSelected(p)} />
-                      )
-                    )}
-                  </Grid>
-                </Fragment>
+                <div key={si}>
+                  <h2 className="text-xl md:text-2xl font-semibold mb-6">{section.heading}</h2>
+                  <AnimatedGrid activeKey={`${active}-${si}`}>
+                    {section.items.map((p, i) => (
+                      <ProductCard key={i} {...p} onClick={() => setSelected(p)} />
+                    ))}
+                  </AnimatedGrid>
+                </div>
               ))}
             </div>
           )}
         </div>
       </div>
 
-      {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
+      <AnimatePresence>
+        {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
+      </AnimatePresence>
     </section>
   );
 }

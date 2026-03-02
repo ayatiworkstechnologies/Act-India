@@ -18,12 +18,18 @@ export default function MissionVision({
         {/* ================= VISION SECTION ================= */}
         <div className="grid grid-cols-12 items-center gap-8 mb-20">
           
-          {/* Big Left Title */}
-          <div className="col-span-12 lg:col-span-4 flex lg:justify-center">
+          {/* Big Left Title - Side Animation added */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="col-span-12 lg:col-span-4 flex lg:justify-center"
+          >
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black">
               VISION
             </h2>
-          </div>
+          </motion.div>
 
           {/* Right Content */}
           <div className="col-span-12 lg:col-span-8">
@@ -35,10 +41,9 @@ export default function MissionVision({
               className="bg-white rounded-2xl shadow-[0_25px_60px_-30px_rgba(0,0,0,0.35)] ring-1 ring-gray-100 p-6 md:p-8"
             >
               <p className="text-base md:text-lg text-neutral-700 leading-relaxed">
-                    <span className="text-secondary font-bold mr-3">—</span>
+                <span className="text-secondary font-bold mr-3">—</span>
                 {visionText}
               </p>
-          
             </motion.div>
           </div>
         </div>
@@ -46,7 +51,7 @@ export default function MissionVision({
         {/* ================= MISSION SECTION ================= */}
         <div className="grid grid-cols-12 items-center gap-8">
           
-          {/* Left Mission Content (static + animated line by line) */}
+          {/* Left Mission Content */}
           <div className="col-span-12 lg:col-span-8">
             <div className="bg-white rounded-2xl shadow-[0_25px_60px_-30px_rgba(0,0,0,0.35)] ring-1 ring-gray-100 p-6 md:p-8">
               
@@ -82,12 +87,18 @@ export default function MissionVision({
             </div>
           </div>
 
-          {/* Right Big Mission Heading */}
-          <div className="col-span-12 lg:col-span-4 flex lg:justify-center">
+          {/* Right Big Mission Heading - Side Animation added */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="col-span-12 lg:col-span-4 flex lg:justify-center"
+          >
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black">
               MISSION
             </h2>
-          </div>
+          </motion.div>
         </div>
 
       </div>

@@ -1,5 +1,6 @@
 // ProductsShowcase.jsx
 import React, { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const CATEGORIES = ["Products"];
 
@@ -45,8 +46,19 @@ export default function ProductsShowcase() {
 
   const current = ITEMS.filter((i) => i.category === active);
 
+  // Parent container variants to coordinate staggered children
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1, // Delays each card by 0.1s
+      },
+    },
+  };
+
   return (
-    <section className="bg-[#F5F5F5]  text-neutral-900 py-10 md:py-16">
+    <section className="bg-[#F5F5F5] text-neutral-900 py-10 md:py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         {/* Tabs */}
         <div className="mb-8 flex justify-center">
@@ -57,11 +69,14 @@ export default function ProductsShowcase() {
                 <button
                   key={c}
                   onClick={() => setActive(c)}
-                  className={`relative py-3 -mb-px transition-colors }`}
+                  className="relative py-3 -mb-px transition-colors"
                 >
                   {c}
                   {isActive && (
-                    <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full" />
+                    <motion.span 
+                      layoutId="activeTab" // Smoothly slides the underline
+                      className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full" 
+                    />
                   )}
                 </button>
               );
@@ -69,205 +84,161 @@ export default function ProductsShowcase() {
           </nav>
         </div>
 
-        {/* Supplies big image */}
-        {active === "Supplies" ? (
-          <div className="mx-auto p-2">
-            <img
-              src={current[0]?.img}
-              alt="Supplies"
-              className="w-[300px] h-[300px] object-contain bg-white mx-auto"
-            />
-          </div>
-        ) : (
-          // Product grid
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {current.map((p, i) => (
-              <ProductCard
-                key={`${p.title}-${i}`}
-                {...p}
-                onClick={() => setSelected(p)}
+        {/* Animated Grid Wrapper */}
+        <motion.div
+          key={active} // Re-animates when switching tabs
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {active === "Supplies" ? (
+            <motion.div 
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              className="mx-auto p-2"
+            >
+              <img
+                src={current[0]?.img}
+                alt="Supplies"
+                className="w-[300px] h-[300px] object-contain bg-white mx-auto"
               />
-            ))}
-          </div>
-        )}
+            </motion.div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {current.map((p, i) => (
+                <ProductCard
+                  key={`${p.title}-${i}`}
+                  {...p}
+                  onClick={() => setSelected(p)}
+                />
+              ))}
+            </div>
+          )}
+        </motion.div>
       </div>
 
-      {/* Popup Modal */}
-      {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
+      {/* Popup Modal with AnimatePresence for Exit animations */}
+      <AnimatePresence>
+        {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
+      </AnimatePresence>
     </section>
   );
 }
 
 /* ---------------- Product Card ---------------- */
 function ProductCard({ img, title, subtitle, link, onClick }) {
+  // Individual item variants
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" } 
+    },
+  };
+
   return (
-    <article className="bg-white ring-1 ring-gray-100 shadow-[0_20px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)]">
+    <motion.article 
+      variants={itemVariants} // Inherits from parent staggered container
+      className="bg-white ring-1 ring-gray-100 shadow-[0_20px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)]"
+    >
       <div className="p-4 cursor-pointer" onClick={onClick}>
         <div className="overflow-hidden">
-          <img
+          <motion.img
+            whileHover={{ scale: 1.05 }} // Subtle internal hover
             src={img}
             alt={title}
-            className="pt-10 transition-transform duration-300 hover:scale-[1.03]"
+            className="pt-10"
           />
         </div>
       </div>
       <div className="px-5 pb-5 text-left">
-  <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-black">
-    {title}
-  </h3>
-  {subtitle && (
-    <p className="mt-2 text-[13px] md:text-[14px] text-neutral-600 leading-relaxed">
-      {subtitle}
-    </p>
-  )}
-
-  {/* 🔗 Left-aligned Link button */}
-  {link && (
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-block mt-4 px-4 py-2 text-sm font-medium bg-secondary text-white transition"
-    >
-      View Details →
-    </a>
-  )}
-</div>
-
-    </article>
+        <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-black">
+          {title}
+        </h3>
+        {subtitle && (
+          <p className="mt-2 text-[13px] md:text-[14px] text-neutral-600 leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 px-4 py-2 text-sm font-medium bg-secondary text-white transition"
+          >
+            View Details →
+          </a>
+        )}
+      </div>
+    </motion.article>
   );
 }
 
-/* ---------------- Popup Modal with Slider ---------------- */
+/* ---------------- Popup Modal with Animated Slider ---------------- */
 function ProductModal({ item, onClose }) {
   const images = item.gallery?.length ? item.gallery : [item.img];
   const [index, setIndex] = useState(0);
 
-  // reset to first image whenever a new item is opened
-  useEffect(() => {
-    setIndex(0);
-  }, [item]);
-
-  const clamp = useCallback(
-    (n) => (n + images.length) % images.length,
-    [images.length]
-  );
-
-  const goPrev = useCallback(() => setIndex((i) => clamp(i - 1)), [clamp]);
-  const goNext = useCallback(() => setIndex((i) => clamp(i + 1)), [clamp]);
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") onClose?.();
-      if (e.key === "ArrowLeft") goPrev();
-      if (e.key === "ArrowRight") goNext();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [goPrev, goNext, onClose]);
-
-  const [startX, setStartX] = useState(null);
-  const onTouchStart = (e) => setStartX(e.touches?.[0]?.clientX ?? null);
-  const onTouchEnd = (e) => {
-    if (startX == null) return;
-    const endX = e.changedTouches?.[0]?.clientX ?? startX;
-    const dx = endX - startX;
-    if (Math.abs(dx) > 40) {
-      dx > 0 ? goPrev() : goNext();
-    }
-    setStartX(null);
-  };
+  const goPrev = useCallback(() => setIndex((i) => (i === 0 ? images.length - 1 : i - 1)), [images.length]);
+  const goNext = useCallback(() => setIndex((i) => (i === images.length - 1 ? 0 : i + 1)), [images.length]);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-      role="dialog"
-      aria-modal="true"
-      // only close if the click happened on the overlay itself
-      onClick={(e) => {
-        if (e.target === e.currentTarget) {
-          onClose?.();
-        }
-      }}
+      onClick={(e) => e.target === e.currentTarget && onClose?.()}
     >
-      <div
-        className="rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        className="bg-white rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button: stops propagation so overlay doesn't receive the click */}
         <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            onClose?.();
-          }}
-          aria-label="Close"
+          onClick={onClose}
           className="absolute top-3 right-3 h-9 w-9 flex items-center justify-center rounded-full bg-black/80 text-white text-xl hover:bg-black z-50"
         >
           ×
         </button>
 
-        {/* Image Slider */}
-        <div
-          className="relative"
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-        >
-          <div className="aspect-[16/9] flex items-center justify-center">
-            <img
-              key={images[index]}
+        <div className="relative overflow-hidden aspect-[16/9] flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={index} // Keys trigger the slide animation on change
               src={images[index]}
-              alt={`${item.title} ${index + 1}`}
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -100, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               className="max-h-[70vh] w-auto object-contain mx-auto select-none"
               draggable={false}
             />
-          </div>
+          </AnimatePresence>
 
-          {/* Navigation Arrows - stop propagation when clicked */}
           {images.length > 1 && (
             <>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  goPrev();
-                }}
-                aria-label="Previous image"
-                className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full hover:bg-black"
-              >
-                ‹
-              </button>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  goNext();
-                }}
-                aria-label="Next image"
-                className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full hover:bg-black"
-              >
-                ›
-              </button>
+              <button onClick={goPrev} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full">‹</button>
+              <button onClick={goNext} className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full">›</button>
             </>
           )}
         </div>
 
-        {/* Dots */}
         {images.length > 1 && (
           <div className="px-4 pb-5 flex justify-center gap-2">
             {images.map((_, i) => (
               <button
                 key={i}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIndex(i);
-                }}
-                aria-label={`Go to image ${i + 1}`}
-                className={`h-2.5 w-2.5 rounded-full ${i === index ? "bg-blue-600 scale-110" : "bg-gray-300 hover:bg-gray-400"}`}
+                onClick={() => setIndex(i)}
+                className={`h-2.5 w-2.5 rounded-full transition-all ${i === index ? "bg-blue-600 scale-125" : "bg-gray-300"}`}
               />
             ))}
           </div>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
