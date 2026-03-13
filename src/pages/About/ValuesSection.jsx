@@ -50,6 +50,7 @@ export default function ValuesSection() {
   return (
     <section className="bg-white py-12 md:py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-10">
+
         {/* Heading */}
         <div className="mb-10 text-center md:mb-12">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black">
@@ -63,13 +64,13 @@ export default function ValuesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-10 md:gap-y-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {VALUES.map((v, i) => (
             <motion.div
               key={i}
               variants={item}
-              className="text-center sm:text-left flex flex-col items-center sm:items-start"
+              className="border border-dashed border-[#0066cc] rounded-xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start hover:bg-blue-50 transition duration-300"
             >
               {/* Icon */}
               <img
@@ -79,7 +80,7 @@ export default function ValuesSection() {
               />
 
               {/* Number */}
-              <div className="text-base md:text-lg font-semibold">
+              <div className="text-base md:text-lg font-semibold text-[#0066cc]">
                 {String(i + 1).padStart(2, "0")}.
               </div>
 
@@ -89,12 +90,13 @@ export default function ValuesSection() {
               </h3>
 
               {/* Description */}
-              <p className="mt-3 text-sm md:text-lg leading-relaxed max-w-[280px]">
+              <p className="mt-3 text-sm md:text-base leading-relaxed max-w-[280px]">
                 {v.copy}
               </p>
             </motion.div>
           ))}
         </motion.div>
+
       </div>
     </section>
   );

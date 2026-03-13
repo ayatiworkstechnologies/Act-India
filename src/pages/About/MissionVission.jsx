@@ -40,8 +40,8 @@ export default function MissionVision({
               viewport={{ once: true }}
               className="bg-white rounded-2xl shadow-[0_25px_60px_-30px_rgba(0,0,0,0.35)] ring-1 ring-gray-100 p-6 md:p-8"
             >
-              <p className="text-base md:text-lg text-neutral-700 leading-relaxed">
-                <span className="text-secondary font-bold mr-3">—</span>
+              <p className="text-slate-600 leading-relaxed text-sm md:text-base mb-6">
+                <span className="text-secondary font-bold mr-3">.</span>
                 {visionText}
               </p>
             </motion.div>
@@ -76,9 +76,9 @@ export default function MissionVision({
                         },
                       },
                     }}
-                    className="text-base md:text-lg text-neutral-700 leading-relaxed flex"
+                    className="text-slate-600 leading-relaxed text-sm md:text-base mb-6"
                   >
-                    <span className="text-secondary font-bold mr-3">—</span>
+                    <span className="text-secondary font-bold mr-3">.</span>
                     {text}
                   </motion.li>
                 ))}
