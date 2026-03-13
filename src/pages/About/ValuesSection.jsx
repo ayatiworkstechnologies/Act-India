@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; // Add Framer Motion
+import { motion } from "framer-motion";
 
 const VALUES = [
   {
@@ -35,86 +35,67 @@ const VALUES = [
 ];
 
 export default function ValuesSection() {
-  // Animation variant for the heading
-  const slideInLeft = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
-  };
-
-  // Animation variants for the staggered cards
-  const containerVariants = {
-    hidden: { opacity: 0 },
+  const container = {
+    hidden: {},
     visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15, // Delay between each card entrance
-      },
+      transition: { staggerChildren: 0.12 },
     },
   };
 
-  return (
-    <section className="bg-white text-neutral-900 py-12 md:py-16 overflow-hidden">
-      <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-        <div className="grid grid-cols-12 gap-8 lg:gap-10">
-          
-          {/* Heading - Side Animation */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={slideInLeft}
-            className="col-span-12 lg:col-span-4"
-          >
-            <h2 className="text-2xl md:text-3xl lg:text-5xl leading-tight">
-              Our Core Values
-            </h2>
-          </motion.div>
-
-          {/* Cards Container - Staggered Animation */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={containerVariants}
-            className="col-span-12 lg:col-span-8"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {VALUES.map((v, i) => (
-                <ValueCard key={i} {...v} />
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ValueCard({ icon, title, copy }) {
-  // Entrance animation for individual cards
-  const cardItem = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  const item = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <motion.article 
-      variants={cardItem}
-      className="relative bg-white rounded-xl shadow-[0_25px_60px_-30px_rgba(0,0,0,0.35)] transition hover:shadow-[0_30px_70px_-32px_rgba(0,0,0,0.35)]"
-    >
-      <span className="pointer-events-none absolute inset-0 rounded-xl border-2 border-primary" />
+    <section className="bg-white py-12 md:py-16 lg:py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-10">
+        {/* Heading */}
+        <div className="mb-10 text-center md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black">
+            OUR CORE VALUES
+          </h2>
+        </div>
 
-      <div className="p-4 md:p-5">
-        <img src={icon} alt={title} className="w-10 h-10 mb-3" />
+        {/* Grid */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-10 md:gap-y-12"
+        >
+          {VALUES.map((v, i) => (
+            <motion.div
+              key={i}
+              variants={item}
+              className="text-center sm:text-left flex flex-col items-center sm:items-start"
+            >
+              {/* Icon */}
+              <img
+                src={v.icon}
+                alt={v.title}
+                className="w-12 h-12 md:w-14 md:h-14 mb-4 object-contain"
+              />
 
-        <h3 className="text-[13px] md:text-sm font-extrabold tracking-wide uppercase text-neutral-900">
-          {title}
-        </h3>
+              {/* Number */}
+              <div className="text-base md:text-lg font-semibold">
+                {String(i + 1).padStart(2, "0")}.
+              </div>
 
-        <p className="mt-3 text-[13px] md:text-[14px] leading-relaxed text-neutral-700">
-          {copy}
-        </p>
+              {/* Title */}
+              <h3 className="text-base md:text-lg font-bold uppercase mt-1">
+                {v.title}
+              </h3>
+
+              {/* Description */}
+              <p className="mt-3 text-sm md:text-lg leading-relaxed max-w-[280px]">
+                {v.copy}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </motion.article>
+    </section>
   );
 }

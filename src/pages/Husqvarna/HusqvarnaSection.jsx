@@ -99,7 +99,7 @@ export default function HusqvarnaSection() {
 
             {/* Logo slides up first */}
             <img
-              src="/assets/hus.png"
+              src="/assets/Husqvarna.png"
               alt="Husqvarna Logo"
               className={`w-32 mb-4 husq-slide-up husq-delay-100 ${visible ? "visible" : ""}`}
             />
