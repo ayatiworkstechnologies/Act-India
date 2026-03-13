@@ -9,7 +9,8 @@ export default function MissionVision({
     "We will continuously improve and implement robust business processes that ensures fulfilment of our goals with integrity, speed and accuracy.",
     "We will consistently deliver profitable growth and build sustainable, scalable streams of business.",
   ],
-  visionText = "ACT will enrich the construction and infrastructure sector through innovative technology and solutions.",
+  visionText =
+    "ACT will enrich the construction and infrastructure sector through innovative technology and solutions.",
 }) {
   return (
     <section className="bg-white text-neutral-900 py-14 md:py-20 overflow-hidden">
@@ -17,9 +18,9 @@ export default function MissionVision({
 
         {/* ================= VISION SECTION ================= */}
         <div className="grid grid-cols-12 items-center gap-8 mb-20">
-          
-          {/* Big Left Title - Side Animation added */}
-          <motion.div 
+
+          {/* Left Vision Title */}
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -31,7 +32,7 @@ export default function MissionVision({
             </h2>
           </motion.div>
 
-          {/* Right Content */}
+          {/* Vision Content */}
           <div className="col-span-12 lg:col-span-8">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -40,26 +41,27 @@ export default function MissionVision({
               viewport={{ once: true }}
               className="bg-white rounded-2xl shadow-[0_25px_60px_-30px_rgba(0,0,0,0.35)] ring-1 ring-gray-100 p-6 md:p-8"
             >
-              <p className="text-slate-600 leading-relaxed text-sm md:text-base mb-6">
-                <span className="text-secondary font-bold mr-3">.</span>
-                {visionText}
-              </p>
+              <ul className="list-disc pl-5 marker:text-[#0066cc]">
+                <li className="text-slate-600 leading-relaxed text-sm md:text-base">
+                  {visionText}
+                </li>
+              </ul>
             </motion.div>
           </div>
         </div>
 
         {/* ================= MISSION SECTION ================= */}
         <div className="grid grid-cols-12 items-center gap-8">
-          
-          {/* Left Mission Content */}
+
+          {/* Mission Content */}
           <div className="col-span-12 lg:col-span-8">
             <div className="bg-white rounded-2xl shadow-[0_25px_60px_-30px_rgba(0,0,0,0.35)] ring-1 ring-gray-100 p-6 md:p-8">
-              
+
               <motion.ul
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="space-y-4"
+                className="space-y-4 list-disc pl-5 marker:text-[#0066cc]"
               >
                 {missionTexts.map((text, index) => (
                   <motion.li
@@ -70,15 +72,14 @@ export default function MissionVision({
                         opacity: 1,
                         y: 0,
                         transition: {
-                          delay: index * 0.4,
+                          delay: index * 0.25,
                           duration: 0.6,
                           ease: "easeOut",
                         },
                       },
                     }}
-                    className="text-slate-600 leading-relaxed text-sm md:text-base mb-6"
+                    className="text-slate-600 leading-relaxed text-sm md:text-base"
                   >
-                    <span className="text-secondary font-bold mr-3">.</span>
                     {text}
                   </motion.li>
                 ))}
@@ -87,8 +88,8 @@ export default function MissionVision({
             </div>
           </div>
 
-          {/* Right Big Mission Heading - Side Animation added */}
-          <motion.div 
+          {/* Right Mission Title */}
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -99,6 +100,7 @@ export default function MissionVision({
               MISSION
             </h2>
           </motion.div>
+
         </div>
 
       </div>
