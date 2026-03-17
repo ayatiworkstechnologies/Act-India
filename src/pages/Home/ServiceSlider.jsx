@@ -31,7 +31,6 @@ const rowOne = [
 
 const rowTwo = [
   {
-    
     title: "Auxillary service solutions",
     desc: "Comprehensive heavy equipment refurbishment — from hard-facing and bush replacements to structural welding, bucket rebuilds, and track link reconditioning.",
     icons: [
@@ -44,7 +43,6 @@ const rowTwo = [
     link: "/services",
   },
   {
-    
     title: "Operator training & certification",
     desc: "We conduct annual ESC certification programs to gain participants in safe and efficient equipment operation.",
     icons: [
@@ -63,15 +61,13 @@ function Card({ item }) {
     <div className="h-[300px] bg-white shadow-md rounded-lg overflow-hidden flex border">
       {/* Left */}
       <div className="w-[60%] p-6 flex flex-col">
-        <h3 className="font-bold text-lg mb-2 capitalize">
-          {item.title}
-        </h3>
+        <h3 className="font-bold text-lg mb-2 capitalize">{item.title}</h3>
 
         <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-4">
           {item.desc}
         </p>
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-wrap">
           {item.icons.map((icon, idx) => (
             <img
               key={idx}
@@ -82,7 +78,7 @@ function Card({ item }) {
           ))}
         </div>
 
-        <div className="mt-auto">
+        <div className="mt-auto pt-4">
           <Link
             to={item.link}
             className="text-secondary font-semibold text-sm inline-flex items-center gap-2"
@@ -115,7 +111,7 @@ export default function ServiceGrid() {
         viewport={{ once: true }}
         className="mb-10"
       >
-        <div className="flex items-center gap-4 md:gap-6">
+        <div className="flex items-center gap-4 md:gap-6 flex-wrap">
           <h2 className="text-2xl md:text-3xl font-bold font-primary">
             Equipment Life Cycle Solutions
           </h2>
@@ -142,7 +138,18 @@ export default function ServiceGrid() {
         ))}
       </div>
 
-      {/* Row 2 – Separate Titles */}
+      {/* Row 2 Title */}
+      <motion.h3
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-xl md:text-2xl font-bold font-primary mb-6"
+      >
+        Other Services
+      </motion.h3>
+
+      {/* Row 2 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {rowTwo.map((item, i) => (
           <motion.div
@@ -152,9 +159,6 @@ export default function ServiceGrid() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-xl font-bold mb-4 font-primary">
-              {item.sectionTitle}
-            </h4>
             <Card item={item} />
           </motion.div>
         ))}

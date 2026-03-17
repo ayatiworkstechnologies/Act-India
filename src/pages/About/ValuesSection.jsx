@@ -54,7 +54,7 @@ export default function ValuesSection() {
         {/* Heading */}
         <div className="mb-10 text-center md:mb-12">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black">
-            OUR CORE VALUES
+            Our Core Values
           </h2>
         </div>
 
