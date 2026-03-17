@@ -1,10 +1,8 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-/* ---------- Tabs ---------- */
 const TABS = ["Products", "Accessories"];
 
-/* ---------- Products data ---------- */
 const PRODUCT_SECTIONS = [
   {
     heading: "Products",
@@ -67,7 +65,7 @@ const PRODUCT_SECTIONS = [
       },
       {
         title: "Tile and Masonry Saws",
-        subtitle: "TS 350E 14”/350mm Cutting Depth 125mm, Blade Diameter 350 mm",
+        subtitle: "TS 350E 14\"/350mm Cutting Depth 125mm, Blade Diameter 350 mm",
         img: "/assets/h-p-9.png",
         gallery: ["/assets/hus-p-21.webp"],
         link: "https://www.husqvarnaconstruction.com/in/tile-and-masonry-saws/ts300e/",
@@ -175,38 +173,47 @@ const PRODUCT_SECTIONS = [
   },
 ];
 
-/* ---------- Accessories data ---------- */
 const ACCESSORIES = [
-  { img: "/assets/access-1.png", gallery: ["/assets/hus-p-58.webp","/assets/hus-p-59.webp",], link: "https://www.husqvarnaconstruction.com/int/diamond-tools/diamond-blades/vari-cut-s50/" },
+  { img: "/assets/access-1.png", gallery: ["/assets/hus-p-58.webp", "/assets/hus-p-59.webp"], link: "https://www.husqvarnaconstruction.com/int/diamond-tools/diamond-blades/vari-cut-s50/" },
   { img: "/assets/access-2.png", gallery: ["/assets/hus-p-60.webp"], link: "https://www.husqvarnaconstruction.com/in/diamond-tools/diamond-blades/el10-cnb/" },
-  { img: "/assets/access-3.png", gallery: ["/assets/hus-p-61.webp","/assets/hus-p-62.webp", "/assets/hus-p-63.webp", "/assets/hus-p-64.webp"], link: "https://www.husqvarnaconstruction.com/in/diamond-tools/diamond-core-drill-bits/elite-drill-d1640/?article=546153502" },
+  { img: "/assets/access-3.png", gallery: ["/assets/hus-p-61.webp", "/assets/hus-p-62.webp", "/assets/hus-p-63.webp", "/assets/hus-p-64.webp"], link: "https://www.husqvarnaconstruction.com/in/diamond-tools/diamond-core-drill-bits/elite-drill-d1640/?article=546153502" },
   { img: "/assets/access-4.png", gallery: ["/assets/hus-p-65.webp"], link: "https://www.husqvarnaconstruction.com/in/diamond-tools/diamond-wires/elite-wire-c1000/" },
 ];
 
-// Animation Variants
+// Slow one-by-one animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // This creates the "one-by-one" effect
+      staggerChildren: 0.28,
+      delayChildren: 0.15,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 50, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 1.0,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
 };
 
-/* ---------- Updated Grid Wrapper ---------- */
+/* ---------- Animated Grid ---------- */
 function AnimatedGrid({ children, activeKey }) {
   return (
     <motion.div
-      key={activeKey} // Re-animates when tab changes
+      key={activeKey}
       variants={containerVariants}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.05 }}
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
     >
       {children}
@@ -214,34 +221,49 @@ function AnimatedGrid({ children, activeKey }) {
   );
 }
 
-/* ---------- Updated Cards with motion ---------- */
+/* ---------- Product Card ---------- */
 function ProductCard({ img, title, subtitle, link, onClick }) {
   return (
-    <motion.article
-      variants={itemVariants}
-      className="bg-white overflow-hidden shadow-[0_18px_50px_-28px_rgba(0,0,0,0.35)] transition hover:shadow-[0_24px_70px_-32px_rgba(0,0,0,0.35)] cursor-pointer h-full"
-      onClick={onClick}
-    >
-      <div className="p-4">
-        <motion.img 
-          whileHover={{ scale: 1.05 }} 
-          src={img} alt={title} className="object-contain p-6 w-full h-auto" 
-        />
-      </div>
-      <div className="px-5 pb-6 text-left">
-        <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-black">{title}</h3>
-        {subtitle && <p className="mt-2 text-[13px] md:text-[14px] text-neutral-600 leading-relaxed">{subtitle}</p>}
-        {link && (
-          <a href={link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block px-5 py-2 bg-secondary text-white text-sm font-medium">
-            View Details →
-          </a>
-        )}
-      </div>
-    </motion.article>
+    <motion.div variants={itemVariants}>
+      <article
+        className="bg-white overflow-hidden shadow-[0_18px_50px_-28px_rgba(0,0,0,0.35)] transition hover:shadow-[0_24px_70px_-32px_rgba(0,0,0,0.35)] cursor-pointer h-full"
+        onClick={onClick}
+      >
+        <div className="p-4">
+          <motion.img
+            whileHover={{ scale: 1.05 }}
+            src={img}
+            alt={title}
+            className="object-contain p-6 w-full h-auto"
+          />
+        </div>
+        <div className="px-5 pb-6 text-left">
+          <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-black">
+            {title}
+          </h3>
+          {subtitle && (
+            <p className="mt-2 text-[13px] md:text-[14px] text-neutral-600 leading-relaxed">
+              {subtitle}
+            </p>
+          )}
+          {link && (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block px-5 py-2 bg-secondary text-white text-sm font-medium"
+              onClick={(e) => e.stopPropagation()}
+            >
+              View Details →
+            </a>
+          )}
+        </div>
+      </article>
+    </motion.div>
   );
 }
 
-/* ---------- Modal with AnimatePresence ---------- */
+/* ---------- Modal ---------- */
 function ProductModal({ item, onClose }) {
   const images = item.gallery?.length ? item.gallery : [item.img];
   const [index, setIndex] = useState(0);
@@ -250,41 +272,54 @@ function ProductModal({ item, onClose }) {
   const goNext = () => setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm" 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
       onClick={onClose}
     >
-      <motion.div 
+      <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="relative max-w-4xl w-full bg-white rounded-xl overflow-hidden" 
+        className="relative max-w-4xl w-full bg-white rounded-xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <button onClick={onClose} className="absolute top-3 right-3 z-50 h-10 w-10 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 text-black text-2xl">
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 z-50 h-10 w-10 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 text-black text-2xl"
+        >
           ×
         </button>
 
         <div className="relative flex items-center justify-center bg-white p-8">
           <AnimatePresence mode="wait">
-            <motion.img 
+            <motion.img
               key={index}
-              src={images[index]} 
+              src={images[index]}
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -50, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="max-h-[70vh] w-auto object-contain mx-auto" 
+              className="max-h-[70vh] w-auto object-contain mx-auto"
             />
           </AnimatePresence>
 
           {images.length > 1 && (
             <>
-              <button onClick={goPrev} className="absolute left-4 bg-white/90 shadow-md text-black h-12 w-12 flex items-center justify-center rounded-full">‹</button>
-              <button onClick={goNext} className="absolute right-4 bg-white/90 shadow-md text-black h-12 w-12 flex items-center justify-center rounded-full">›</button>
+              <button
+                onClick={goPrev}
+                className="absolute left-4 bg-white/90 shadow-md text-black h-12 w-12 flex items-center justify-center rounded-full"
+              >
+                ‹
+              </button>
+              <button
+                onClick={goNext}
+                className="absolute right-4 bg-white/90 shadow-md text-black h-12 w-12 flex items-center justify-center rounded-full"
+              >
+                ›
+              </button>
             </>
           )}
         </div>
@@ -293,7 +328,7 @@ function ProductModal({ item, onClose }) {
   );
 }
 
-/* ---------- Main Component Updates ---------- */
+/* ---------- Main Component ---------- */
 export default function ProductsShowcase() {
   const [active, setActive] = useState("Products");
   const [selected, setSelected] = useState(null);
@@ -301,14 +336,21 @@ export default function ProductsShowcase() {
   return (
     <section className="bg-gray-100 text-neutral-900 py-10 md:py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-        
-        {/* Tabs Section */}
+
+        {/* Tabs */}
         <nav className="flex gap-6 text-sm font-medium justify-center border-b border-neutral-200 pb-3">
           {TABS.map((tab) => (
-            <button key={tab} onClick={() => setActive(tab)} className="relative py-2 leading-none">
+            <button
+              key={tab}
+              onClick={() => setActive(tab)}
+              className="relative py-2 leading-none"
+            >
               {tab}
               {active === tab && (
-                <motion.span layoutId="underline" className="absolute left-0 right-0 -bottom-[1px] h-[2px] bg-blue-700 rounded-full" />
+                <motion.span
+                  layoutId="underline"
+                  className="absolute left-0 right-0 -bottom-[1px] h-[2px] bg-blue-700 rounded-full"
+                />
               )}
             </button>
           ))}
@@ -325,10 +367,16 @@ export default function ProductsShowcase() {
             <div className="space-y-14">
               {PRODUCT_SECTIONS.map((section, si) => (
                 <div key={si}>
-                  <h2 className="text-xl md:text-2xl font-semibold mb-6">{section.heading}</h2>
+                  <h2 className="text-xl md:text-2xl font-semibold mb-6">
+                    {section.heading}
+                  </h2>
                   <AnimatedGrid activeKey={`${active}-${si}`}>
                     {section.items.map((p, i) => (
-                      <ProductCard key={i} {...p} onClick={() => setSelected(p)} />
+                      <ProductCard
+                        key={i}
+                        {...p}
+                        onClick={() => setSelected(p)}
+                      />
                     ))}
                   </AnimatedGrid>
                 </div>
@@ -339,7 +387,9 @@ export default function ProductsShowcase() {
       </div>
 
       <AnimatePresence>
-        {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
+        {selected && (
+          <ProductModal item={selected} onClose={() => setSelected(null)} />
+        )}
       </AnimatePresence>
     </section>
   );

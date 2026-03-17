@@ -34,7 +34,7 @@ export default function SdlgSection() {
         @keyframes fadeInLeft {
           from {
             opacity: 0;
-            transform: translateX(-40px);
+            transform: translateX(-50px);
           }
           to {
             opacity: 1;
@@ -45,7 +45,7 @@ export default function SdlgSection() {
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
           }
           to {
             opacity: 1;
@@ -57,28 +57,28 @@ export default function SdlgSection() {
           opacity: 0;
         }
         .sdlg-slide-up.visible {
-          animation: slideUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: slideUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         .sdlg-fade-left {
           opacity: 0;
         }
         .sdlg-fade-left.visible {
-          animation: fadeInLeft 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: fadeInLeft 1.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         .sdlg-fade-up {
           opacity: 0;
         }
         .sdlg-fade-up.visible {
-          animation: fadeInUp 0.65s ease forwards;
+          animation: fadeInUp 1.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
-        .sdlg-delay-100 { animation-delay: 0.1s !important; }
-        .sdlg-delay-200 { animation-delay: 0.2s !important; }
-        .sdlg-delay-300 { animation-delay: 0.3s !important; }
-        .sdlg-delay-400 { animation-delay: 0.4s !important; }
-        .sdlg-delay-500 { animation-delay: 0.5s !important; }
+        /* One-by-one: each waits for the previous to nearly finish */
+        .sdlg-delay-1 { animation-delay: 0.1s !important; }
+        .sdlg-delay-2 { animation-delay: 0.6s !important; }
+        .sdlg-delay-3 { animation-delay: 1.1s !important; }
+        .sdlg-delay-4 { animation-delay: 1.6s !important; }
 
         .sdlg-img-overlay {
           position: absolute;
@@ -95,41 +95,57 @@ export default function SdlgSection() {
       <section ref={sectionRef} className="bg-white py-12 px-6 md:px-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-          {/* Left Column — bottom-to-top animation */}
+          {/* Left Column */}
           <div className="flex flex-col items-start space-y-6">
 
-            {/* Logo slides up first */}
+            {/* 1st — Logo */}
             <img
               src="/assets/sdlg.png"
               alt="SDLG Logo"
-              className={`w-32 mb-4 sdlg-slide-up sdlg-delay-100 ${visible ? "visible" : ""}`}
+              className={`w-32 mb-4 sdlg-slide-up sdlg-delay-1 ${visible ? "visible" : ""}`}
             />
 
-            {/* Image slides up after logo */}
-            <div className={`relative justify-start w-full sdlg-slide-up sdlg-delay-200 ${visible ? "visible" : ""}`}>
+            {/* 2nd — Image */}
+            <div
+              className={`relative w-full sdlg-slide-up sdlg-delay-2 ${visible ? "visible" : ""}`}
+            >
               <img
                 src="/assets/sd.jpeg"
-                alt="Volvo Excavator"
+                alt="SDLG Equipment"
                 className="w-full rounded-sm"
               />
               <div className="sdlg-img-overlay" />
             </div>
           </div>
 
-          {/* Right Column — bottom-to-top animation for text */}
+          {/* Right Column */}
           <div className="space-y-6">
 
-            {/* Heading slides up */}
-            <h2 className={`text-3xl font-bold leading-snug sdlg-fade-left sdlg-delay-200 ${visible ? "visible" : ""}`}>
+            {/* 3rd — Heading */}
+            <h2
+              className={`text-3xl font-bold leading-snug sdlg-fade-left sdlg-delay-3 ${visible ? "visible" : ""}`}
+            >
               <span className="font-extrabold">SDLG</span>
             </h2>
 
-            {/* Paragraph fades up with delay */}
-            <p className={`text-gray-700 text-base leading-relaxed sdlg-fade-up sdlg-delay-400 ${visible ? "visible" : ""}`}>
-              SDLG (Shandong Lingong Construction Machinery) is a trusted global brand known for delivering reliable and cost-effective construction machinery since 1972. Backed by Volvo CE since 2007, SDLG combines robust engineering with global standards to serve infrastructure and construction needs worldwide. Its value-driven machines are designed for performance, durability, and easy maintenance making them ideal for high-demand environments.<br />
-              ACT has been the authorised dealer for SDLG products since 2008 in the 2 south Indian states of Tamil Nadu & Kerala. This long and successful association is testimony to the trust and capability of delivering value to our customers over the years.
+            {/* 4th — Paragraph */}
+            <p
+              className={`text-gray-700 text-base leading-relaxed sdlg-fade-up sdlg-delay-4 ${visible ? "visible" : ""}`}
+            >
+              SDLG (Shandong Lingong Construction Machinery) is a trusted
+              global brand known for delivering reliable and cost-effective
+              construction machinery since 1972. Backed by Volvo CE since 2007,
+              SDLG combines robust engineering with global standards to serve
+              infrastructure and construction needs worldwide. Its value-driven
+              machines are designed for performance, durability, and easy
+              maintenance making them ideal for high-demand environments.
+              <br />
+              <br />
+              ACT has been the authorised dealer for SDLG products since 2008
+              in the 2 south Indian states of Tamil Nadu & Kerala. This long
+              and successful association is testimony to the trust and
+              capability of delivering value to our customers over the years.
             </p>
-
           </div>
         </div>
       </section>

@@ -37,7 +37,7 @@ const ITEMS = [
     gallery: ["/assets/4300.png"],
     link: "https://www.schwingstetterindia.com/products/concrete-machinery/self-loading-mixer/slm-4300",
   },
-    {
+  {
     category: "Products",
     title: "SLM 4600",
     subtitle: "Massive 4.6 m³ output – most powerful in the SLM range",
@@ -45,24 +45,23 @@ const ITEMS = [
     gallery: ["/assets/4600.png"],
     link: "https://www.schwingstetterindia.com/products/self-loading-mixer/slm-4600",
   },
-
-      {
+  {
     category: "Products",
     title: "BATCHING PLANTS",
-    subtitle: "PLANTSM25Z, M3OZ, M45Z &M1",
+    subtitle: "PLANTSM25Z, M3OZ, M45Z & M1",
     img: "/assets/ss-p-6.png",
     gallery: ["/assets/CP-18.jpg"],
     link: "https://www.schwingstetterindia.com/products/batching-plant/less-30-cumhour/cp-18",
   },
-      {
+  {
     category: "Products",
     title: "BATCHING PLANTS",
-    subtitle: "CP18C3 &CP18TM",
+    subtitle: "CP18C3 & CP18TM",
     img: "/assets/ss-p-7.png",
     gallery: ["/assets/30-60.jpg"],
     link: "https://www.schwingstetterindia.com/products/mobile-batching-plants/m-30-z",
   },
-      {
+  {
     category: "Products",
     title: "STATIONARY PUMP",
     subtitle: "Ranging from 30Cum to 50 cum/hr",
@@ -70,7 +69,7 @@ const ITEMS = [
     gallery: ["/assets/Stationary-Pump.jpg"],
     link: "https://www.schwingstetterindia.com/products/stationary-pump/sp-1200",
   },
-      {
+  {
     category: "Products",
     title: "TRUCK MOUNTED CONCRETE PUMP",
     subtitle: "Massive 4.6 m³ output – most powerful in the SLM range",
@@ -78,27 +77,29 @@ const ITEMS = [
     gallery: ["/assets/S36.jpg"],
     link: "https://www.schwingstetterindia.com/products/truck-mounted-concrete-pump/s36x",
   },
-
-
 ];
 
-// 1. Define Animation Variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // This creates the "one-by-one" effect
+      staggerChildren: 0.28,
+      delayChildren: 0.15,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.5, ease: "easeOut" } 
+  hidden: { opacity: 0, y: 50, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 1.0,
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
 };
 
@@ -124,9 +125,9 @@ export default function ProductsShowcase() {
                 >
                   {c}
                   {isActive && (
-                    <motion.span 
-                      layoutId="activeTab" // Smoothly slides the underline between tabs
-                      className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full" 
+                    <motion.span
+                      layoutId="activeTab"
+                      className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full"
                     />
                   )}
                 </button>
@@ -135,12 +136,13 @@ export default function ProductsShowcase() {
           </nav>
         </div>
 
-        {/* Animated Grid Container */}
+        {/* Animated Grid */}
         <motion.div
-          key={active} // Triggers animation reset when category changes
+          key={active}
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.05 }}
         >
           {active === "Supplies" ? (
             <motion.div variants={itemVariants} className="mx-auto p-2">
@@ -153,20 +155,19 @@ export default function ProductsShowcase() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {current.map((p, i) => (
-                <ProductCard
-                  key={`${p.title}-${i}`}
-                  {...p}
-                  onClick={() => setSelected(p)}
-                />
+                <motion.div key={`${p.title}-${i}`} variants={itemVariants}>
+                  <ProductCard {...p} onClick={() => setSelected(p)} />
+                </motion.div>
               ))}
             </div>
           )}
         </motion.div>
       </div>
 
-      {/* Popup Modal with Exit Animations */}
       <AnimatePresence>
-        {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
+        {selected && (
+          <ProductModal item={selected} onClose={() => setSelected(null)} />
+        )}
       </AnimatePresence>
     </section>
   );
@@ -175,17 +176,17 @@ export default function ProductsShowcase() {
 /* ---------------- Product Card ---------------- */
 function ProductCard({ img, title, subtitle, link, onClick }) {
   return (
-    <motion.article 
-      variants={itemVariants} // Inherits stagger from parent motion.div
-      className="bg-white ring-1 ring-gray-100 shadow-[0_20px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)]"
+    <article
+      className="bg-white ring-1 ring-gray-100 shadow-[0_20px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)] h-full cursor-pointer"
+      onClick={onClick}
     >
-      <div className="p-4 cursor-pointer" onClick={onClick}>
+      <div className="p-4">
         <div className="overflow-hidden">
           <motion.img
-            whileHover={{ scale: 1.05 }} // Subtle zoom on hover
+            whileHover={{ scale: 1.05 }}
             src={img}
             alt={title}
-            className="pt-10"
+            className="pt-10 w-full h-auto"
           />
         </div>
       </div>
@@ -204,24 +205,31 @@ function ProductCard({ img, title, subtitle, link, onClick }) {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-4 px-4 py-2 text-sm font-medium bg-secondary text-white transition"
+            onClick={(e) => e.stopPropagation()}
           >
             View Details →
           </a>
         )}
       </div>
-    </motion.article>
+    </article>
   );
 }
 
-/* ---------------- Popup Modal with Animated Slider ---------------- */
+/* ---------------- Popup Modal ---------------- */
 function ProductModal({ item, onClose }) {
   const images = item.gallery?.length ? item.gallery : [item.img];
   const [index, setIndex] = useState(0);
 
   useEffect(() => { setIndex(0); }, [item]);
 
-  const goPrev = useCallback(() => setIndex((i) => (i === 0 ? images.length - 1 : i - 1)), [images.length]);
-  const goNext = useCallback(() => setIndex((i) => (i === images.length - 1 ? 0 : i + 1)), [images.length]);
+  const goPrev = useCallback(
+    () => setIndex((i) => (i === 0 ? images.length - 1 : i - 1)),
+    [images.length]
+  );
+  const goNext = useCallback(
+    () => setIndex((i) => (i === images.length - 1 ? 0 : i + 1)),
+    [images.length]
+  );
 
   return (
     <motion.div
@@ -260,8 +268,18 @@ function ProductModal({ item, onClose }) {
 
           {images.length > 1 && (
             <>
-              <button onClick={goPrev} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full">‹</button>
-              <button onClick={goNext} className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full">›</button>
+              <button
+                onClick={goPrev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full"
+              >
+                ‹
+              </button>
+              <button
+                onClick={goNext}
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full"
+              >
+                ›
+              </button>
             </>
           )}
         </div>
@@ -272,7 +290,9 @@ function ProductModal({ item, onClose }) {
               <button
                 key={i}
                 onClick={() => setIndex(i)}
-                className={`h-2.5 w-2.5 rounded-full transition-all ${i === index ? "bg-blue-600 scale-125" : "bg-gray-300"}`}
+                className={`h-2.5 w-2.5 rounded-full transition-all ${
+                  i === index ? "bg-blue-600 scale-125" : "bg-gray-300"
+                }`}
               />
             ))}
           </div>

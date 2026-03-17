@@ -47,7 +47,7 @@ export default function AboutACT() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <img
-              src="/assets/home-about.png"
+              src="/assets/home-about.jpg"
               alt="Excavator"
               className="max-h-[400px] sm:max-h-[350px] md:max-h-[600px] w-auto object-contain"
             />

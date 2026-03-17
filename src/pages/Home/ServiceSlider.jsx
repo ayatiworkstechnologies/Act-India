@@ -24,7 +24,7 @@ const rowOne = [
       "/assets/icon-11.png",
       "/assets/icon-12.png",
     ],
-    image: "/assets/flexibility-for-you.jpg",
+    image: "/assets/1.act.jpg",
     link: "/services",
   },
 ];

@@ -20,24 +20,36 @@ const ITEMS = [
     gallery: ["/assets/popup-20.png"],
     link: "https://www.ammann.com/en-IN/machines/asphalt-pavers/",
   },
-  
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.35,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 1.0,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 export default function AmmannProducts() {
   const [active, setActive] = useState("Products");
   const [selected, setSelected] = useState(null);
   const current = ITEMS.filter((i) => i.category === active);
-
-  // Parent container variants for staggered children
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1, // Each card follows the other by 0.1s
-      },
-    },
-  };
 
   return (
     <section className="bg-[#F5F5F5] text-black py-10 md:py-16 overflow-hidden">
@@ -55,9 +67,9 @@ export default function AmmannProducts() {
                 >
                   {c}
                   {isActive && (
-                    <motion.span 
-                      layoutId="ammannTabUnderline" // Smoothly slides the line between tabs
-                      className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full" 
+                    <motion.span
+                      layoutId="ammannTabUnderline"
+                      className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full"
                     />
                   )}
                 </button>
@@ -66,58 +78,41 @@ export default function AmmannProducts() {
           </nav>
         </div>
 
-        {/* Animated Grid Wrapper */}
+        {/* Animated Grid */}
         <motion.div
-          key={active} // Re-animates when switching categories
+          key={active}
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.05 }}
         >
-          {active === "Supplies" ? (
-            <motion.div 
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-              className="mx-auto p-2"
-            >
-              <img
-                src={current[0]?.img}
-                alt="Supplies"
-                className="w-[300px] h-[300px] object-contain bg-white mx-auto shadow-sm rounded-lg"
-              />
-            </motion.div>
-          ) : (
-            <div className="flex flex-wrap justify-center gap-6">
-              {current.map((p, i) => (
-                <ProductCard key={i} {...p} onImageClick={() => setSelected(p)} />
-              ))}
-            </div>
-          )}
+          <div className="flex flex-wrap justify-center gap-6">
+            {current.map((p, i) => (
+              <motion.div
+                key={i}
+                variants={cardVariants}
+                className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)]"
+              >
+                <ProductCard {...p} onImageClick={() => setSelected(p)} />
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
 
-      {/* Popup Modal */}
       <AnimatePresence>
-        {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
+        {selected && (
+          <ProductModal item={selected} onClose={() => setSelected(null)} />
+        )}
       </AnimatePresence>
     </section>
   );
 }
 
-/* ---------------- Product Card with Entrance Animation ---------------- */
+/* ---------------- Product Card ---------------- */
 function ProductCard({ img, title, subtitle, link, onImageClick }) {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.5, ease: "easeOut" } 
-    },
-  };
-
   return (
-    <motion.article 
-      variants={cardVariants}
-      className="bg-white ring-1 ring-gray-100 shadow-[0_20px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)] w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)]"
-    >
+    <article className="bg-white ring-1 ring-gray-100 shadow-[0_20px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)] w-full h-full">
       <div className="p-4">
         <div className="overflow-hidden cursor-pointer" onClick={onImageClick}>
           <motion.img
@@ -138,31 +133,35 @@ function ProductCard({ img, title, subtitle, link, onImageClick }) {
           </p>
         )}
         {link && (
-          <div className="mt-3">
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-4 px-4 py-2 text-sm font-medium bg-secondary text-white transition"
-            >
-              View Details →
-            </a>
-          </div>
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 px-4 py-2 text-sm font-medium bg-secondary text-white transition"
+          >
+            View Details →
+          </a>
         )}
       </div>
-    </motion.article>
+    </article>
   );
 }
 
-/* ---------------- Product Modal with Slider Animation ---------------- */
+/* ---------------- Product Modal ---------------- */
 function ProductModal({ item, onClose }) {
   const images = item.gallery?.length ? item.gallery : [item.img];
   const [index, setIndex] = useState(0);
 
   useEffect(() => setIndex(0), [item]);
 
-  const goPrev = useCallback(() => setIndex((i) => (i === 0 ? images.length - 1 : i - 1)), [images.length]);
-  const goNext = useCallback(() => setIndex((i) => (i === images.length - 1 ? 0 : i + 1)), [images.length]);
+  const goPrev = useCallback(
+    () => setIndex((i) => (i === 0 ? images.length - 1 : i - 1)),
+    [images.length]
+  );
+  const goNext = useCallback(
+    () => setIndex((i) => (i === images.length - 1 ? 0 : i + 1)),
+    [images.length]
+  );
 
   return (
     <motion.div
@@ -198,11 +197,21 @@ function ProductModal({ item, onClose }) {
               className="max-h-[70vh] w-auto object-contain mx-auto select-none"
             />
           </AnimatePresence>
-          
+
           {images.length > 1 && (
             <>
-              <button onClick={goPrev} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full">‹</button>
-              <button onClick={goNext} className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full">›</button>
+              <button
+                onClick={goPrev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full"
+              >
+                ‹
+              </button>
+              <button
+                onClick={goNext}
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full"
+              >
+                ›
+              </button>
             </>
           )}
         </div>
@@ -213,7 +222,9 @@ function ProductModal({ item, onClose }) {
               <button
                 key={i}
                 onClick={() => setIndex(i)}
-                className={`h-2.5 w-2.5 rounded-full transition-all ${i === index ? "bg-blue-600 scale-125" : "bg-gray-300"}`}
+                className={`h-2.5 w-2.5 rounded-full transition-all ${
+                  i === index ? "bg-blue-600 scale-125" : "bg-gray-300"
+                }`}
               />
             ))}
           </div>

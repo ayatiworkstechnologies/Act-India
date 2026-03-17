@@ -34,7 +34,7 @@ export default function HusqvarnaSection() {
         @keyframes husq-fadeInRight {
           from {
             opacity: 0;
-            transform: translateX(40px);
+            transform: translateX(50px);
           }
           to {
             opacity: 1;
@@ -45,7 +45,7 @@ export default function HusqvarnaSection() {
         @keyframes husq-fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
           }
           to {
             opacity: 1;
@@ -57,28 +57,28 @@ export default function HusqvarnaSection() {
           opacity: 0;
         }
         .husq-slide-up.visible {
-          animation: husq-slideUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: husq-slideUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         .husq-fade-right {
           opacity: 0;
         }
         .husq-fade-right.visible {
-          animation: husq-fadeInRight 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: husq-fadeInRight 1.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         .husq-fade-up {
           opacity: 0;
         }
         .husq-fade-up.visible {
-          animation: husq-fadeInUp 0.65s ease forwards;
+          animation: husq-fadeInUp 1.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
-        .husq-delay-100 { animation-delay: 0.1s !important; }
-        .husq-delay-200 { animation-delay: 0.2s !important; }
-        .husq-delay-300 { animation-delay: 0.3s !important; }
-        .husq-delay-400 { animation-delay: 0.4s !important; }
-        .husq-delay-500 { animation-delay: 0.5s !important; }
+        /* One-by-one: each waits for the previous to nearly finish */
+        .husq-delay-1 { animation-delay: 0.1s !important; }
+        .husq-delay-2 { animation-delay: 0.6s !important; }
+        .husq-delay-3 { animation-delay: 1.1s !important; }
+        .husq-delay-4 { animation-delay: 1.6s !important; }
 
         .husq-img-overlay {
           position: absolute;
@@ -94,18 +94,20 @@ export default function HusqvarnaSection() {
       <section ref={sectionRef} className="bg-white py-12 px-6 md:px-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-          {/* Left Column — bottom-to-top animation */}
+          {/* Left Column */}
           <div className="flex flex-col items-start space-y-6">
 
-            {/* Logo slides up first */}
+            {/* 1st — Logo */}
             <img
               src="/assets/Husqvarna.png"
               alt="Husqvarna Logo"
-              className={`w-32 mb-4 husq-slide-up husq-delay-100 ${visible ? "visible" : ""}`}
+              className={`w-32 mb-4 husq-slide-up husq-delay-1 ${visible ? "visible" : ""}`}
             />
 
-            {/* Image slides up after logo */}
-            <div className={`relative justify-start w-full husq-slide-up husq-delay-200 ${visible ? "visible" : ""}`}>
+            {/* 2nd — Image */}
+            <div
+              className={`relative w-full husq-slide-up husq-delay-2 ${visible ? "visible" : ""}`}
+            >
               <img
                 src="/assets/hus.jpeg"
                 alt="Husqvarna Equipment"
@@ -115,22 +117,31 @@ export default function HusqvarnaSection() {
             </div>
           </div>
 
-          {/* Right Column — text animations */}
+          {/* Right Column */}
           <div className="space-y-6">
 
-            {/* Heading fades in from right */}
-            <h2 className={`text-3xl font-bold leading-snug husq-fade-right husq-delay-200 ${visible ? "visible" : ""}`}>
+            {/* 3rd — Heading */}
+            <h2
+              className={`text-3xl font-bold leading-snug husq-fade-right husq-delay-3 ${visible ? "visible" : ""}`}
+            >
               <span className="font-extrabold">Husqvarna</span>{" "}
               <span className="font-normal">
                 Leading Global Construction Tool Innovation
               </span>
             </h2>
 
-            {/* Paragraph fades up with delay */}
-            <p className={`text-gray-700 text-base leading-relaxed husq-fade-up husq-delay-400 ${visible ? "visible" : ""}`}>
-              Husqvarna Construction, a part of the renowned Husqvarna Group, is a global leader in equipment and diamond tools for the light construction industry. Built for professionals shaping concrete, stone, and urban landscapes, our solutions combine cutting-edge technology with uncompromising performance. With a focus on precision and partnership, Husqvarna keeps you ahead of every project, every time.
+            {/* 4th — Paragraph */}
+            <p
+              className={`text-gray-700 text-base leading-relaxed husq-fade-up husq-delay-4 ${visible ? "visible" : ""}`}
+            >
+              Husqvarna Construction, a part of the renowned Husqvarna Group,
+              is a global leader in equipment and diamond tools for the light
+              construction industry. Built for professionals shaping concrete,
+              stone, and urban landscapes, our solutions combine cutting-edge
+              technology with uncompromising performance. With a focus on
+              precision and partnership, Husqvarna keeps you ahead of every
+              project, every time.
             </p>
-
           </div>
         </div>
       </section>

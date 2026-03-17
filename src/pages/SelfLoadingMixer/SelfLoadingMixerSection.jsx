@@ -34,7 +34,7 @@ export default function SelfLoadingMixerSection() {
         @keyframes schwing-fadeInRight {
           from {
             opacity: 0;
-            transform: translateX(40px);
+            transform: translateX(50px);
           }
           to {
             opacity: 1;
@@ -45,7 +45,7 @@ export default function SelfLoadingMixerSection() {
         @keyframes schwing-fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
           }
           to {
             opacity: 1;
@@ -57,28 +57,28 @@ export default function SelfLoadingMixerSection() {
           opacity: 0;
         }
         .schwing-slide-up.visible {
-          animation: schwing-slideUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: schwing-slideUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         .schwing-fade-right {
           opacity: 0;
         }
         .schwing-fade-right.visible {
-          animation: schwing-fadeInRight 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: schwing-fadeInRight 1.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         .schwing-fade-up {
           opacity: 0;
         }
         .schwing-fade-up.visible {
-          animation: schwing-fadeInUp 0.65s ease forwards;
+          animation: schwing-fadeInUp 1.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
-        .schwing-delay-100 { animation-delay: 0.1s !important; }
-        .schwing-delay-200 { animation-delay: 0.2s !important; }
-        .schwing-delay-300 { animation-delay: 0.3s !important; }
-        .schwing-delay-400 { animation-delay: 0.4s !important; }
-        .schwing-delay-500 { animation-delay: 0.5s !important; }
+        /* One-by-one: each waits for the previous to nearly finish */
+        .schwing-delay-1 { animation-delay: 0.1s !important; }
+        .schwing-delay-2 { animation-delay: 0.6s !important; }
+        .schwing-delay-3 { animation-delay: 1.1s !important; }
+        .schwing-delay-4 { animation-delay: 1.6s !important; }
 
         .schwing-img-overlay {
           position: absolute;
@@ -94,18 +94,20 @@ export default function SelfLoadingMixerSection() {
       <section ref={sectionRef} className="bg-white py-12 px-6 md:px-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-          {/* Left Column — bottom-to-top animation */}
+          {/* Left Column */}
           <div className="flex flex-col items-start space-y-6">
 
-            {/* Logo slides up first */}
+            {/* 1st — Logo */}
             <img
               src="/logos/schwing-stetter-web.svg"
               alt="Schwing Stetter Logo"
-              className={`w-32 mb-4 schwing-slide-up schwing-delay-100 ${visible ? "visible" : ""}`}
+              className={`w-32 mb-4 schwing-slide-up schwing-delay-1 ${visible ? "visible" : ""}`}
             />
 
-            {/* Image slides up after logo */}
-            <div className={`relative justify-start w-full schwing-slide-up schwing-delay-200 ${visible ? "visible" : ""}`}>
+            {/* 2nd — Image */}
+            <div
+              className={`relative w-full schwing-slide-up schwing-delay-2 ${visible ? "visible" : ""}`}
+            >
               <img
                 src="/assets/sch.jpeg"
                 alt="Schwing Stetter Equipment"
@@ -115,25 +117,44 @@ export default function SelfLoadingMixerSection() {
             </div>
           </div>
 
-          {/* Right Column — text animations */}
+          {/* Right Column */}
           <div className="space-y-6">
 
-            {/* Heading fades in from right */}
-            <h2 className={`text-3xl font-bold leading-snug schwing-fade-right schwing-delay-200 ${visible ? "visible" : ""}`}>
+            {/* 3rd — Heading */}
+            <h2
+              className={`text-3xl font-bold leading-snug schwing-fade-right schwing-delay-3 ${visible ? "visible" : ""}`}
+            >
               <span className="font-extrabold">SCHWING</span>{" "}
               <span className="font-normal">
                 Construction Solutions Backed by ACT Expertise
               </span>
             </h2>
 
-            {/* Paragraph fades up with delay */}
-            <p className={`text-gray-700 text-base leading-relaxed schwing-fade-up schwing-delay-400 ${visible ? "visible" : ""}`}>
-              SCHWING STETTER is the world's leading system house for concrete construction machines, offering the entire spectrum of ready-mix concrete technology. <br />
-              The premium products offered for the production, transport, placing and environmentally friendly recycling of concrete mean maximum safety, reliability and cost-effectiveness for customers - with the highest resale value for SCHWING-Stetter products. <br />
-              SCHWING STETTER India is a 100% subsidiary of the Schwing group of companies GmbH was incorporated in the year 1998. A pioneer in concrete construction equipment manufacturing As a global leader in construction equipment. <br />
-              ACT & its group company PACT MACHINES were appointed as authorised dealer for SCHWING STETTER products in the 2 south Indian states of Tamil Nadu & Kerala respectively since Nov 2025.
+            {/* 4th — Paragraph */}
+            <p
+              className={`text-gray-700 text-base leading-relaxed schwing-fade-up schwing-delay-4 ${visible ? "visible" : ""}`}
+            >
+              SCHWING STETTER is the world's leading system house for concrete
+              construction machines, offering the entire spectrum of ready-mix
+              concrete technology.
+              <br />
+              <br />
+              The premium products offered for the production, transport,
+              placing and environmentally friendly recycling of concrete mean
+              maximum safety, reliability and cost-effectiveness for customers —
+              with the highest resale value for SCHWING-Stetter products.
+              <br />
+              <br />
+              SCHWING STETTER India is a 100% subsidiary of the Schwing group
+              of companies GmbH was incorporated in the year 1998. A pioneer in
+              concrete construction equipment manufacturing as a global leader
+              in construction equipment.
+              <br />
+              <br />
+              ACT & its group company PACT MACHINES were appointed as
+              authorised dealer for SCHWING STETTER products in the 2 south
+              Indian states of Tamil Nadu & Kerala respectively since Nov 2025.
             </p>
-
           </div>
         </div>
       </section>
