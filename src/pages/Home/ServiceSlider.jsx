@@ -144,7 +144,7 @@ export default function ServiceGrid() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-xl md:text-2xl font-bold font-primary mb-6"
+        className="text-2xl md:text-3xl font-bold font-primary mb-6"
       >
         Other Services
       </motion.h3>

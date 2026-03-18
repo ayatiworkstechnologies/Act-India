@@ -79,7 +79,7 @@ export default function Warehouse() {
         className="w-full bg-white text-neutral-900 mt-14"
         id="warehouse"
       >
-        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
+        <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
 
           {/* LEFT: SLIDER — slides up from bottom */}
           <aside

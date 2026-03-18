@@ -32,7 +32,7 @@ export default function Stockyard() {
       </motion.h2>
 
       {/* Grid */}
-      <div className="mx-auto mt-8 max-w-6xl px-5 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2">
+      <div className="mx-auto mt-8 max-w-6xl  grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2">
         {ITEMS.map((item) => (
           <Card key={item.city} {...item} />
         ))}

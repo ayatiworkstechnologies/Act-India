@@ -1,7 +1,43 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+
+function EyeIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      className="h-7 w-7"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12Z"
+      />
+      <circle cx="12" cy="12" r="3.25" />
+    </svg>
+  );
+}
+
+function TargetIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      className="h-7 w-7"
+    >
+      <circle cx="12" cy="12" r="8.5" />
+      <circle cx="12" cy="12" r="4.5" />
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 export default function MissionVision({
   missionTexts = [
@@ -26,7 +62,7 @@ export default function MissionVision({
 
   const bgBlobY1 = useTransform(smoothProgress, [0, 1], [-30, 60]);
   const bgBlobY2 = useTransform(smoothProgress, [0, 1], [40, -40]);
-  const bgBlobX  = useTransform(smoothProgress, [0, 1], [-15, 15]);
+  const bgBlobX = useTransform(smoothProgress, [0, 1], [-15, 15]);
 
   const sectionFade = {
     hidden: { opacity: 0, y: 70, scale: 0.96 },
@@ -34,7 +70,7 @@ export default function MissionVision({
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
@@ -42,8 +78,8 @@ export default function MissionVision({
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.35,
-        delayChildren: 0.4,
+        staggerChildren: 0.22,
+        delayChildren: 0.25,
       },
     },
   };
@@ -54,7 +90,7 @@ export default function MissionVision({
       opacity: 1,
       x: 0,
       filter: "blur(0px)",
-      transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
@@ -63,7 +99,7 @@ export default function MissionVision({
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
@@ -73,7 +109,7 @@ export default function MissionVision({
       opacity: 1,
       scale: 1,
       rotate: 0,
-      transition: { type: "spring", stiffness: 80, damping: 18, delay: 0.5 },
+      transition: { type: "spring", stiffness: 90, damping: 18, delay: 0.35 },
     },
   };
 
@@ -83,16 +119,7 @@ export default function MissionVision({
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.7 },
-    },
-  };
-
-  const dotAnim = {
-    hidden: { scale: 0, opacity: 0 },
-    show: {
-      scale: 1,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 120, damping: 18, delay: 1.0 },
+      transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.45 },
     },
   };
 
@@ -101,7 +128,7 @@ export default function MissionVision({
     show: {
       opacity: 1,
       x: 0,
-      transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.3 },
+      transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 },
     },
   };
 
@@ -110,7 +137,7 @@ export default function MissionVision({
       ref={containerRef}
       className="relative overflow-hidden bg-[#f8fbff] py-16 md:py-24"
     >
-      {/* Background decor — parallax */}
+      {/* Background decor */}
       <div className="pointer-events-none absolute inset-0">
         <motion.div
           style={{ y: bgBlobY1 }}
@@ -127,8 +154,7 @@ export default function MissionVision({
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-6 md:px-10">
-
-        {/* Top heading */}
+        {/* Heading */}
         <motion.div
           variants={headingAnim}
           initial="hidden"
@@ -141,9 +167,8 @@ export default function MissionVision({
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-
-          {/* ── Vision Card ── */}
+        <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2">
+          {/* Vision Card */}
           <motion.div
             variants={sectionFade}
             initial="hidden"
@@ -154,20 +179,12 @@ export default function MissionVision({
               boxShadow: "0 32px 80px rgba(10,73,145,0.14)",
               transition: { duration: 0.5, ease: "easeOut" },
             }}
-            className="group relative overflow-hidden rounded-[28px] border border-white/60 bg-white/80 p-6 shadow-[0_20px_60px_rgba(2,32,71,0.08)] backdrop-blur-xl md:p-8"
+            className="group relative flex h-full overflow-hidden rounded-[28px] border border-white/60 bg-white/80 p-6 shadow-[0_20px_60px_rgba(2,32,71,0.08)] backdrop-blur-xl md:p-8"
           >
             <motion.div className="absolute inset-0 bg-gradient-to-br from-[#0A4991] via-[#0f5bb6] to-[#4bb8ff] opacity-0 transition-opacity duration-700 group-hover:opacity-[0.06]" />
             <div className="absolute right-0 top-0 h-28 w-28 translate-x-8 -translate-y-8 rounded-full bg-blue-100/80 blur-2xl" />
 
-            {/* Rotating dashed ring */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-              className="pointer-events-none absolute right-6 top-6 h-20 w-20 rounded-full border border-dashed border-blue-200/60"
-            />
-
-            <div className="relative">
-              {/* Icon + Title row */}
+            <div className="relative flex w-full flex-col">
               <motion.div
                 initial={{ opacity: 0, x: -35 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -180,11 +197,15 @@ export default function MissionVision({
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  whileHover={{ rotate: [0, -8, 8, 0], transition: { duration: 0.6 } }}
-                  className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0A4991] to-[#38bdf8] text-lg font-bold text-white shadow-lg"
+                  whileHover={{
+                    rotate: [0, -8, 8, 0],
+                    transition: { duration: 0.6 },
+                  }}
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0A4991] to-[#38bdf8] text-white shadow-lg"
                 >
-                  V
+                  <EyeIcon />
                 </motion.div>
+
                 <motion.div
                   variants={titleLineAnim}
                   initial="hidden"
@@ -197,31 +218,21 @@ export default function MissionVision({
                 </motion.div>
               </motion.div>
 
-              {/* Vision text box */}
               <motion.div
                 variants={visionTextAnim}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="rounded-3xl border border-blue-100 bg-gradient-to-br from-white via-[#f8fbff] to-[#eef6ff] p-6 shadow-inner"
+                className="flex flex-1 items-start"
               >
-                <div className="flex items-start gap-4">
-                  <motion.span
-                    variants={dotAnim}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    className="mt-1 h-3 w-3 shrink-0 rounded-full bg-[#0A4991]"
-                  />
-                  <p className="text-sm leading-7 text-slate-700 md:text-base md:leading-8">
-                    {visionText}
-                  </p>
-                </div>
+                <p className="text-sm leading-7 text-slate-700 md:text-base md:leading-8">
+                  {visionText}
+                </p>
               </motion.div>
             </div>
           </motion.div>
 
-          {/* ── Mission Card ── */}
+          {/* Mission Card */}
           <motion.div
             variants={sectionFade}
             initial="hidden"
@@ -232,20 +243,12 @@ export default function MissionVision({
               boxShadow: "0 32px 80px rgba(2,32,71,0.12)",
               transition: { duration: 0.5, ease: "easeOut" },
             }}
-            className="group relative overflow-hidden rounded-[28px] border border-white/60 bg-white/80 p-6 shadow-[0_20px_60px_rgba(2,32,71,0.08)] backdrop-blur-xl md:p-8"
+            className="group relative flex h-full overflow-hidden rounded-[28px] border border-white/60 bg-white/80 p-6 shadow-[0_20px_60px_rgba(2,32,71,0.08)] backdrop-blur-xl md:p-8"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 opacity-0 transition-opacity duration-700 group-hover:opacity-[0.04]" />
             <div className="absolute bottom-0 left-0 h-28 w-28 -translate-x-8 translate-y-8 rounded-full bg-slate-200/70 blur-2xl" />
 
-            {/* Rotating dashed ring */}
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
-              className="pointer-events-none absolute bottom-6 left-6 h-16 w-16 rounded-full border border-dashed border-slate-300/50"
-            />
-
-            <div className="relative">
-              {/* Icon + Title row */}
+            <div className="relative flex w-full flex-col">
               <motion.div
                 initial={{ opacity: 0, x: 35 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -258,11 +261,15 @@ export default function MissionVision({
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  whileHover={{ rotate: [0, -8, 8, 0], transition: { duration: 0.6 } }}
-                  className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0A4991] to-[#38bdf8] text-lg font-bold text-white shadow-lg"
+                  whileHover={{
+                    rotate: [0, -8, 8, 0],
+                    transition: { duration: 0.6 },
+                  }}
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0A4991] to-[#38bdf8] text-white shadow-lg"
                 >
-                  M
+                  <TargetIcon />
                 </motion.div>
+
                 <motion.div
                   variants={titleLineAnim}
                   initial="hidden"
@@ -275,13 +282,12 @@ export default function MissionVision({
                 </motion.div>
               </motion.div>
 
-              {/* Mission items — one by one */}
               <motion.div
                 variants={staggerWrap}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="space-y-4"
+                className="flex flex-1 flex-col space-y-4"
               >
                 {missionTexts.map((text, index) => (
                   <motion.div
@@ -292,7 +298,7 @@ export default function MissionVision({
                       backgroundColor: "#f0f7ff",
                       transition: { duration: 0.3, ease: "easeOut" },
                     }}
-                    className="group/item flex items-start gap-4 rounded-2xl border border-slate-100 bg-gradient-to-r from-white to-slate-50 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md"
+                    className="flex items-start gap-4 rounded-2xl border border-slate-100 bg-gradient-to-r from-white to-slate-50 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md"
                   >
                     <motion.div
                       initial={{ scale: 0, opacity: 0 }}
@@ -301,7 +307,7 @@ export default function MissionVision({
                         type: "spring",
                         stiffness: 100,
                         damping: 18,
-                        delay: 0.5 + index * 0.35,
+                        delay: 0.35 + index * 0.2,
                       }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.15, transition: { duration: 0.25 } }}
@@ -318,7 +324,6 @@ export default function MissionVision({
               </motion.div>
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
