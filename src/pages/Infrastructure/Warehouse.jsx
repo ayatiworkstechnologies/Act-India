@@ -136,7 +136,9 @@ export default function Warehouse() {
 
               {/* Paragraph fades up */}
               <p className={`mt-5 max-w-2xl text-sm leading-6 text-neutral-600 wh-fade-up wh-d4 ${visible ? "visible" : ""}`}>
-                ACT delivers secure, high-performance warehousing and meticulously managed stockyards designed to maximize operational flow for large-scale enterprises. Our infrastructure integrates advanced systems, optimized handling protocols, and rigorous process discipline to enhance inventory visibility, reduce operational overheads, and ensure seamless supply-chain continuity.
+                Our warehouse infrastructure is designed to ensure safe storage, efficient handling, and seamless movement of goods across the supply chain. Equipped with well-organized storage systems and modern handling practices, we maintain optimal inventory levels to meet customer demands without delays.<br/>
+                With a strong focus on accuracy and efficiency, our operations integrate inventory management and warehousing processes to ensure the right products are available at the right time. From receiving and storage to dispatch, every stage is managed with precision to support faster turnaround and reliable service.
+
               </p>
 
             </div>

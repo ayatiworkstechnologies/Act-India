@@ -17,16 +17,34 @@ export default function WorkshopChennai() {
     <section className="w-full py-10 bg-gray-50 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
 
-        {/* Title - Bottom to Top Animation */}
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center text-[30px] leading-[1.25] tracking-wide mb-10"
-        >
-          Workshop - Chennai
-        </motion.h2>
+        {/* Title + Paragraph (stacked) */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="mb-10 text-center max-w-3xl mx-auto"
+>
+  {/* Title */}
+  <h2 className="text-[30px] md:text-[36px] leading-[1.25] tracking-wide text-[#1a1a1a]">
+    Workshop - Chennai
+  </h2>
+
+  {/* Paragraph */}
+  <div className="mt-5 text-[15px] leading-7 text-gray-600 space-y-3">
+    <p>
+      ACT Workshop serves as a fundamental element in providing essential services that enhance customer satisfaction and operational efficiency, as per OEM Standards.
+    </p>
+
+    <p>
+      The Workshop’s dedicated quality service delivers advanced machine rebuilding and major component overhauls, carried out with expertise on equipment from leading global Construction Equipment brands such as Volvo, Amman, Epiroc, and Husqvarna.
+    </p>
+
+    <p>
+      This ensures optimal performance and reliability of the equipment for our customers.
+    </p>
+  </div>
+</motion.div>
 
         {/* Image Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
