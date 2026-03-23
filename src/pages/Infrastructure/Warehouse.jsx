@@ -3,9 +3,11 @@ import React, { useEffect, useState, useRef } from "react";
 
 const SLIDES = [
  
-  { src: "/assets/karur.png", alt: "Stockyard forklifts", label: "Karur" },
-  { src: "/assets/coimbatore.png", alt: "Loading dock operations", label: "Coimbatore" },
-  { src: "/assets/tirunelveli.png", alt: "Inventory scanning", label: "Tirunelveli" },
+  { src: "/assets/karur.jpg", alt: "Stockyard forklifts", label: "Karur" },
+  { src: "/assets/coimbatore.jpg", alt: "Loading dock operations", label: "Coimbatore" },
+  { src: "/assets/tirunelveli.jpg", alt: "Inventory scanning", label: "Tirunelveli" },
+    { src: "/assets/chennai.jpg", alt: "Inventory scanning", label: "Chennai" },
+
 ];
 
 // 🔁 Replace these with your actual icon image files
