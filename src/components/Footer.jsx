@@ -49,7 +49,7 @@ export default function FooterACT() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {/* Brand partner */}
             <nav>
-              <h3 className="mb-3 font-semibold text-[15px] text-black">Brand partner</h3>
+              <h3 className="mb-3 font-semibold text-[15px] text-black">Brand partners</h3>
               <ul className="space-y-2 text-[14px] text-black">
                 {[
                   { name: "Volvo", path: "/volvo" },

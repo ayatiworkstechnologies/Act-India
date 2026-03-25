@@ -31,7 +31,7 @@ export default function WorkshopChennai() {
   </h2>
 
   {/* Paragraph */}
-  <div className="mt-5 text-[15px] leading-7 text-gray-600 space-y-3">
+  <div className="mt-4 max-w-5xl mx-auto text-gray-700 font-secondary leading-relaxed text-left md:text-justify space-y-2">
     <p>
       ACT Workshop serves as a fundamental element in providing essential services that enhance customer satisfaction and operational efficiency, as per OEM Standards.
     </p>

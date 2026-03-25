@@ -19,7 +19,7 @@ export default function Support({
   const last = words.pop();
 
   return (
-    <section className="w-full bg-white text-neutral-900 py-10 overflow-hidden" id="support-vehicles">
+    <section className="w-full py-10 bg-gray-50 overflow-hidden" id="support-vehicles">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         
         {/* Heading - Bottom to Top Animation */}
@@ -30,7 +30,7 @@ export default function Support({
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-6 relative z-10"
         >
-          <h2 className="text-[30px] leading-[1.25] tracking-wide">
+          <h2 className="text-[30px] md:text-[36px] leading-[1.25] tracking-wide text-[#1a1a1a]">
             {words.join(" ")} <span className="font-extrabold">{last}</span>
           </h2>
           <p className="mt-1 text-[14px] sm:text-[16px] text-neutral-600">
