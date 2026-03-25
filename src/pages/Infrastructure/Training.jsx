@@ -69,7 +69,10 @@ export default function Training() {
             </motion.h2>
 
             <motion.p variants={fadeInUp} className="mt-5 max-w-2xl text-sm leading-6 text-neutral-600">
-              ACT delivers secure, high-efficiency warehouses and stockyards engineered to streamline storage, handling, and distribution for enterprise-scale operations. Our infrastructure integrates modern equipment, optimized workflows, and rigorous process controls to drive efficiency and reduce cost-to-serve. With industry-aligned training zones and fully equipped technical environments, we build talent that meets global brand standards while ensuring consistent operational excellence. 
+               ACT recruits fresh Degree, Diploma, and ITI candidates and offers a six-month training program on construction equipment, designed with a structured and customized approach.
+               The program covers orientation, safety practices with proper PPE usage, equipment working principles, component identification, and circuit understanding. It also includes hands-on training in tool handling, inspection, preventive maintenance, servicing, diagnosing, and troubleshooting, along with overall skill development.
+               Trainees are evaluated at the end of the program and awarded certification upon successful completion.
+
             </motion.p>
           </div>
         </motion.div>
