@@ -37,7 +37,7 @@ export default function WorkshopChennai() {
     </p>
 
     <p>
-      The Workshop’s dedicated quality service delivers advanced machine rebuilding and major component overhauls, carried out with expertise on equipment from leading global Construction Equipment brands such as Volvo, Amman, Epiroc, and Husqvarna.
+      The Workshop’s dedicated quality service delivers advanced machine rebuilding and major component overhauls, carried out with expertise on equipment from leading global Construction Equipment brands.
     </p>
 
     <p>
