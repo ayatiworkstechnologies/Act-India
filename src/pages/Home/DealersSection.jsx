@@ -49,7 +49,7 @@ export default function DealersSection() {
         {/* ================== HEADER ================== */}
         <div className="text-center mb-10 md:mb-14">
           <h2 className="text-2xl md:text-3xl font-bold font-primary">
-            Brand Partner
+            Brand Partners
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mt-4" />
         </div>
