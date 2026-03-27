@@ -4,15 +4,14 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
-import emailjs from "@emailjs/browser"; // ✅ FIX: correct import
 
-// 🔒 Validation schema
+// Validation schema
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(80, "Name is too long"),
   email: z.string().email("Enter a valid email address"),
   phone: z.string().regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit Indian mobile number"),
   message: z.string().min(10, "Message should be at least 10 characters"),
-  company: z.string().optional(), // honeypot
+  company: z.string().optional(),
 });
 
 export default function ContactSection() {
@@ -33,11 +32,10 @@ export default function ContactSection() {
       email: "",
       phone: "",
       message: "",
-      company: "", // honeypot
+      company: "",
     },
   });
 
-  // Autofocus first error on submit attempts
   useEffect(() => {
     const firstError = Object.keys(errors)[0];
     if (firstError) setFocus(firstError);
@@ -46,34 +44,52 @@ export default function ContactSection() {
   const onSubmit = async (values) => {
     setServerMsg(null);
 
-    // 🚫 Honeypot: if filled, likely a bot
     if (values.company && values.company.trim().length > 0) {
       setServerMsg({ type: "error", text: "Spam detected." });
       return;
     }
 
-    // Extra context for your EmailJS template
-    const payload = {
-      ...values,
-      page: typeof window !== "undefined" ? window.location.href : "N/A",
-      source: "ACT India — Contact Section",
-      submitted_at: new Date().toLocaleString("en-IN"),
-      year: new Date().getFullYear(),
-    };
-
     try {
-      // ⛳ Replace with your own EmailJS IDs
-      const SERVICE_ID = "service_sm2d2ao";
-      const TEMPLATE_ID = "template_agcpgdr";
-      const PUBLIC_KEY = "1OAToflI7vmUK7Dqz";
+      const response = await fetch(
+        "https://api.ayatiworks.com/api/v1/public/act-india/contact_us/records",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-API-Key": "aa9ca5ce0f4e43a366de701813f8060479aa7686115a8215fccf754e0a072f36",
+          },
+          body: JSON.stringify({
+            data: {
+              name: values.name,
+              email: values.email,
+              phone_number: values.phone,
+              message: values.message,
+            },
+          }),
+        }
+      );
 
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, { publicKey: PUBLIC_KEY });
+      const text = await response.text();
+      let result = {};
+
+      try {
+        result = text ? JSON.parse(text) : {};
+      } catch {
+        result = { message: text || "Invalid server response" };
+      }
+
+      if (!response.ok) {
+        throw new Error(result?.message || "Failed to send. Try again later.");
+      }
 
       setServerMsg({ type: "success", text: "✅ Message sent successfully!" });
       reset();
     } catch (error) {
-      console.error("EmailJS Error:", error);
-      setServerMsg({ type: "error", text: "❌ Failed to send. Try again later." });
+      console.error("Contact API Error:", error);
+      setServerMsg({
+        type: "error",
+        text: error.message || "❌ Failed to send. Try again later.",
+      });
     }
   };
 
@@ -98,7 +114,6 @@ export default function ContactSection() {
             ABOUT <br />
             YOUR NEEDS
           </h2>
-         
 
           {/* Contact Info */}
           <div className="space-y-4 pt-4">
@@ -106,7 +121,7 @@ export default function ContactSection() {
               <Mail className="text-secondary" size={22} />
               <p className="text-gray-700">
                 <span className="block font-medium">E-mail</span>
-               info@actind.com
+                info@actind.com
               </p>
             </div>
             <div className="flex items-center gap-3">
@@ -116,16 +131,15 @@ export default function ContactSection() {
                 +91 98847 57350
               </p>
             </div>
-             <div className="flex items-center gap-3">
-              
+            <div className="flex items-center gap-3">
               <p className="text-gray-700">
                 <span className="block font-bold">Address</span>
-                  No. 5/55, Kuthambakkam Village & Post, <br/>
-                  Forest Range Road, <br/>
-                  Chettipedu, Poonamallee TK, <br/>
-                  Thiruvallur Dist., <br/>
-                  Chennai – 600124, <br/>
-                  India
+                No. 5/55, Kuthambakkam Village & Post, <br />
+                Forest Range Road, <br />
+                Chettipedu, Poonamallee TK, <br />
+                Thiruvallur Dist., <br />
+                Chennai – 600124, <br />
+                India
               </p>
             </div>
           </div>
@@ -141,7 +155,6 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="bg-white rounded-xl shadow-sm p-6 md:p-8 space-y-5"
         >
-          {/* Global message */}
           {serverMsg && (
             <div
               className={`text-sm rounded-md p-3 ${
@@ -154,7 +167,6 @@ export default function ContactSection() {
             </div>
           )}
 
-          {/* Honeypot (hidden) */}
           <div className="hidden">
             <label className="block text-sm font-semibold font-primary">Company</label>
             <input
@@ -166,7 +178,6 @@ export default function ContactSection() {
             />
           </div>
 
-          {/* Name */}
           <div>
             <label className="block text-sm font-semibold font-primary" htmlFor="name">
               Name
@@ -189,7 +200,6 @@ export default function ContactSection() {
             )}
           </div>
 
-          {/* Email */}
           <div>
             <label className="block text-sm font-semibold font-primary" htmlFor="email">
               E-mail
@@ -212,13 +222,14 @@ export default function ContactSection() {
             )}
           </div>
 
-          {/* Phone */}
           <div>
             <label className="block text-sm font-semibold font-primary" htmlFor="phone">
               Phone Number
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 select-none">+91</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 select-none">
+                +91
+              </span>
               <input
                 id="phone"
                 inputMode="numeric"
@@ -231,7 +242,7 @@ export default function ContactSection() {
                   errors.phone ? "border-red-400 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"
                 }`}
                 onInput={(e) => {
-                  e.currentTarget.value = e.currentTarget.value.replace(/\D/g, ""); // digits only
+                  e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
                 }}
               />
             </div>
@@ -245,7 +256,6 @@ export default function ContactSection() {
             )}
           </div>
 
-          {/* Message */}
           <div>
             <label className="block text-sm font-semibold font-primary" htmlFor="message">
               Message
@@ -268,15 +278,14 @@ export default function ContactSection() {
             )}
           </div>
 
-          {/* Submit */}
           <motion.button
             whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
             whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
             type="submit"
             disabled={isSubmitting}
-            className={`inline-flex items-center gap-2 font-semibold px-5 py-3  text-white
-              ${isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-primary hover:opacity-90"}
-            `}
+            className={`inline-flex items-center gap-2 font-semibold px-5 py-3 text-white ${
+              isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-primary hover:opacity-90"
+            }`}
           >
             {isSubmitting ? (
               <>
@@ -289,7 +298,9 @@ export default function ContactSection() {
           </motion.button>
 
           {isSubmitSuccessful && serverMsg?.type === "success" && (
-            <p className="text-xs text-gray-500">We’ve received your details. Expect a reply soon.</p>
+            <p className="text-xs text-gray-500">
+              We’ve received your details. Expect a reply soon.
+            </p>
           )}
         </motion.form>
       </div>
