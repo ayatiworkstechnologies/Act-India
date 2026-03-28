@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -41,7 +42,7 @@ const groupedSlides = [
     ],
   },
   {
-    text: "Leaders in proactive aftermarket solutions for construction equipment",
+    text: "Leaders in proactive after market solutions for construction equipment",
     images: [
       {
         desktop: "/assets/banner/Husqvarna-web.jpg",
@@ -59,7 +60,7 @@ const groupedSlides = [
 
 function AnimatedWords({ text, animationKey }) {
   return (
-    <h2 className="banner-text text-white font-semibold max-w-full md:max-w-[900px]">
+    <h2 className="banner-text text-white font-semibold max-w-full">
       {text.split(" ").map((word, index) => (
         <span
           key={`${animationKey}-${word}-${index}`}
@@ -123,26 +124,26 @@ export default function HomeSection() {
                 <img
                   src={slide.desktop}
                   alt="banner desktop"
-                  className="hidden md:block w-full h-[520px] object-cover object-center select-none"
+                  className="hidden md:block w-full h-[520px] lg:h-[620px] object-cover object-center select-none"
                   loading="eager"
                 />
                 <img
                   src={slide.mobile}
                   alt="banner mobile"
-                  className="block md:hidden w-full h-[420px] object-cover object-center select-none"
+                  className="block md:hidden w-full h-[520px] object-cover object-center select-none"
                   loading="eager"
                 />
               </div>
 
               {/* Overlay */}
-              <div className="absolute inset-0 z-10 bg-black/20 pointer-events-none" />
+              <div className="absolute inset-0 z-10 bg-black/35 md:bg-black/25 pointer-events-none" />
             </div>
           </SwiperSlide>
         ))}
 
-        {/* Fixed Text - changes only when group changes */}
-        <div className="absolute left-[6%] md:left-[7%] bottom-[12%] md:bottom-[14%] z-20 max-w-[88%] md:max-w-[62%] pointer-events-none">
-          <div className="relative text-wrap">
+        {/* Fixed Text */}
+        <div className="absolute left-4 right-4 sm:left-6 sm:right-6 md:left-[7%] md:right-auto bottom-[20%] sm:bottom-[18%] md:bottom-[14%] z-20 max-w-full md:max-w-[62%] pointer-events-none">
+          <div className="relative">
             <AnimatedWords
               text={activeGroup.text}
               animationKey={activeGroup.text}
@@ -150,30 +151,31 @@ export default function HomeSection() {
           </div>
         </div>
 
-        {/* Fixed Button - changes with image */}
-        <div className="absolute left-[6%] md:left-auto md:right-[7%] bottom-[6%] md:bottom-[18%] z-30">
+        {/* Fixed Button */}
+        <div className="absolute left-4 sm:left-6 md:left-auto md:right-[7%] bottom-[8%] md:bottom-[18%] z-30">
           <button
             type="button"
             onClick={() => navigate(activeSlide.link)}
-            className="inline-flex items-center justify-center border border-white/70 text-white px-5 py-2.5 md:px-10 md:py-4 text-sm md:text-[20px] font-semibold bg-white/10 backdrop-blur-sm hover:bg-white hover:text-black transition-all duration-300"
+            className="inline-flex items-center justify-center border border-white/70 text-white px-4 py-2.5 sm:px-5 sm:py-3 md:px-10 md:py-4 text-[13px] sm:text-sm md:text-[20px] font-semibold bg-white/10 backdrop-blur-sm hover:bg-white hover:text-black transition-all duration-300"
           >
             Know More
           </button>
         </div>
 
         {/* Navigation Buttons */}
-        <button className="home-prev absolute left-3 md:left-10 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-16 md:h-16 rounded-full bg-black/35 hover:bg-black/50 flex items-center justify-center transition-all">
-          <ChevronLeft className="text-white w-5 h-5 md:w-8 md:h-8" />
+        <button className="home-prev absolute left-3 sm:left-4 md:left-10 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-[3rem] md:h-[3rem] rounded-full bg-black/35 hover:bg-black/50 flex items-center justify-center transition-all">
+          <ChevronLeft className="text-white w-4 h-4 sm:w-5 sm:h-5 md:w-8 md:h-8" />
         </button>
-        <button className="home-next absolute right-3 md:right-10 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-16 md:h-16 rounded-full bg-black/35 hover:bg-black/50 flex items-center justify-center transition-all">
-          <ChevronRight className="text-white w-5 h-5 md:w-8 md:h-8" />
+
+        <button className="home-next absolute right-3 sm:right-4 md:right-10 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-[3rem] md:h-[3rem] rounded-full bg-black/35 hover:bg-black/50 flex items-center justify-center transition-all">
+          <ChevronRight className="text-white w-4 h-4 sm:w-5 sm:h-5 md:w-8 md:h-8" />
         </button>
       </Swiper>
 
       <style jsx>{`
         .banner-text {
-          font-size: clamp(22px, 3vw, 54px);
-          line-height: 1.15;
+          font-size: clamp(20px, 5vw, 35px);
+          line-height: 1.2;
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
         }
 
@@ -189,6 +191,13 @@ export default function HomeSection() {
           to {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+
+        @media (max-width: 767px) {
+          .banner-text {
+            font-size: clamp(20px, 6vw, 30px);
+            line-height: 1.25;
           }
         }
       `}</style>
