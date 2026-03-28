@@ -6,61 +6,66 @@ import { MapPin } from "lucide-react";
 const locations = [
   {
     city: "Chennai",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.9788119765326!2d80.02504619999999!3d13.0370206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a528b8de7319215%3A0x2dfdb91485f66cbc!2sPACT%20Power%20Solutions%20LLP!5e0!3m2!1sen!2sin!4v1774441842011!5m2!1sen!2sin",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.963143820697!2d80.0243289!3d13.038018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a528b9a0daa8ad9%3A0xeeec9301a3860256!2sAct%20Volvo!5e0!3m2!1sen!2sin!4v1774688082282!5m2!1sen!2sin",
     address:
       "No.5/55, Forest Range Road, Kolathurambakkam Post & Village, Poonamallee Taluk, Thiruvallur Dist., Chennai, Tamil Nadu, 600124.",
   },
   {
     city: "Tirunelveli",
-    mapEmbed: "https://www.google.com/maps?q=8.7139,77.7567&z=14&output=embed",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3942.6483072469478!2d77.74651677501643!3d8.819071691234106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOMKwNDknMDguNyJOIDc3wrA0NCc1Ni43IkU!5e0!3m2!1sen!2sin!4v1774688148887!5m2!1sen!2sin",
     address:
       "No.165/2, D.No.8/4/5-E1, Valli Illam, Madurai Main Road, Sankar Nagar, Tirunelveli - 627001.",
   },
   {
     city: "Coimbatore - Sulur",
-    mapEmbed: "https://www.google.com/maps?q=11.024,77.125&z=14&output=embed",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3915.2895482376657!2d77.14858047504646!3d11.091784489076794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDA1JzMwLjQiTiA3N8KwMDknMDQuMiJF!5e0!3m2!1sen!2sin!4v1774688238424!5m2!1sen!2sin",
     address:
       "S.F NO. 560/241, Periya Kadu, Kanuvampalayam, Near Kathayai Toll Plaza, Sulur (Tk), Coimbatore - 641659.",
   },
   {
     city: "Hosur",
-    mapEmbed: "https://www.google.com/maps?q=12.7409,77.8253&z=14&output=embed",
-    address: "Plot No: 81 & 93, Elumalai Nagar, Muthalli Road, Hosur - 635109.",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3891.5809270748796!2d77.8571027!3d12.74073949!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae7761f2fa1257%3A0xc02367d696d72a8e!2sACT%20Volvo%20Hosur!5e0!3m2!1sen!2sin!4v1774688365363!5m2!1sen!2sin",
+    address: "near, Vathusala gardens phase 3, Alasanatham Rd, Jai Nagar, Punugandoddi, Tamil Nadu 635109",
   },
   {
     city: "Karur",
-    mapEmbed: "https://www.google.com/maps?q=10.9601,78.0766&z=14&output=embed",
-    address: "DVN Building, 1st Floor, Kovai Road, Near Periyar Arch, Karur - 639002.",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3917.171167664389!2d78.0545613!3d10.9504396!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa2f6127c9a111%3A0x321d49498b1ecfae!2sACT%20Karur%20(Volvo%20Construction%20Equipment%20Dealer)!5e0!3m2!1sen!2sin!4v1774688443592!5m2!1sen!2sin",
+    address: "DVN Building, 1, Periyandan Kovil Road,Near Periyar Arch, Karur- 639 002, Karur, Tamil Nadu 639008",
   },
   {
     city: "Salem",
-    mapEmbed: "https://www.google.com/maps?q=11.6643,78.146&z=14&output=embed",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3907.3877843664513!2d78.13698099999999!3d11.666905999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDQwJzAwLjkiTiA3OMKwMDgnMTMuMSJF!5e0!3m2!1sen!2sin!4v1774688512658!5m2!1sen!2sin",
     address: "4/335-1st Floor, Raman Illam, Salem - 636009.",
   },
   {
     city: "Trichy",
-    mapEmbed: "https://www.google.com/maps?q=10.7905,78.7047&z=14&output=embed",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.128611908944!2d78.70629137504334!3d10.87782128927717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDUyJzQwLjIiTiA3OMKwNDInMzEuOSJF!5e0!3m2!1sen!2sin!4v1774688590072!5m2!1sen!2sin",
     address: "No.6/257/1, Nandhi Nagar, Trichy - 621216.",
   },
   {
     city: "Madurai",
-    mapEmbed: "https://www.google.com/maps?q=9.9252,78.1198&z=14&output=embed",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3931.0586981238953!2d78.01762877502912!3d9.845437390252194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwNTAnNDMuNiJOIDc4wrAwMScxMi43IkU!5e0!3m2!1sen!2sin!4v1774688672943!5m2!1sen!2sin",
     address: "Flat No:15, Sowbhagya Nagar, Madurai - 625006.",
   },
   {
     city: "Kozhikode",
-    mapEmbed: "https://www.google.com/maps?q=11.2588,75.7804&z=14&output=embed",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4334.622358159676!2d75.86423384587573!3d11.235188762350274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65ba5b2419939%3A0xdeaa19767198030d!2sPACT%20Machines%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1774688769503!5m2!1sen!2sin",
     address: "15/224 C7, Vallikkunnu, Kozhikode - 673019.",
+  },
+   {
+    city: "Kazhakkoottam",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.1276363223787!2d76.86711849999999!3d8.5837249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bf7e588e7155%3A0xddca9d6f5a98fb43!2sPACT%20Machines%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1774688886732!5m2!1sen!2sin",
+    address: "MN TOWERS, VETTU ROAD, near SAINIK SCHOOL, Kazhakkoottam, Kaniyapuram, Kerala 695585",
   },
   {
     city: "Trivandrum",
-    mapEmbed: "https://www.google.com/maps?q=8.5241,76.9366&z=14&output=embed",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3942.6483072469478!2d77.74651677501643!3d8.819071691234106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOMKwNDknMDguNyJOIDc3wrA0NCc1Ni43IkU!5e0!3m2!1sen!2sin!4v1774688947913!5m2!1sen!2sin",
     address: "MN Towers, Karamana, Trivandrum - 695583.",
   },
   {
     city: "Aluva",
-    mapEmbed: "https://www.google.com/maps?q=10.1076,76.351&z=14&output=embed",
-    address: "Rayyan Tower, Mukkampeedika, Aluva - 683511.",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.6763204703866!2d76.3127179!3d10.1255584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080fa199f82f8d%3A0xd99aaa6d56a85a6d!2sPACT%20Machines%20Pvt%20Ltd%20-%20Volvo!5e0!3m2!1sen!2sin!4v1774689065583!5m2!1sen!2sin",
+    address: "48G7+635, DOOR NO VII/ 267 A , MALIKAMPEEDIKA, ALANGADU, PO, Aluva, Kerala 683511",
   },
 ];
 
