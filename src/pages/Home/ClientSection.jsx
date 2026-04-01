@@ -28,7 +28,7 @@ const logos = [
     {
     name: "Husqvarna",
     image: "/logos/husqvarna-web.svg",
-    link: "https://www.husqvarna.com/in/",
+    link: "https://www.husqvarnaconstruction.com/in/",
   },
 
     {
