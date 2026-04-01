@@ -140,7 +140,7 @@ export default function Infrastructure() {
             <img
               src={activeImage}
               alt="Infrastructure"
-              className="w-full h-full object-cover"
+              className="w-full h-full"
               style={{
                 opacity: fadingImage ? 0 : 1,
                 transition: "opacity 0.3s ease",
