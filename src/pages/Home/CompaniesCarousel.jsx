@@ -87,7 +87,7 @@ export default function GroupOfCompaniesSlider() {
       {/* Title */}
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold font-primary text-center">
-          Group of Companies
+          Group Companies
         </h2>
       </div>
 

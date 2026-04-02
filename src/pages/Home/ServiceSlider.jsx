@@ -17,7 +17,7 @@ const rowOne = [
   },
   {
     title: "Equipment-as-a-Service",
-    desc: "Equipment-as-a-Service (EaaS) provides flexible access to VOLVO machines, ensuring optimum efficiency and performance without long-term commitments.",
+    desc: "Equipment as a Service (EaaS) – an innovative solution designed to deliver maximum uptime, cost-efficiency, and seamless performance for your operations.",
     icons: [
       "/assets/icon-9.png",
       "/assets/icon-10.png",
@@ -32,7 +32,7 @@ const rowOne = [
 const rowTwo = [
   {
     title: "Auxillary service solutions",
-    desc: "Comprehensive heavy equipment refurbishment — from hard-facing and bush replacements to structural welding, bucket rebuilds, and track link reconditioning.",
+    desc: "Service Offered : Bucket hard-facing, Breaker hard-facing, Breaker Bush Replacement, Bucket Toe Plate Replacement",
     icons: [
       "/assets/icon-5.png",
       "/assets/icon-6.png",
@@ -44,7 +44,7 @@ const rowTwo = [
   },
   {
     title: "Operator training & certification",
-    desc: "We conduct annual ESC certification programs to gain participants in safe and efficient equipment operation.",
+    desc: "We organize and conduct IESC certification programs every year. The main objective of the IESC program is to train participants to acquire necessary skills to operate and maintain the equipment safely as per the standard set by our OEM.",
     icons: [
       "/assets/icon-3.png",
       "/assets/icon-11.png",

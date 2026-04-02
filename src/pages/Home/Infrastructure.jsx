@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const infraData = [
   {
     title: "Warehouses & Stockyards",
-    desc: "ACT operates secure, strategically managed warehouses and stockyards built to support high-volume storage, streamlined handling, and seamless distribution for leading global brands. Our facilities ensure operational continuity, inventory visibility, and uncompromised safety standards.",
+    desc: "Our warehouse infrastructure is designed to ensure safe storage, efficient handling, and seamless movement of goods across the supply chain. Equipped with well-organized storage systems and modern handling practices, we maintain optimal inventory levels to meet customer demands without delays.",
     image: "/assets/warehouse.jpg",
     link: "/infrastructure",
   },
@@ -17,13 +17,13 @@ const infraData = [
   },
   {
     title: "Training Facilities",
-    desc: "ACT's training environments empower workforce development with hands-on technical learning, certified modules, and real-equipment simulations tailored to industry requirements. We build talent pipelines ready for modern service and operational demands.",
+    desc: "ACT recruits fresh Degree, Diploma, and ITI candidates and offers a six-month training program on construction equipment, designed with a structured and customized approach. The program covers orientation, safety practices with proper PPE usage, equipment working principles, component identification, and circuit understanding.",
     image: "/assets/training.jpg",
     link: "/infrastructure",
   },
   {
     title: "Workshop – Chennai",
-    desc: "Our Chennai workshop delivers advanced repair, refurbishment, and component-level servicing with precision workflows and OEM-aligned standards. It is a hub for quality, reliability, and fast-turnaround technical support.",
+    desc: "ACT Workshop serves as a fundamental element in providing essential services that enhance customer satisfaction and operational efficiency, as per OEM Standards.",
     image: "/assets/workshop.jpg",
     link: "/infrastructure",
   },
