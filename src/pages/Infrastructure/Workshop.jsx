@@ -27,7 +27,7 @@ export default function WorkshopChennai() {
 >
   {/* Title */}
   <h2 className="text-[30px] md:text-[36px] leading-[1.25] tracking-wide text-[#1a1a1a]">
-    Workshop - Chennai
+    Workshop – Chennai
   </h2>
 
   {/* Paragraph */}

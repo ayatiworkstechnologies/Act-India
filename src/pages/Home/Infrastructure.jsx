@@ -11,7 +11,6 @@ const infraData = [
   },
   {
     title: "Machine Stockyard",
-    desc: "Our machine stockyards are engineered for efficient equipment staging, inspection, and movement—enabling OEMs and enterprise partners to maintain deployment speed and asset readiness at scale.",
     image: "/assets/machine.jpg",
     link: "/infrastructure",
   },
@@ -22,14 +21,13 @@ const infraData = [
     link: "/infrastructure",
   },
   {
-    title: "Workshop – Chennai",
+    title: "Workshop",
     desc: "ACT Workshop serves as a fundamental element in providing essential services that enhance customer satisfaction and operational efficiency, as per OEM Standards.",
     image: "/assets/workshop.jpg",
     link: "/infrastructure",
   },
   {
     title: "Support Vehicle",
-    desc: "ACT maintains a fleet of fully equipped support vehicles designed for rapid field response, onsite troubleshooting, and maintenance deployment—ensuring uptime and business continuity for our partners.",
     image: "/assets/support.jpg",
     link: "/infrastructure",
   },
@@ -127,7 +125,7 @@ export default function Infrastructure() {
           viewport={{ once: true }}
         >
           Infrastructure includes warehouses, machine stockyards, training
-          facilities, Chennai workshop, and support vehicles.
+          facilities, workshops and support vehicles.
         </motion.p>
       </motion.div>
 
