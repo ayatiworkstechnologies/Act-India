@@ -1,5 +1,12 @@
-// FooterACT.tsx
-import { Instagram, Facebook, X } from "lucide-react";
+"use client";
+
+import {
+  Instagram,
+  Facebook,
+  X,
+  Linkedin,
+  Youtube,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 function PdfDocIcon() {
@@ -36,20 +43,24 @@ export default function FooterACT() {
     <footer className="relative text-white">
       <div className="bg-[#F7F7F7]">
         <div className="mx-auto w-full max-w-6xl px-4 md:px-10 lg:px-12 py-8 md:py-10">
+
           {/* Logo */}
           <div className="mb-8 -pl-7">
             <img
               src="/assets/logo.svg"
               alt="ACT Logo"
-              className="h-14 w-auto "
+              className="h-14 w-auto"
             />
           </div>
 
           {/* Columns */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+
             {/* Brand partner */}
             <nav>
-              <h3 className="mb-3 font-semibold text-[15px] text-black">Brand partners</h3>
+              <h3 className="mb-3 font-semibold text-[15px] text-black">
+                Brand partners
+              </h3>
               <ul className="space-y-2 text-[14px] text-black">
                 {[
                   { name: "Volvo", path: "/volvo" },
@@ -60,12 +71,7 @@ export default function FooterACT() {
                   { name: "Schwing Stetter", path: "/self-loading-mixer" },
                 ].map(({ name, path }) => (
                   <li key={name}>
-                    <Link
-                      to={path}
-                      className=" transition-colors"
-                    >
-                      {name}
-                    </Link>
+                    <Link to={path}>{name}</Link>
                   </li>
                 ))}
               </ul>
@@ -73,21 +79,18 @@ export default function FooterACT() {
 
             {/* Service */}
             <nav>
-              <h3 className="mb-3 font-semibold text-[15px] text-black">Service</h3>
+              <h3 className="mb-3 font-semibold text-[15px] text-black">
+                Service
+              </h3>
               <ul className="space-y-2 text-[14px] text-black">
                 {[
                   "Precare",
-                   "Equipments-as-a-Service",
+                  "Equipments-as-a-Service",
                   "Auxiliary service solutions",
                   "Operator Training & Certification",
                 ].map((i) => (
                   <li key={i}>
-                    <Link
-                      to="/services"
-                      className=" transition-colors"
-                    >
-                      {i}
-                    </Link>
+                    <Link to="/services">{i}</Link>
                   </li>
                 ))}
               </ul>
@@ -95,7 +98,9 @@ export default function FooterACT() {
 
             {/* Infrastructure */}
             <nav>
-              <h3 className="mb-3 font-semibold text-[15px] text-black">Infrastructure</h3>
+              <h3 className="mb-3 font-semibold text-[15px] text-black">
+                Infrastructure
+              </h3>
               <ul className="space-y-2 text-[14px] text-black">
                 {[
                   "Warehouses & Stockyards",
@@ -105,12 +110,7 @@ export default function FooterACT() {
                   "Support vehicle",
                 ].map((i) => (
                   <li key={i}>
-                    <Link
-                      to="/infrastructure"
-                      className=" transition-colors"
-                    >
-                      {i}
-                    </Link>
+                    <Link to="/infrastructure">{i}</Link>
                   </li>
                 ))}
               </ul>
@@ -118,7 +118,9 @@ export default function FooterACT() {
 
             {/* News */}
             <section>
-              <h3 className="mb-3 font-semibold text-[15px] text-black">News</h3>
+              <h3 className="mb-3 font-semibold text-[15px] text-black">
+                News
+              </h3>
               <ul className="space-y-3">
                 {[
                   {
@@ -138,10 +140,10 @@ export default function FooterACT() {
                     <a
                       href={href}
                       download
-                      className="group flex items-center gap-3 text-[14px] text-black transition-colors"
+                      className="group flex items-center gap-3 text-[14px] text-black"
                     >
                       <PdfDocIcon />
-                      <span className="decoration-transparent group-hover:decoration-white/70 underline-offset-2">
+                      <span className="underline-offset-2">
                         {title}
                       </span>
                     </a>
@@ -152,25 +154,38 @@ export default function FooterACT() {
           </div>
 
           {/* Bottom row */}
-          <div className="mt-8  pt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-xs text-black">
-            <p>Copyright © Ayatiworks Technologies LLP. All rights reserved</p>
+          <div className="mt-8 pt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-xs text-black">
+            <p>
+              Copyright © Ayatiworks Technologies LLP. All rights reserved
+            </p>
+
             <div className="flex items-center gap-5">
-              <Link to="#" aria-label="Instagram" className="">
+
+              <a href="https://www.instagram.com/act_official2022/" target="_blank">
                 <Instagram size={16} />
-              </Link>
-              <Link to="#" aria-label="Facebook" className="">
+              </a>
+
+              <a href="https://www.facebook.com/ACTIndiaOfficial/" target="_blank">
                 <Facebook size={16} />
-              </Link>
-              <Link to="#" aria-label="X" className="">
+              </a>
+
+              <a href="https://twitter.com/act_digital1" target="_blank">
                 <X size={16} />
-              </Link>
+              </a>
+
+              <a href="https://www.linkedin.com/company/actindia" target="_blank">
+                <Linkedin size={16} />
+              </a>
+
+              <a href="https://www.youtube.com/channel/UCBlz66KP_vrkw1N3oVRd-Ew" target="_blank">
+                <Youtube size={16} />
+              </a>
+
             </div>
           </div>
+
         </div>
       </div>
-
-      {/* subtle sheen */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,.06),transparent_30%)]" />
     </footer>
   );
 }
