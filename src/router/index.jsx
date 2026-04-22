@@ -12,6 +12,7 @@ import Husqvarna from '../pages/Husqvarna'
 import SelfLoadingMixer from '../pages/SelfLoadingMixer'
 import Infrastructure from '../pages/Infrastructure'
 import SearchResults from '../pages/SearchResults'
+import SocialMedia from '../pages/SocialMedia'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: 'services', element: <Service /> },
       { path: 'contact', element: <Contact /> },
       { path: "/search", element: <SearchResults /> },
+      {path:"socialmedia", element: <SocialMedia /> }
     ],
   },
 ])
