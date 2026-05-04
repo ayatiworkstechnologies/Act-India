@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const GROUPS = [
   {
-    company: { name: "Pact Machine (P) Ltd.", logo: "/assets/pact.png" },
+    company: { name: "Pact Machine (P) Ltd.", logo: "/assets/pact-new.png" },
     cols: 1,
     partners: [
       { name: "VOLVO", logo: "/assets/volvo-slider.png" },
