@@ -27,6 +27,13 @@ html, body {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'VolvoBroad';
+  src: url('/public/font/VolvoBroad.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   h1, h2, h3, h4, h5, h6, button {
     @apply font-primary;

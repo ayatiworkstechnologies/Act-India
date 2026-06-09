@@ -31,7 +31,7 @@ export default function Breadcrumb () {
           <span className="mx-4 text-gray-400 text-lg">›</span>
 
           {/* Current Page */}
-          <span className="font-semibold text-gray-900 tracking-wide uppercase">
+          <span className="font-semibold text-gray-900 tracking-wide uppercase ">
             Volvo
           </span>
 

@@ -88,7 +88,7 @@ export default function VolvoSection() {
             {/* Heading */}
             <div className="anim-el from-right">
               <h2 className="text-3xl font-bold leading-snug">
-                <span className="font-extrabold">Volvo</span>
+                <span className=" font-tertiary">Volvo</span>
               </h2>
             </div>
 

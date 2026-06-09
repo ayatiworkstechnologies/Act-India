@@ -35,6 +35,7 @@ export default {
       fontFamily: {
         primary: ["Poppins", "sans-serif"], // 🔹 Primary
         secondary: ["Inter", "sans-serif"], // 🔹 Secondary
+        tertiary: ["VolvoBroad", "sans-serif"], // 🔹 Volvo's Custom Font
       },
       backgroundImage: {
         "gradient-primary": "linear-gradient(to right, #0071BB, #0E5DA2)",
