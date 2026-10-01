@@ -1,16 +1,11 @@
-// StockyardShowcase.jsx
+
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 
 const ITEMS = [
-  {
-    city: "Coimbatore",
-    img: "/assets/stock-1.jpg",
-    alt: "Volvo excavator at Coimbatore site",
-    direction: 50,
-  },
+
   {
     city: "Tirunelveli",
     img: "/assets/stock-2.jpg",
@@ -43,7 +38,7 @@ export default function Stockyard() {
       </motion.h2>
 
       {/* Bigger Grid */}
-      <div className="mx-auto mt-10 max-w-7xl px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+      <div className="mx-auto mt-10 max-w-7xl px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5">
         {ITEMS.map((item) => (
           <Card key={item.city} {...item} />
         ))}
