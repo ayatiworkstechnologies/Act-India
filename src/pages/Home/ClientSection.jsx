@@ -15,11 +15,7 @@ const logos = [
     image: "/logos/epiroc-web.svg",
     link: "https://www.epiroc.com/en-in",
   },
-  {
-    name: "SDLG",
-    image : "/logos/sdlg-web.svg",
-    link: "https://www.sdlgindia.com/",
-  },
+
     {
     name: "Ammann",
     image: "/logos/ammann-web.svg",

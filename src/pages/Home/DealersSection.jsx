@@ -15,12 +15,7 @@ const dealers = [
     title: "Hydraulic Attachments",
     link: "/epiroc",
   },
-  {
-    id: 3,
-    logo: "/assets/sdlg-brand.svg",
-    title: "Mfg of Heavy Construction Equipment",
-    link: "/sdlg",
-  },
+
   {
     id: 4,
     logo: "/assets/husqvarna-brand.svg",

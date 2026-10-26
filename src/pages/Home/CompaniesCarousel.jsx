@@ -8,7 +8,6 @@ const GROUPS = [
     cols: 1,
     partners: [
       { name: "VOLVO", logo: "/assets/volvo-slider.png" },
-      { name: "SDLG", logo: "/assets/sdlg.png" },
       { name: "Schwing Stetter", logo: "/assets/sch-logo.png" },
       { name: "AMMANN", logo: "/assets/amman.png" },
     ],

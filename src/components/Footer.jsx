@@ -65,7 +65,7 @@ export default function FooterACT() {
                 {[
                   { name: "Volvo", path: "/volvo" },
                   { name: "Epiroc", path: "/epiroc" },
-                  { name: "SDLG", path: "/sdlg" },
+                  
                   { name: "Ammann", path: "/ammann" },
                   { name: "Husqvarna", path: "/husqvarna" },
                   { name: "Schwing Stetter", path: "/self-loading-mixer" },

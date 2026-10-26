@@ -29,11 +29,7 @@ const groupedSlides = [
   {
     text: "One stop shop for world leading construction, mining and infrastructure equipment",
     images: [
-      {
-        desktop: "/assets/banner/SDLG-web.jpg",
-        mobile: "/assets/banner/SDLG-mob.jpg",
-        link: "/sdlg",
-      },
+     
       {
         desktop: "/assets/banner/Ammann-web.jpg",
         mobile: "/assets/banner/Ammann-mob.jpg",

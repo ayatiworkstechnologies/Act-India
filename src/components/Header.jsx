@@ -21,7 +21,6 @@ export default function Header() {
     Dealers: [
       { name: "VOLVO", path: "/volvo" },
       { name: "EPIROC", path: "/epiroc" },
-      { name: "SDLG", path: "/sdlg" },
       { name: "AMMANN", path: "/ammann" },
       { name: "HUSQVARNA", path: "/husqvarna" },
       { name: "SCHWING STETTER", path: "/self-loading-mixer" },
